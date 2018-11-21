@@ -58,15 +58,17 @@ Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3
     bash Miniconda3-latest-Linux-x86_64.sh
     ```
 in your command line, and follow the instruction.
+
 2. After installation, use `conda -V` to check. It should display something like `conda 4.5.11`.
     If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to the environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
-3. Create a new environment by `conda create -n <any name>` and run `source activate <name>`. 
 
-4. Your terminal would now look like this:
+3. Create a new environment from scatch `conda create -n <any name>` or from file `conda env create -f environement.yaml`
+
+4. Activate the environment by `source activate <name>`.  Your terminal should now look like this:
 ```
 (your_environment_name) user@PC-name $
 ```
-That means you are in the environment `your_environment_name` now. If you want to change to another environment, type `source deactivate`
+which means you are in the environment `your_environment_name` now. If you want to change to another environment, type `source deactivate`
 
 5. Install Flake8 in the environment
 ```
