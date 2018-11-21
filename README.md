@@ -27,21 +27,67 @@ It is the most convinient way as you could use both Linux terminal and Windows a
 5. (Not suggested) Use vitual machines.
 6. (Not suggested) Borrow a laptop with Linux.
 
+For 2 and 3, use `<ctrl>+<alt>+T` to open the terminal after booting your Linux.
+
+### GitHub
+
+1. Please create a GitHub account. It would be better to use your NTU mail so that you would have the privilege to create private repositories.
+
+You could [add an SSH key](https://help.github.com/articles/connecting-to-github-with-ssh/) so that you don't need to verify the password every time when push/pull.
+
+2. [Fork](https://help.github.com/articles/fork-a-repo/) this repository by clicking `fork` on the top-right of this page.
+
+3. Clone your **forked** repository to local.
+```
+git clone git@github.com:<your_github_account_name>/PythonHomework.git
+cd PythonHomework
+```
+
+
 ### Miniconda
 
-_Package, dependency and environment management for any language—Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN_ -- https://conda.io/docs/
+_"Package, dependency and environment management for any language—Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN"_ -- https://conda.io/docs/
 
 Conda is a very powerful package for development. You could easily switch between environemnts (e.g, Python2/3, Pytorch0.2/0.4.1 ...), which is extremely helpful when you are working on several projects as they may have conflicts with one another. Conda also help you sovle the package dependencies.
 
 Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3.7 is highly suggested. You could use Anaconda as well but it requires way more space and time.
 
 1. Download installation file from [Miniconda](https://conda.io/miniconda.html) and install accrodingly, or run 
-```
-wget repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-```
+    ```
+    wget repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh
+    ```
 in your command line, and follow the instruction.
-2. After installation, use `conda -V` to check. If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
+2. After installation, use `conda -V` to check. It should display something like `conda 4.5.11`.
+    If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to the environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
+3. Create a new environment by `conda create -n <any name>` and run `source activate <name>`. 
+
+4. Your terminal would now look like this:
+```
+(your_environment_name) user@PC-name $
+```
+That means you are in the environment `your_environment_name` now. If you want to change to another environment, type `source deactivate`
+
+5. Install Flake8 in the environment
+```
+(your_environment_name) user@PC-name $ conda install flake8
+(your_environment_name) user@PC-name $ flake8 .
+```
+It should prompt some warning messages regarding to Python style and syntax.
+
+
+### Others (optional)
+
+The following tools would **signigicantly** improve your coding efficiency if you learn how to use it. Please at least give [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) a try.
+* Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). OMZ is a wonderful command line configuration. It includes auto-completion, alias, beautiful display and many more utilities.
+* Use Vim > 8.0 and install good [vimrc](git@github.com:amix/vimrc.git)
+* Install [ALE](https://github.com/w0rp/ale) for syntax/style check
+* Install [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for code auto-completion
+* Install [ack](https://github.com/beyondgrep/ack2) to search local code
+* Use tmux and install [oh-my-tmux](https://github.com/gpakosz/.tmux)
+
+
+
 
 ## Task 1: Basic Syntax and Flake8 Checker
 
