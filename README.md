@@ -16,17 +16,18 @@ If you are using MacOS, good for you. Don't you consider using Linux?
 
 If you are using other operation systems (I suppose it's Windows), you will probably have some troubles for this homework.
 
-Windows is good for many things, but for not programming. Note that **any homework problem on Windows would not be answered by the TAs**, so please have Linux installed. Ubuntu 16.04 or 18.04 is preferred.
+Windows is good for many things, but for not programming. Note that **TA will not answer any homework problem if you are using Windows**, so please have Linux installed. Ubuntu 16.04 or 18.04 is preferred.
 
 If you are using Windows, please choose one of the following ways to use Linux:
-1. (Suggested) (For Windows10 users) Use the Windows Subsystem for Linux. Instructions could be found [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-2. (For CSIE students) Use the CSIE workstation by SSH. See [NTU CSIE System Administration Team](https://wslab.csie.ntu.edu.tw/SSH_tutorial.html) for details.
-3. (For all users) Dual boot your OS with Ubuntu. Google key words like "Win10 dual boot Ubuntu". This is a bit tricky and may take a while.
-4. (For all users)Use a [portable Ubuntu USB](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#0) to boot.
-5. (Not suggested)  Use vitual machines.
+1. (For Windows10 users) Use the Windows Subsystem for Linux (WSL). Instructions could be found [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+It is the most convinient way as you could use both Linux terminal and Windows at the same time. However, WSL dose not support CUDA drivers, which means you could not use your GPU in WSL, but GPU is not needed for this homework.
+2. (For CSIE students) Use the CSIE workstation by SSH. See [NTU CSIE System Administration Team](https://wslab.csie.ntu.edu.tw/SSH_tutorial.html) for details. This is the easiest way but you could not install packages that requires root access in the future.
+3. (For all users) Dual boot your OS with Ubuntu. Google key words like "Win10 dual boot Ubuntu". This is a bit tricky and may take a while, but you could enjoy the full utilities of Linux!
+4. (For all users) Use a [portable Ubuntu USB](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#0) to boot. It is ligth-weighted and you could bring your Linux everywhere, but the memory is limited.
+5. (Not suggested) Use vitual machines.
 6. (Not suggested) Borrow a laptop with Linux.
 
-
+#### Anaconda/Miniconda
 ### Task 1: Basic Syntax and Flake8 Checker
 
 ### Task 2: Data Types: String, Integer, Float, List, Dictionary
