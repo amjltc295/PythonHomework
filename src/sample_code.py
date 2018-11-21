@@ -24,9 +24,17 @@ def task_1():
     Following the coding style in Flake8 is strongly suggested.
 
     '''
+    # Hint:
+    # Run `python src/autograder.py -task 1 <your student ID>`
+    # to see if you pass this task.
+    # The correct output would be "Hello world" without any
+    # error. Note that passing this task does NOT mean you pass the
+    # Flake8 chcker. Please check your style with
+    # `flake8 src/student/<your student ID>.py`
+
     # TODO: fix the syntax error for the following code
     if true:
-      print ("Hello word")
+      print ("Hello world")
 
     # End of TODO (do not change the code below)
     return True
