@@ -31,17 +31,18 @@ For 2 and 3, use `<ctrl>+<alt>+T` to open the terminal after booting your Linux.
 
 ### GitHub
 
-1. Please create a GitHub account. It would be better to use your NTU mail so that you would have the privilege to create private repositories.
+1. Please create a GitHub account.
 
-You could [add an SSH key](https://help.github.com/articles/connecting-to-github-with-ssh/) so that you don't need to verify the password every time when push/pull.
+    It would be better to use your NTU mail so that you would have the privilege to create private repositories.
+    You could [add an SSH key](https://help.github.com/articles/connecting-to-github-with-ssh/) so that you don't need to verify the password every time when push/pull.
 
 2. [Fork](https://help.github.com/articles/fork-a-repo/) this repository by clicking `fork` on the top-right of this page.
 
 3. Clone your **forked** repository to local.
-```
-git clone git@github.com:<your_github_account_name>/PythonHomework.git
-cd PythonHomework
-```
+    ```
+    git clone git@github.com:<your_github_account_name>/PythonHomework.git
+    cd PythonHomework
+    ```
 
 
 ### Miniconda
@@ -57,31 +58,33 @@ Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3
     wget repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
     bash Miniconda3-latest-Linux-x86_64.sh
     ```
-in your command line, and follow the instruction.
+    in your command line, and follow the instruction.
 
-2. After installation, use `conda -V` to check. It should display something like `conda 4.5.11`.
-    If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to the environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
+2. After installation, use `conda -V` to check.
+
+    It should display something like `conda 4.5.11`. If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to the environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
 
 3. Create a new environment from scatch `conda create -n <any name>` or from file `conda env create -f environement.yaml`
 
-4. Activate the environment by `source activate <name>`.  Your terminal should now look like this:
-```
-(your_environment_name) user@PC-name $
-```
-which means you are in the environment `your_environment_name` now. If you want to change to another environment, type `source deactivate`
+4. Activate the environment by `source activate <name>`.
+    Your terminal should now look like this:
+    ```
+    (your_environment_name) user@PC-name $
+    ```
+    which means you are in the environment `your_environment_name` now. If you want to change to another environment, type `source deactivate`
 
 5. Install Flake8 in the environment
-```
-(your_environment_name) user@PC-name $ conda install flake8
-(your_environment_name) user@PC-name $ flake8 .
-```
-It should prompt some warning messages regarding to Python style and syntax:
-```
-./src/sample_code.py:1:1: E902 IndentationError: unindent does not match any outer indentation level
-./src/sample_code.py:38:17: E225 missing whitespace around operator
-./src/sample_code.py:39:22: E999 IndentationError: unindent does not match any outer indentation level
-```
-You need to fix them later to get the points of Flake8.
+    ```
+    (your_environment_name) user@PC-name $ conda install flake8
+    (your_environment_name) user@PC-name $ flake8 .
+    ```
+    It should prompt some warning messages regarding to Python style and syntax:
+    ```
+    ./src/sample_code.py:1:1: E902 IndentationError: unindent does not match any outer indentation level
+    ./src/sample_code.py:38:17: E225 missing whitespace around operator
+    ./src/sample_code.py:39:22: E999 IndentationError: unindent does not match any outer indentation level
+    ```
+    You need to fix them later to get the points of Flake8.
 
 
 ### Others (optional)
