@@ -6,9 +6,9 @@ Python homework for Introduction to Computer (計算機概論), Fall 2018
 In this homework, you will learn some basic techniques for Python, Git and CI/CD.
 
 
-### Task 0: Environment Setup
+## Task 0: Environment Setup
 
-#### OS
+### OS
 
 If you are using Linux, perfect! Please ignore this part.
 
@@ -18,7 +18,7 @@ If you are using other operation systems (I suppose it's Windows), you will prob
 
 Windows is good for many things, but for not programming. Note that **TA will not answer any homework problem if you are using Windows**, so please have Linux installed. Ubuntu 16.04 or 18.04 is preferred.
 
-If you are using Windows, please choose one of the following ways to use Linux:
+If you are using Windows, please choose **one** of the following ways to use Linux:
 1. (For Windows10 users) Use the Windows Subsystem for Linux (WSL). Instructions could be found [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 It is the most convinient way as you could use both Linux terminal and Windows at the same time. However, WSL dose not support CUDA drivers, which means you could not use your GPU in WSL, but GPU is not needed for this homework.
 2. (For CSIE students) Use the CSIE workstation by SSH. See [NTU CSIE System Administration Team](https://wslab.csie.ntu.edu.tw/SSH_tutorial.html) for details. This is the easiest way but you could not install packages that requires root access in the future.
@@ -27,22 +27,37 @@ It is the most convinient way as you could use both Linux terminal and Windows a
 5. (Not suggested) Use vitual machines.
 6. (Not suggested) Borrow a laptop with Linux.
 
-#### Anaconda/Miniconda
-### Task 1: Basic Syntax and Flake8 Checker
+### Miniconda
 
-### Task 2: Data Types: String, Integer, Float, List, Dictionary
+_Package, dependency and environment management for any language—Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN_ -- https://conda.io/docs/
 
-### Task 3: I/O
+Conda is a very powerful package for development. You could easily switch between environemnts (e.g, Python2/3, Pytorch0.2/0.4.1 ...), which is extremely helpful when you are working on several projects as they may have conflicts with one another. Conda also help you sovle the package dependencies.
 
-### Task 4: Conditions
+Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3.7 is highly suggested. You could use Anaconda as well but it requires way more space and time.
 
-### Task 5: For and While Loop
+1. Download installation file from [Miniconda](https://conda.io/miniconda.html) and install accrodingly, or run 
+```
+wget repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+in your command line, and follow the instruction.
+2. After installation, use `conda -V` to check. If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
 
-### Task 6: Function
+## Task 1: Basic Syntax and Flake8 Checker
 
-### Task 7: Class
+## Task 2: Data Types: String, Integer, Float, List, Dictionary
 
-### Task 8: Modules
+## Task 3: I/O
+
+## Task 4: Conditions
+
+## Task 5: For and While Loop
+
+## Task 6: Function
+
+## Task 7: Class
+
+## Task 8: Modules
 
 
 ## Grading
