@@ -16,7 +16,7 @@ If you are using MacOS, good for you. Don't you consider using Linux?
 
 If you are using other operation systems (I suppose it's Windows), you will probably have some troubles for this homework.
 
-Windows is good for many things, but for not programming. Note that **TA will not answer any homework problem if you are using Windows**, so please have Linux installed. Ubuntu 16.04 or 18.04 is preferred.
+Windows is good for many things, but not for programming. Note that **TA will not answer any homework problem if you are using Windows**, so please have Linux installed. Ubuntu 16.04 or 18.04 is preferred.
 
 If you are using Windows, please choose **one** of the following ways to use Linux:
 1. (For Windows10 users) Use the Windows Subsystem for Linux (WSL). Instructions could be found [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
