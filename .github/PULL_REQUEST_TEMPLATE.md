@@ -1,11 +1,11 @@
-A Pull Requst (PR) should explain why we need this PR and how you implement it, so others could understand it quickly.
+A Pull Request (PR) should explain why we need this PR and how you implement it, so others could understand it quickly.
 Since this is just a homework, you do not need to explain why and how. 
 
 **Do NOT change the status to NeedsReview if you do not want to be graded yet.**
 
 Please fill in the following questions as feedback. It is totally optional and would not be graded.
 
-## What is the most chanllenging part in this homework?
+## What is the most challenging part in this homework?
 
 ## Is this homework helpful for you?
 

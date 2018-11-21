@@ -6,23 +6,115 @@ Python homework for Introduction to Computer (計算機概論), Fall 2018
 In this homework, you will learn some basic techniques for Python, Git and CI/CD.
 
 
-### Task 0: Environment Setup
+## Task 0: Environment Setup
 
-### Task 1: Basic Syntax and Flake8 Checker
+### OS
 
-### Task 2: Data Types: String, Integer, Float, List, Dictionary
+If you are using Linux, perfect! Please ignore this part.
 
-### Task 3: I/O
+If you are using MacOS, good for you. Don't you consider using Linux?
 
-### Task 4: Conditions
+If you are using other operation systems (I suppose it's Windows), you will probably have some troubles for this homework.
 
-### Task 5: For and While Loop
+Windows is good for many things, but for not programming. Note that **TA will not answer any homework problem if you are using Windows**, so please have Linux installed. Ubuntu 16.04 or 18.04 is preferred.
 
-### Task 6: Function
+If you are using Windows, please choose **one** of the following ways to use Linux:
+1. (For Windows10 users) Use the Windows Subsystem for Linux (WSL). Instructions could be found [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+It is the most convinient way as you could use both Linux terminal and Windows at the same time. However, WSL dose not support CUDA drivers, which means you could not use your GPU in WSL, but GPU is not needed for this homework.
+2. (For CSIE students) Use the CSIE workstation by SSH. See [NTU CSIE System Administration Team](https://wslab.csie.ntu.edu.tw/SSH_tutorial.html) for details. This is the easiest way but you could not install packages that requires root access in the future.
+3. (For all users) Dual boot your OS with Ubuntu. Google key words like "Win10 dual boot Ubuntu". This is a bit tricky and may take a while, but you could enjoy the full utilities of Linux!
+4. (For all users) Use a [portable Ubuntu USB](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#0) to boot. It is ligth-weighted and you could bring your Linux everywhere, but the memory is limited.
+5. (Not suggested) Use vitual machines.
+6. (Not suggested) Borrow a laptop with Linux.
 
-### Task 7: Class
+For 2 and 3, use `<ctrl>+<alt>+T` to open the terminal after booting your Linux.
 
-### Task 8: Modules
+### GitHub
+
+1. Please create a GitHub account.
+
+    It would be better to use your NTU mail so that you would have the privilege to create private repositories.
+    You could [add an SSH key](https://help.github.com/articles/connecting-to-github-with-ssh/) so that you don't need to verify the password every time when push/pull.
+
+2. [Fork](https://help.github.com/articles/fork-a-repo/) this repository by clicking `fork` on the top-right of this page.
+
+3. Clone your **forked** repository to local.
+    ```
+    git clone git@github.com:<your_github_account_name>/PythonHomework.git
+    cd PythonHomework
+    ```
+
+
+### Miniconda
+
+_"Package, dependency and environment management for any language—Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN"_ -- https://conda.io/docs/
+
+Conda is a very powerful package for development. You could easily switch between environemnts (e.g, Python2/3, Pytorch0.2/0.4.1 ...), which is extremely helpful when you are working on several projects as they may have conflicts with one another. Conda also help you sovle the package dependencies.
+
+Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3.7 is highly suggested. You could use Anaconda as well but it requires way more space and time.
+
+1. Download installation file from [Miniconda](https://conda.io/miniconda.html) and install accrodingly, or run 
+    ```
+    wget repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh
+    ```
+    in your command line, and follow the instruction.
+
+2. After installation, use `conda -V` to check.
+
+    It should display something like `conda 4.5.11`. If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to the environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
+
+3. Create a new environment from scatch `conda create -n <any name>` or from file `conda env create -f environement.yaml`
+
+4. Activate the environment by `source activate <name>`.
+    Your terminal should now look like this:
+    ```
+    (your_environment_name) user@PC-name $
+    ```
+    which means you are in the environment `your_environment_name` now. If you want to change to another environment, type `source deactivate`
+
+5. Install Flake8 in the environment
+    ```
+    (your_environment_name) user@PC-name $ conda install flake8
+    (your_environment_name) user@PC-name $ flake8 .
+    ```
+    It should prompt some warning messages regarding to Python style and syntax:
+    ```
+    ./src/sample_code.py:1:1: E902 IndentationError: unindent does not match any outer indentation level
+    ./src/sample_code.py:38:17: E225 missing whitespace around operator
+    ./src/sample_code.py:39:22: E999 IndentationError: unindent does not match any outer indentation level
+    ```
+    You need to fix them later to get the points of Flake8.
+
+
+### Others (optional)
+
+The following tools would **signigicantly** improve your coding efficiency if you learn how to use it. Please at least give [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) a try.
+* Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). OMZ is a wonderful command line configuration. It includes auto-completion, alias, beautiful display and many more utilities.
+* Use Vim > 8.0 and install good [vimrc](git@github.com:amix/vimrc.git)
+* Install [ALE](https://github.com/w0rp/ale) for syntax/style check
+* Install [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for code auto-completion
+* Install [ack](https://github.com/beyondgrep/ack2) to search local code
+* Use tmux and install [oh-my-tmux](https://github.com/gpakosz/.tmux)
+
+
+
+
+## Task 1: Basic Syntax and Flake8 Checker
+
+## Task 2: Data Types: String, Integer, Float, List, Dictionary
+
+## Task 3: I/O
+
+## Task 4: Conditions
+
+## Task 5: For and While Loop
+
+## Task 6: Function
+
+## Task 7: Class
+
+## Task 8: Modules
 
 
 ## Grading
