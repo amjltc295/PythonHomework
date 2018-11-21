@@ -73,7 +73,13 @@ That means you are in the environment `your_environment_name` now. If you want t
 (your_environment_name) user@PC-name $ conda install flake8
 (your_environment_name) user@PC-name $ flake8 .
 ```
-It should prompt some warning messages regarding to Python style and syntax.
+It should prompt some warning messages regarding to Python style and syntax:
+```
+./src/sample_code.py:1:1: E902 IndentationError: unindent does not match any outer indentation level
+./src/sample_code.py:38:17: E225 missing whitespace around operator
+./src/sample_code.py:39:22: E999 IndentationError: unindent does not match any outer indentation level
+```
+You need to fix them later to get the points of Flake8.
 
 
 ### Others (optional)
