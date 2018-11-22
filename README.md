@@ -49,7 +49,7 @@ For 2 and 3, use `<ctrl>+<alt>+T` to open the terminal after booting your Linux.
 
 _"Package, dependency and environment management for any language—Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN"_ -- https://conda.io/docs/
 
-Conda is a very powerful package for development. You could easily switch between environemnts (e.g, Python2/3, Pytorch0.2/0.4.1 ...), which is extremely helpful when you are working on several projects as they may have conflicts with one another. Conda also help you sovle the package dependencies.
+Conda is a very powerful package for development. You could easily switch between environments (e.g, Python2/3, Pytorch0.2/0.4.1 ...), which is extremely helpful when you are working on several projects as they may have conflicts with one another. Conda also help you solve the package dependencies.
 
 Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3.7 is highly suggested. You could use Anaconda as well but it requires way more space and time.
 
