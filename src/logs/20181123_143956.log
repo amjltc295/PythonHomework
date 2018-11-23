@@ -1,0 +1,9 @@
+[2018-11-23 14:39:56,177] {autograder.py:40} INFO - Testing Task 2
+[2018-11-23 14:39:56,177] {autograder.py:45} ERROR - unsupported operand type(s) for +: 'int' and 'str'
+Traceback (most recent call last):
+  File "autograder.py", line 43, in autograde
+    eval(f"student_module.task_{task_id}()")
+  File "<string>", line 1, in <module>
+  File "/home/s950449/github/pythonhw/PythonHomework/src/students/b07902125.py", line 114, in task_2
+    sentence = input_list[target_index]+input_dictionary[target_key]
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
