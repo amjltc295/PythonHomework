@@ -353,3 +353,37 @@ def task_7(
 
     print(student.hello())
     return student
+
+
+def task_8(
+    img_url: str = 'https://i.imgur.com/B75zq0x.jpg'
+) -> object:
+    '''
+    Task 8: Module
+
+    Args:
+        img_url: address of an image
+
+    Returns:
+        result_img: an PIL Image
+
+    Hints:
+        * Make sure you have installed the PIL package
+        * Take a look at utils.py first
+        * You could easily find answers with Google
+    '''
+    from urllib import request
+    result_img = None
+
+    # TODO: download the image from img_url with the request module
+    # and add your student ID on it with draw_name() in the utils module
+    # under src/.
+
+    # You are allowed to change the img_url to your own image URL.
+
+    # Display the image. If you are running on a server, change this line to
+    # result.save('test.jpg')
+    result_img.show()
+    # End of TODO
+
+    return result_img
