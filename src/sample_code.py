@@ -98,7 +98,7 @@ def task_2(
             target_key = "5.5"
 
         Returns:
-            sentence = (5, "1900")
+            input_list_length_and_sentence = (5, "1900")
 
     Hints:
         * Try to use print() to print out the inputs.
@@ -237,7 +237,8 @@ def task_5(
         output_filename: output filename
 
     Returns:
-        lines: content in the output file
+        lines: content in the output file without commas
+
     Hints:
         * Use <str>.split(something) to split a string into several substring
         * Use fout.write(something) to write text into the output file
@@ -264,7 +265,7 @@ def task_5(
 def task_6(
     matrix: list = [[-0.5, 1], [1, 0.5], [-1, 0.5], [-1, -0.5]],
     vector: list = [1, 0.5]
-):
+) -> list:
     '''
     Task 6: Functions
 
@@ -309,3 +310,46 @@ def task_6(
         print(f"Cosine similarity between {v1} and {vector}: {cos_sim}")
         cos_sims.append(cos_sim)
     return cos_sims
+
+
+class Student():
+    def __init__(self, student_id, time):
+        self.student_id = student_id
+        self.time = time
+        self.words_to_say = "initial value"
+
+    def set_words_to_say(self, words_to_say):
+        self.words_to_say = words_to_say
+
+    def hello(self):
+        return (
+            f"Hello, {self.student_id}! Time is {self.time}. "
+            f"I want to say {self.words_to_say}"
+        )
+
+
+def task_7(
+    student_id: str = 'test_id',
+    time: str = '2018_11_24_0000'
+) -> Student:
+    '''
+    Task 7: Class
+
+    Args:
+        student_id: someone's student ID
+        time: a certain time
+
+    Returns:
+        student: an Student object
+
+    Hints:
+        * Use Student(parameters1, parameters2 ...) to create an object
+          and assign it to a variable
+        * Use <created object>.<object function> to call object function
+    '''
+    # TODO: create a student object with different words to say
+    student = None
+    # End of TODO
+
+    print(student.hello())
+    return student
