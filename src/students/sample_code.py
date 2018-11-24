@@ -249,8 +249,8 @@ def task_5(
         print(f"=======> Input file content:")
         for line in lines:
             print(f"{line}")
-        # TODO: read the content of the input file, remove all commas and
-        # write to the output file
+        # TODO: read the content of the input file, where words are separate by
+        # commas. Please remove the commas and write words to the output file
         pass
     # End of TODO
 
