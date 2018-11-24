@@ -259,3 +259,53 @@ def task_5(
         for line in lines:
             print(f"{line}")
         return lines
+
+
+def task_6(
+    matrix: list = [[-0.5, 1], [1, 0.5], [-1, 0.5], [-1, -0.5]],
+    vector: list = [1, 0.5]
+):
+    '''
+    Task 6: Functions
+
+    Args:
+        matrix: a list of v1
+        vector: v2
+
+    Returns:
+        cos_sims: a list of cosine similarity between v1s and v2
+
+    Hints:
+        * A good function name should be self-explained
+        * A good function should be less than 30 lines
+        * A good function should include comments to explain how to use it
+        * Cosine similarity of the vector itself will be 0.9999999 instead of 1
+    '''
+    # You could define function B in function A, but function B could only
+    # be used in the scope of function A
+    def dot_product(v1, v2):
+        assert len(v1) == len(v2)
+        return sum(a*b for a, b in zip(v1, v2))
+
+    def norm(vector):
+        # Note that this function would have some minor error due to the
+        # approximation of square root
+        return dot_product(vector, vector) ** 0.5
+
+    def get_cosine_simialrity(v1, v2):
+        '''
+        Calculate the cosine similarity = v1 * v2 / (|v1| *  |v2|)
+        '''
+        # TODO: use the above functions to calculate cosine similarity of
+        # the two vectors v1 and v2
+        cos_sim = 0
+        # End of TODO
+
+        return cos_sim
+
+    cos_sims = []
+    for v1 in matrix:
+        cos_sim = get_cosine_simialrity(v1, vector)
+        print(f"Cosine similarity between {v1} and {vector}: {cos_sim}")
+        cos_sims.append(cos_sim)
+    return cos_sims
