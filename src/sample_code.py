@@ -118,10 +118,48 @@ def task_2(
     return input_list_length_and_sentence
 
 
+def task_3(
+    number: int = 1314151677777
+) -> list:
+    '''
+    Task 3: Conditions
+
+    Args:
+        number: a integer input
+
+    Returns:
+        prime_factors_below_10: a list of the number's largest factors below 10
+            if the number is negative, return [-1]
+            if the number is zero, return [0]
+
+    Hints:
+        * Use % to get the remainder
+        * Using loop will make these conditions eaiser
+    '''
+    prime_factors_below_10 = []
+    # TODO: fill in the conditions
+    if "some condition here":
+        prime_factors_below_10 = [-1]
+    # elif stands for "else if" in Python.
+    elif "some condition here":
+        prime_factors_below_10 = [0]
+    else:
+        if "some condition here":
+            prime_factors_below_10.append(2)
+        if "some condition here":
+            prime_factors_below_10.append(3)
+        if "some condition here":
+            prime_factors_below_10.append(5)
+        if "some condition here":
+            prime_factors_below_10.append(7)
+    # End of TODO
+    return prime_factors_below_10
+
+
 def task_5(
-    input_filename: str = 'task_5_input.txt',
-    output_filename: str = 'task_5_output.txt'
-):
+    input_filename: str = 'test_data/task_5_input.txt',
+    output_filename: str = 'test_data/task_5_output.txt'
+) -> list:
     '''
 
     Args:
