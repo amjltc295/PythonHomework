@@ -128,13 +128,15 @@ def task_3(
         number: a integer input
 
     Returns:
-        prime_factors_below_10: a list of the number's largest factors below 10
+        prime_factors_below_10: a list of the number's largest factors
+            below 10
             if the number is negative, return [-1]
             if the number is zero, return [0]
 
     Hints:
         * Use % to get the remainder
-        * Using loop will make these conditions eaiser
+        * Using a loop (introduced in the next task) will make some
+          conditions simpler
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
@@ -156,11 +158,79 @@ def task_3(
     return prime_factors_below_10
 
 
+def task_4(
+    numbers: list = [2, 4, 5, 6, 9]
+) -> list:
+    '''
+    Task 4: For and While Loop
+
+    Args:
+        numbers: a list of integers
+
+    Returns:
+        list_of_stars: a list of stars (*)
+            For each number n in the list, you need to
+            append n lines of stars to the list, where
+            the first line has one star, the last line
+            has n stars.
+
+    Examples:
+        input:
+            [1, 3, 5]
+        output:
+            ['*',
+             '*',
+             '**',
+             '***',
+             '*',
+             '**',
+             '***',
+             '****',
+             '*****']
+
+    Hints:
+        * You could create a string with repetitive substring by <str> * <int>
+    '''
+    list_of_stars = []
+    # In Python, the for loop could iterate through a list directly
+    for number in numbers:
+        # TODO: change stars to correct length
+        for i in range(1, number+1):
+            stars = "*"
+            list_of_stars.append(stars)
+        # End of TODO
+
+    # This could be done by the while loop
+    list_of_stars_while = []
+    i = 0
+    while i <= len(numbers):
+        # TODO: change stars to correct length
+        j = 1
+        while j <= numbers[i]:
+            stars = "*"
+            j += 1  # This line is equivalant to j = j + 1
+            list_of_stars_while.append(stars)
+        i += 1
+        # End of TODO
+
+    print("=====> Output list_of_stars")
+    for stars in list_of_stars:
+        print(stars)
+    print("=====> Output list_of_stars_while")
+    for stars in list_of_stars_while:
+        print(stars)
+
+    for ans1, ans2 in zip(list_of_stars, list_of_stars_while):
+        assert ans1 == ans2
+    return list_of_stars
+
+
 def task_5(
     input_filename: str = 'test_data/task_5_input.txt',
     output_filename: str = 'test_data/task_5_output.txt'
 ) -> list:
     '''
+    Task 5: I/O with files
 
     Args:
         input_filename: input filename
