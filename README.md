@@ -89,7 +89,7 @@ Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3
 
 ### Others (optional)
 
-The following tools would **signigicantly** improve your coding efficiency if you learn how to use it. Please at least give [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) a try.
+The following tools would **significantly** improve your coding efficiency if you learn how to use it. Please at least give [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) a try.
 * Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). OMZ is a wonderful command line configuration. It includes auto-completion, alias, beautiful display and many more utilities.
 * Use Vim > 8.0 and install good [vimrc](git@github.com:amix/vimrc.git)
 * Install [ALE](https://github.com/w0rp/ale) for syntax/style check
