@@ -116,3 +116,38 @@ def task_2(
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
     return input_list_length_and_sentence
+
+
+def task_5(
+    input_filename: str = 'task_5_input.txt',
+    output_filename: str = 'task_5_output.txt'
+):
+    '''
+
+    Args:
+        input_filename: input filename
+        output_filename: output filename
+
+    Returns:
+        lines: content in the output file
+    Hints:
+        * Use <str>.split(something) to split a string into several substring
+        * Use fout.write(something) to write text into the output file
+
+    '''
+    with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
+        lines = fin.readlines()
+        print(f"=======> Input file content:")
+        for line in lines:
+            print(f"{line}")
+        # TODO: read the content of the input file, remove all commas and
+        # write to the output file
+        pass
+    # End of TODO
+
+    with open(output_filename, 'r') as fin:
+        lines = fin.readlines()
+        print(f"=======> Output file content:")
+        for line in lines:
+            print(f"{line}")
+        return lines

@@ -104,11 +104,11 @@ The following tools would **signigicantly** improve your coding efficiency if yo
 
 ## Task 2: Data Types: String, Integer, Float, List, Dictionary
 
-## Task 3: I/O
+## Task 3: Conditions
 
-## Task 4: Conditions
+## Task 4: For and While Loop
 
-## Task 5: For and While Loop
+## Task 5: I/O
 
 ## Task 6: Function
 
