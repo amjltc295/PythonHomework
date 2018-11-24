@@ -12,7 +12,8 @@ def parse_args():
     '''
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '-student_id', type=str, help="Your student ID, such as r07944019"
+        '-student_id', type=str, help="Your student ID, such as r07944019",
+        required=True
     )
     parser.add_argument(
         '-tasks', type=int, nargs="+",
