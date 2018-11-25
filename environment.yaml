@@ -6,11 +6,13 @@ dependencies:
   - ca-certificates=2018.03.07=0
   - certifi=2018.10.15=py37_0
   - click=7.0=py37_0
+  - coloredlogs=10.0=py37_0
   - flake8=3.6.0=py37_0
   - flask=1.0.2=py37_1
   - flask-cors=3.0.7=py37_0
   - freetype=2.9.1=h8a8886c_1
   - gunicorn=19.9.0=py37_0
+  - humanfriendly=4.17=py37_0
   - intel-openmp=2019.1=144
   - itsdangerous=1.1.0=py37_0
   - jinja2=2.10=py37_0
@@ -24,9 +26,7 @@ dependencies:
   - libtiff=4.0.9=he85c1e1_2
   - markupsafe=1.1.0=py37h7b6447c_0
   - mccabe=0.6.1=py37_1
-  - mkl=2018.0.3=1
   - ncurses=6.1=hf484d3e_0
-  - numpy-base=1.15.4=py37h81de0dd_0
   - olefile=0.46=py37_0
   - openssl=1.0.2p=h14c3975_0
   - pillow=5.3.0=py37h34e0f95_0
@@ -43,7 +43,5 @@ dependencies:
   - wheel=0.32.3=py37_0
   - xz=5.2.4=h14c3975_4
   - zlib=1.2.11=ha838bed_2
-  - pip:
-    - numpy==1.15.4
 prefix: /home/master/07/yaliangchang/miniconda3/envs/PythonHomeworkEnvironment
 
