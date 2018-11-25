@@ -2,6 +2,8 @@ import os
 import argparse
 import importlib
 
+import yaml
+
 from logging_config import logger
 
 
@@ -29,6 +31,12 @@ def parse_args():
     return args
 
 
+def parse_yaml(filename):
+    with open(filename, 'r') as fin:
+        test_data = yaml.load(fin)
+    return test_data
+
+
 def autograde(student_id, tasks):
     ''' Grade tasks specified in args.'''
     # Get path of this file
@@ -41,14 +49,48 @@ def autograde(student_id, tasks):
     # Import student's file as module
     student_module = importlib.import_module(f'students.{student_id}')  # NOQA
 
+    # Load testing data
+    test_data_filename = os.path.join(
+        dir_path, 'test_data', 'public_data.yaml')
+    test_data = parse_yaml(test_data_filename)
+    print(test_data)
+
+    # Load testing answers
+    test_answers_filename = os.path.join(
+        dir_path, 'test_data', 'public_answers.yaml')
+    test_answers = parse_yaml(test_answers_filename)
+    print(test_answers)
+
     # Run each task
+    points = {}
     for task_id in tasks:
         logger.info(f"Testing Task {task_id}")
         # Use try-except to catch erros in order to run througth all tasks
         try:
-            eval(f"student_module.task_{task_id}()")
+            result = eval(
+                f"student_module.task_{task_id}(**{test_data[task_id]})")
+            if test_answers[task_id]['check'] == 0:
+                points[task_id] = test_answers[task_id]['points']
+            elif test_answers[task_id]['check'] == 1:
+                if result == test_answers[task_id]['answer']:
+                    points[task_id] = test_answers[task_id]['points']
+                else:
+                    print(result)
+                    print(test_answers[task_id]['answer'])
+                    points[task_id] = 0
+            elif test_answers[task_id]['check'] == 2:
+                if set(result) == set(test_answers[task_id]['answer']):
+                    points[task_id] = test_answers[task_id]['points']
+                else:
+                    print(result)
+                    print(test_answers[task_id]['answer'])
+                    points[task_id] = 0
+            else:
+                points[task_id] = None
+
         except Exception as err:
             logger.error(err, exc_info=True)
+    logger.info(f"Points {points}")
 
 
 if __name__ == '__main__':
