@@ -15,14 +15,20 @@ class App extends Component {
           </h1>
           <a
             className="App-link"
-            href="https://reactjs.org"
+            href="https://github.com/amjltc295/PythonHomework"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Homework Instructions
           </a>
-          <ResultTable />
+          <p/>
+          <div>
+            <ResultTable />
+          </div>
         </header>
+        <footer className='App-footer'>
+          Copyright © 2018 Ya-Liang Chang (Allen)
+        </footer>
       </div>
     );
   }
