@@ -381,9 +381,14 @@ def task_8(
 
     # You are allowed to change the img_url to your own image URL.
 
-    # Display the image. If you are running on a server, change this line to
+    # Display the image:
+    # result_img.show()
+    # Note: please comment this line when hand in.
+
+    # If you are running on a server, use
     # result.save('test.jpg')
-    result_img.show()
+    # and copy the file to local or use Jupyter Notebook to render.
+
     # End of TODO
 
     return result_img
