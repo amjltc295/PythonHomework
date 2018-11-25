@@ -142,7 +142,7 @@ However, each following make-up PR would result in *10 points off*.
 
 ### Pass the tests for each task (60%)
 
-You could use `pytest -<student ID>` to see if you pass all the tasks for the public data.
+You could use `python autograder.py -student_id <student ID>` to see if you pass all the tasks for the public data.
 
 You will know the score for the private data once the PR is merged.
 
@@ -154,7 +154,9 @@ Please use `flake8 src/<student ID>.py` to see if your file has passed the Flake
 
 Please write readable code and commit message.
 
-Some examples could be found [here]().
+Some examples: 
+* [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
+* [zedr/clean-code-python](https://github.com/zedr/clean-code-python)
 
 ### Bonus (up to 50%)
 
