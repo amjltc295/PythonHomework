@@ -43,7 +43,7 @@ class ResultTable extends Component {
     this.fetchResults();
   }
   fetchResults() {
-    let get_results_url = 'http://localhost:15000/get_results';
+    let get_results_url = process.env.REACT_APP_ENDPOINT + '/get_results';
     fetch(get_results_url).then((response) => {
       if (response.ok) {
         return response.json();
@@ -76,7 +76,7 @@ class ResultTable extends Component {
     return (
       <div>
         <Paper className={classes.root}>
-          <Table className>
+          <Table className={classes.table}>
             <TableHead>
               <TableRow>
                 <TableCell>Student ID</TableCell>
