@@ -99,22 +99,24 @@ The following tools would **significantly** improve your coding efficiency if yo
 
 
 
+## Task 1 - 8
+Please copy `src/students/sample_code.py` to `src/students/<your student ID>.py` first and edit that file.
 
-## Task 1: Basic Syntax and Flake8 Checker
+### Task 1: Basic Syntax and Flake8 Checker
 
-## Task 2: Data Types: String, Integer, Float, List, Dictionary
+### Task 2: Data Types: String, Integer, Float, List, Dictionary
 
-## Task 3: Conditions
+### Task 3: Conditions
 
-## Task 4: For and While Loop
+### Task 4: For and While Loop
 
-## Task 5: I/O
+### Task 5: I/O
 
-## Task 6: Function
+### Task 6: Function
 
-## Task 7: Class
+### Task 7: Class
 
-## Task 8: Modules
+### Task 8: Modules
 
 
 ## Grading
@@ -123,7 +125,7 @@ The following tools would **significantly** improve your coding efficiency if yo
 
 Please send a Pull Request (PR) to the *master* branch.
 
-Your PR should include only 1 file change.
+Your PR should include only 1 file change (i.e., `<your student ID>.py`).
 
 Please name the title as `[status] studentID name` (e.g., `[test] r07944019 張雅量`)
 
@@ -142,7 +144,7 @@ However, each following make-up PR would result in *10 points off*.
 
 ### Pass the tests for each task (60%)
 
-You could use `pytest -<student ID>` to see if you pass all the tasks for the public data.
+You could use `python autograder.py -student_id <student ID>` to see if you pass all the tasks for the public data.
 
 You will know the score for the private data once the PR is merged.
 
@@ -154,7 +156,9 @@ Please use `flake8 src/<student ID>.py` to see if your file has passed the Flake
 
 Please write readable code and commit message.
 
-Some examples could be found [here]().
+Some examples: 
+* [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
+* [zedr/clean-code-python](https://github.com/zedr/clean-code-python)
 
 ### Bonus (up to 50%)
 
