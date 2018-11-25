@@ -10,7 +10,7 @@ SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
-def task_1():
+def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -231,9 +231,9 @@ def task_4(
 
 
 def task_5(
-    input_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_input.txt'),
-    output_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_output.txt')
-) -> list:
+    input_filename: str = 'task_5_input.txt',
+    output_filename: str = 'task_5_output.txt'
+) -> str:
     '''
     Task 5: I/O with files
 
@@ -249,6 +249,12 @@ def task_5(
         * Use fout.write(something) to write text into the output file
 
     '''
+    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
+    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
+    # Remove previous output file
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
+
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
         print(f"=======> Input file content:")
@@ -262,9 +268,8 @@ def task_5(
     with open(output_filename, 'r') as fin:
         lines = fin.readlines()
         print(f"=======> Output file content:")
-        for line in lines:
-            print(f"{line}")
-        return lines
+        print(lines)
+        return "".join(lines)
 
 
 def task_6(
