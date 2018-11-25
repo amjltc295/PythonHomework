@@ -215,4 +215,6 @@ Some examples:
 * Send a PR and solve a bug in this repository (30%)
 
 
+## Author
 
+Ya-Liang Chang (Allen) [amjltc295](https://github.com/amjltc295) - **Homework design, backend, frontend, CI/CD**
