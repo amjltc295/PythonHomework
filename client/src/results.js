@@ -88,11 +88,20 @@ class ResultTable extends Component {
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell numeric>Calories</TableCell>
-                <TableCell numeric>Fat (g)</TableCell>
-                <TableCell numeric>Carbs (g)</TableCell>
-                <TableCell numeric>Protein (g)</TableCell>
+                <TableCell>Student ID</TableCell>
+                <TableCell numeric>PR</TableCell>
+                <TableCell numeric>Syntax</TableCell>
+                <TableCell numeric>Task 1</TableCell>
+                <TableCell numeric>Task 2</TableCell>
+                <TableCell numeric>Task 3</TableCell>
+                <TableCell numeric>Task 4</TableCell>
+                <TableCell numeric>Task 5</TableCell>
+                <TableCell numeric>Task 6</TableCell>
+                <TableCell numeric>Task 7</TableCell>
+                <TableCell numeric>Task 8</TableCell>
+                <TableCell numeric>Flake8 Check</TableCell>
+                <TableCell numeric>Coding Style</TableCell>
+                <TableCell numeric>Total Score</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -102,7 +111,17 @@ class ResultTable extends Component {
                     <TableCell component="th" scope="row">
                       {row.name}
                     </TableCell>
+                    <TableCell numeric>{row.fat}</TableCell>
+                    <TableCell numeric>{row.carbs}</TableCell>
+                    <TableCell numeric>{row.protein}</TableCell>
                     <TableCell numeric>{row.calories}</TableCell>
+                    <TableCell numeric>{row.fat}</TableCell>
+                    <TableCell numeric>{row.carbs}</TableCell>
+                    <TableCell numeric>{row.protein}</TableCell>
+                    <TableCell numeric>{row.fat}</TableCell>
+                    <TableCell numeric>{row.carbs}</TableCell>
+                    <TableCell numeric>{row.protein}</TableCell>
+                    <TableCell numeric>{row.protein}</TableCell>
                     <TableCell numeric>{row.fat}</TableCell>
                     <TableCell numeric>{row.carbs}</TableCell>
                     <TableCell numeric>{row.protein}</TableCell>
