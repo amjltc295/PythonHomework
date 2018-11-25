@@ -1,8 +1,9 @@
 import os
 import importlib
 
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS
+from flake8.api import legacy as flake8
 
 from logging_config import logger
 
@@ -19,8 +20,7 @@ def hi():
         {"message": "Hi! This is the server for Introduction to Computer."})
 
 
-@app.route('/get_results', methods=['GET'])
-def get_results():
+def grade():
     '''
     Get test results of all students in src/students/
     '''
@@ -44,6 +44,7 @@ def get_results():
         else:
             student_result['import'] = "Success"
 
+        # Check each task
         for task_id in range(1, TASK_NUM + 1):
             logger.info(f"Testing {student_id} Task {task_id}")
             try:
@@ -53,14 +54,33 @@ def get_results():
                 student_result[f"task_{task_id}"] = "WA"
             else:
                 student_result[f"task_{task_id}"] = "AC"
-        results[student_id] = student_result
 
-    return jsonify(
-        {"results": results,
-         "task_num": TASK_NUM,
-         "student_num": len(student_ids)}
-    )
+        # Check flake8
+        style_guide = flake8.get_style_guide()
+        student_file = os.path.join(dir_path, 'students', student_id + '.py')
+        report = style_guide.check_files(
+            [student_file]
+        )
+        if (report.get_statistics('E') == [] and
+                report.get_statistics('W') == []):
+            logger.info(report.get_statistics('E'))
+            logger.info(report.get_statistics('W'))
+            student_result['flake8'] = "Pass"
+        else:
+            student_result['flake8'] = "Fail"
+        results[student_id] = student_result
+    return {
+        "results": results,
+        "task_num": TASK_NUM,
+        "student_num": len(student_ids)
+    }
+
+
+@app.route('/get_results', methods=['GET'])
+def get_results():
+    return jsonify(results)
 
 
 if __name__ == "__main__":
+    results = grade()
     app.run()
