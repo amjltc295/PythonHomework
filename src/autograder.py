@@ -56,7 +56,10 @@ if __name__ == '__main__':
     if args.all:
         dir_path = os.path.dirname(os.path.realpath(__file__))
         student_ids = os.listdir(os.path.join(dir_path, 'students'))
-        student_ids = [x[:-3] for x in student_ids if x[-3:] == '.py']
+        student_ids = [
+            x[:-3] for x in student_ids if x[-3:] == '.py' and
+            'sample' not in x
+        ]
         for student_id in student_ids:
             autograde(student_id, args.tasks)
     else:
