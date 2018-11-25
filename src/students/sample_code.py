@@ -86,7 +86,7 @@ def task_2(
 
     Returns:
         input_list_length_and_sentence: a tuple that contains two elements.
-            The fisrt one is an integer that indicates the length of input_list
+            The first one is an integer that indicates the length of input_list
             The second one is a string that contains the combination of
             input_list[target_index] and input_dictionary[target_key]
 
