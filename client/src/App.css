@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .App-logo {
@@ -8,7 +9,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,10 +18,24 @@
   color: white;
 }
 
+.App-footer {
+}
+
 .App-link {
   color: #61dafb;
 }
 
+table {
+  width: 100% !important;
+  table-layout: fixed;
+  word-break: break-word;
+
+}
+tbody {
+  display: block; /* Disable tabular layout, and make <tbody> a flex item */
+  margin: auto 0; /* Push to the center (vertically) */
+
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
