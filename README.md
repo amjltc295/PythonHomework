@@ -155,10 +155,15 @@ Please copy `src/students/sample_code.py` to `src/students/<your student ID>.py`
 
 ```
 `client/` is for the frontend. It is written in ReactJS, based on [facebook/create-react-app](https://github.com/facebook/create-react-app)
+
 `src/` is for the backend and homework. The `server.py` uses Flask to build a backend server. The rest are files for homework. Students should only create a file under `src/students` to submit their homework.
+
 `environment.yaml` is for conda environemnt.
+
 `netlify.toml` is for the Netlify settings. It is used to deploy the frontend.
+
 `Procfile` is for the Heroku settings. It is used to deploy the backend.
+
 `requirements.txt` is for pip environemnt, required by Heroku.
 
 
