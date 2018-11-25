@@ -139,6 +139,8 @@ Please copy `src/students/sample_code.py` to `src/students/<your student ID>.py`
 │       ├── python.png
 │       ├── results.js
 │       └── serviceWorker.js
+├── .gitignore
+├── .travis.yml
 ├── environment.yaml
 ├── netlify.toml
 ├── Procfile
@@ -161,6 +163,8 @@ Please copy `src/students/sample_code.py` to `src/students/<your student ID>.py`
 `environment.yaml` is for conda environemnt.
 
 `netlify.toml` is for the Netlify settings. It is used to deploy the frontend.
+
+`.travis.yml` is for [travis CI](https://travis-ci.org/).
 
 `Procfile` is for the Heroku settings. It is used to deploy the backend.
 
