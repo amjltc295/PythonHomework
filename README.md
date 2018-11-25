@@ -143,6 +143,7 @@ Please copy `src/students/sample_code.py` to `src/students/<your student ID>.py`
 ├── netlify.toml
 ├── Procfile
 ├── README.md
+├── LICENSE
 ├── requirements.txt
 └── src
     ├── autograder.py
@@ -214,6 +215,10 @@ Some examples:
 
 * Send a PR and solve a bug in this repository (30%)
 
+
+## Liscence
+
+MIT
 
 ## Author
 
