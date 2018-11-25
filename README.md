@@ -99,22 +99,24 @@ The following tools would **significantly** improve your coding efficiency if yo
 
 
 
+## Task 1 - 8
+Please copy `src/students/sample_code.py` to `src/students/<your student ID>.py` first and edit that file.
 
-## Task 1: Basic Syntax and Flake8 Checker
+### Task 1: Basic Syntax and Flake8 Checker
 
-## Task 2: Data Types: String, Integer, Float, List, Dictionary
+### Task 2: Data Types: String, Integer, Float, List, Dictionary
 
-## Task 3: Conditions
+### Task 3: Conditions
 
-## Task 4: For and While Loop
+### Task 4: For and While Loop
 
-## Task 5: I/O
+### Task 5: I/O
 
-## Task 6: Function
+### Task 6: Function
 
-## Task 7: Class
+### Task 7: Class
 
-## Task 8: Modules
+### Task 8: Modules
 
 
 ## Grading
@@ -123,7 +125,7 @@ The following tools would **significantly** improve your coding efficiency if yo
 
 Please send a Pull Request (PR) to the *master* branch.
 
-Your PR should include only 1 file change.
+Your PR should include only 1 file change (i.e., `<your student ID>.py`).
 
 Please name the title as `[status] studentID name` (e.g., `[test] r07944019 張雅量`)
 
