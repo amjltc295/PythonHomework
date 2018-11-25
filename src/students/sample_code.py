@@ -3,6 +3,11 @@ This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
 '''
+import os
+
+# Define global variables with upper case
+SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
 def task_1():
@@ -226,8 +231,8 @@ def task_4(
 
 
 def task_5(
-    input_filename: str = 'test_data/task_5_input.txt',
-    output_filename: str = 'test_data/task_5_output.txt'
+    input_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_input.txt'),
+    output_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_output.txt')
 ) -> list:
     '''
     Task 5: I/O with files
