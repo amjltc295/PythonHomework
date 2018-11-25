@@ -135,7 +135,7 @@ The CI test will tell you if your code is runnable.
 
 If the PR is merged, you will be graded immediately for the tasks and get this 20%.
 
-The results could be seen [here]()
+The results could be seen [here](https://pythonhomework.netlify.com/)
 
 If you are not satisfied with your score, you could send another PR.
 
