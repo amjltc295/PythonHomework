@@ -115,6 +115,3 @@ dmypy.json
 
 # outputs
 **outputs*
-
-# vim temp files
-*.swp
