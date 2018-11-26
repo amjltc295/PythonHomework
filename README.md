@@ -196,6 +196,10 @@ However, each following make-up PR would result in *10 points off*.
 
 ### Pass the tests for each task (60%)
 
+* Task 1 (4%, no private data)
+
+* Task 2 ~ 8 (each 4% for public data, 4% for private data)
+
 You could use `python autograder.py -student_id <student ID>` to see if you pass all the tasks for the public data.
 
 You will know the score for the private data once the PR is merged.
