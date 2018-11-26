@@ -54,13 +54,11 @@ def autograde(student_id, tasks):
     test_data_filename = os.path.join(
         dir_path, 'test_data', 'public_data.yaml')
     test_data = parse_yaml(test_data_filename)
-    print(test_data)
 
     # Load testing answers
     test_answers_filename = os.path.join(
         dir_path, 'test_data', 'public_answers.yaml')
     test_answers = parse_yaml(test_answers_filename)
-    print(test_answers)
 
     # Run each task
     points = {}
