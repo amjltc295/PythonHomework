@@ -5,7 +5,7 @@ edit it there.
 '''
 
 
-def task_1():
+def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -36,7 +36,7 @@ def task_1():
     # TODO: fix the syntax error for the following code
     if True:
         sentence = "Hello world"
-        print (sentence)
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -110,8 +110,8 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = None
-    sentence = None
+    length = len(input_list)
+    sentence = str(input_list[target_index])+input_dictionary[target_key]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
