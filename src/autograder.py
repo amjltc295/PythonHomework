@@ -121,6 +121,17 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
                         logger.error("is different from ")
                         logger.error(f"{test_answers[task_id]['answer']}")
                         points[task_id] = 0
+                elif test_answers[task_id]['check'] == 4:
+                    # assert len(result) == len(test_answers[task_id]['answer']
+                    if sum(int(a - b > 1e-8) for a, b in zip(result, test_answers[task_id]['answer'])):
+                        logger.error(f"Your result {result}")
+                        logger.error(
+                            f"is different from ")
+                        logger.error(f"{test_answers[task_id]['answer']}")
+                        points[task_id] = 0
+                        
+                    else:
+                        points[task_id] = test_answers[task_id]['points']
                 # Other checks (should not be processed here)
                 else:
                     points[task_id] = None
