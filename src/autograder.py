@@ -45,15 +45,20 @@ def parse_yaml(filename):
 def check_flake8(filename):
     style_guide = flake8.get_style_guide()
     report = style_guide.check_files([filename])
-    if (report.get_statistics('E') == [] and
-            report.get_statistics('W') == [] and
-            report.get_statistics('F') == []):
-        return "Pass"
+    score = 0
+    if report.get_statistics('E') == []:
+        score += 4
+        if report.get_statistics('W') == []:
+            score += 3
+        else:
+            logger.info(report.get_statistics('W'))
+        if report.get_statistics('F') == []:
+            score += 3
+        else:
+            logger.info(report.get_statistics('F'))
     else:
         logger.info(report.get_statistics('E'))
-        logger.info(report.get_statistics('F'))
-        logger.info(report.get_statistics('W'))
-        return "Fail"
+    return score
 
 
 def autograde(student_id, tasks, test_data_filename, test_answers_filename):
