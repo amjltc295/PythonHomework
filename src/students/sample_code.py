@@ -31,8 +31,8 @@ def task_1(dummy=None):
 
     '''
     # Hint:
-    # Run `python src/autograder.py -task 1 -student <your student ID>`
-    # to see if you pass this task.
+    # Run `python autograder.py -task 1 -student_id <your student ID>`
+    # under src/ to see if you pass this task.
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
