@@ -10,7 +10,7 @@ SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
-def task_1():
+def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -191,6 +191,7 @@ def task_4(
              '**',
              '***',
              '****',
+
              '*****']
 
     Hints:
@@ -200,7 +201,7 @@ def task_4(
     # In Python, the for loop could iterate through a list directly
     for number in numbers:
         # TODO: change stars to correct length
-        for i in range(1, number+1):
+        for i in range(1, numbers[number]+1):
             stars = "*"
             list_of_stars.append(stars)
         # End of TODO
