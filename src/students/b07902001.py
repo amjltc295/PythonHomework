@@ -10,7 +10,7 @@ SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
-def task_1():
+def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -31,8 +31,8 @@ def task_1():
 
     '''
     # Hint:
-    # Run `python src/autograder.py -task 1 -student <your student ID>`
-    # to see if you pass this task.
+    # Run `python autograder.py -task 1 -student_id <your student ID>`
+    # under src/ to see if you pass this task.
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
@@ -41,7 +41,7 @@ def task_1():
     # TODO: fix the syntax error for the following code
     if True:
         sentence="Hello world"
-        print (sentence)
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -102,7 +102,7 @@ def task_2(
             input_dictionary = {"1": "8", "f": "abc", "s": 5.5, "5.5" 900}
             target_key = "5.5"
 
-        Returns:
+
             input_list_length_and_sentence = (5, "1900")
 
     Hints:
@@ -115,8 +115,8 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = None
-    sentence = None
+    length = len(input_list)
+    sentence = str(input_list[target_index])+input_dictionary[target_key]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,21 +145,22 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if number<0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif number==0:
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if number%2==0:
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if number%3==0:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if number%5==0:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if number%7==0:
             prime_factors_below_10.append(7)
     # End of TODO
+    print(prime_factors_below_10)
     return prime_factors_below_10
 
 
@@ -208,7 +209,7 @@ def task_4(
     # This could be done by the while loop
     list_of_stars_while = []
     i = 0
-    while i <= len(numbers):
+    while i < len(numbers):
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
@@ -231,9 +232,9 @@ def task_4(
 
 
 def task_5(
-    input_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_input.txt'),
-    output_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_output.txt')
-) -> list:
+    input_filename: str = 'task_5_input.txt',
+    output_filename: str = 'task_5_output.txt'
+) -> str:
     '''
     Task 5: I/O with files
 
@@ -249,6 +250,12 @@ def task_5(
         * Use fout.write(something) to write text into the output file
 
     '''
+    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
+    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
+    # Remove previous output file
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
+
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
         print(f"=======> Input file content:")
@@ -262,9 +269,8 @@ def task_5(
     with open(output_filename, 'r') as fin:
         lines = fin.readlines()
         print(f"=======> Output file content:")
-        for line in lines:
-            print(f"{line}")
-        return lines
+        print(lines)
+        return "".join(lines)
 
 
 def task_6(
