@@ -38,12 +38,12 @@ def task_1(dummy=None):
     # Flake8 chcker. Please check your style with
     # `flake8 src/student/<your student ID>.py`
 
-    # TODO: fix the syntax error for the following code
+  
     if True:
         sentence = "Hello world"
         print(sentence)
 
-    # End of TODO (do not change the code below)
+   
     return True
 
 
