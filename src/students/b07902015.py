@@ -140,7 +140,7 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if  number < 0 :
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
     elif number == 0:
@@ -195,19 +195,21 @@ def task_4(
     # In Python, the for loop could iterate through a list directly
     for number in numbers:
         # TODO: change stars to correct length
+        stars = ""
         for i in range(1, number+1):
-            stars = "*"
+            stars += "*"
             list_of_stars.append(stars)
         # End of TODO
 
     # This could be done by the while loop
     list_of_stars_while = []
     i = 0
-    while i <= len(numbers):
+    while i < len(numbers):
         # TODO: change stars to correct length
         j = 1
+        stars = ""
         while j <= numbers[i]:
-            stars = "*"
+            stars += "*"
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
