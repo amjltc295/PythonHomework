@@ -263,7 +263,12 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        pass
+            words = line.split(',')  # spilt the processing line with comma
+            # stores the result in words
+            line = ""  # empty line to store output
+            for word in words:  # add each word back into line
+                line += word
+            fout.write(line)  # write the result to output file
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -310,7 +315,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
