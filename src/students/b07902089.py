@@ -41,7 +41,7 @@ def task_1():
     # TODO: fix the syntax error for the following code
     if True:
         sentence="Hello world"
-        print (sentence)
+    print (sentence)
 
     # End of TODO (do not change the code below)
     return True
