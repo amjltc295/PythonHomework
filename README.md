@@ -64,7 +64,7 @@ Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3
 
     It should display something like `conda 4.5.11`. If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to the environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
 
-3. Create a new environment from scatch `conda create -n <any name>` or from file `conda env create -f environement.yaml`
+3. Create a new environment from scatch `conda create -n <any name>` or from file (suggested) `conda env create -f environement.yaml`
 
 4. Activate the environment by `source activate <name>`.
     Your terminal should now look like this:
@@ -99,22 +99,76 @@ The following tools would **significantly** improve your coding efficiency if yo
 
 
 
+## Task 1 - 8
+Please copy `src/students/sample_code.py` to `src/students/<your student ID>.py` first and edit that file.
 
-## Task 1: Basic Syntax and Flake8 Checker
+### Task 1: Basic Syntax and Flake8 Checker
 
-## Task 2: Data Types: String, Integer, Float, List, Dictionary
+### Task 2: Data Types: String, Integer, Float, List, Dictionary
 
-## Task 3: Conditions
+### Task 3: Conditions
 
-## Task 4: For and While Loop
+### Task 4: For and While Loop
 
-## Task 5: I/O
+### Task 5: I/O
 
-## Task 6: Function
+### Task 6: Function
 
-## Task 7: Class
+### Task 7: Class
 
-## Task 8: Modules
+### Task 8: Modules
+
+
+## Repository Structure
+```
+├── client
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   └── manifest.json
+│   ├── README.md
+│   └── src
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── index.css
+│       ├── index.js
+│       ├── logo.svg
+│       ├── python.png
+│       ├── results.js
+│       └── serviceWorker.js
+├── .gitignore
+├── .travis.yml
+├── environment.yaml
+├── netlify.toml
+├── Procfile
+├── README.md
+├── LICENSE
+├── requirements.txt
+└── src
+    ├── autograder.py
+    ├── logging_config.py
+    ├── server.py
+    ├── students 
+    │   └── sample_code.py
+    └── utils.py
+
+```
+`client/` is for the frontend. It is written in ReactJS, based on [facebook/create-react-app](https://github.com/facebook/create-react-app)
+
+`src/` is for the backend and homework. The `server.py` uses Flask to build a backend server. The rest are files for homework. Students should only create a file under `src/students` to submit their homework.
+
+`environment.yaml` is for conda environemnt.
+
+`netlify.toml` is for the Netlify settings. It is used to deploy the frontend.
+
+`.travis.yml` is for [travis CI](https://travis-ci.org/).
+
+`Procfile` is for the Heroku settings. It is used to deploy the backend.
+
+`requirements.txt` is for pip environemnt, required by Heroku.
 
 
 ## Grading
@@ -123,7 +177,7 @@ The following tools would **significantly** improve your coding efficiency if yo
 
 Please send a Pull Request (PR) to the *master* branch.
 
-Your PR should include only 1 file change.
+Your PR should include only 1 file change (i.e., `<your student ID>.py`).
 
 Please name the title as `[status] studentID name` (e.g., `[test] r07944019 張雅量`)
 
@@ -133,7 +187,7 @@ The CI test will tell you if your code is runnable.
 
 If the PR is merged, you will be graded immediately for the tasks and get this 20%.
 
-The results could be seen [here]()
+The results could be seen [here](https://pythonhomework.netlify.com/)
 
 If you are not satisfied with your score, you could send another PR.
 
@@ -142,7 +196,11 @@ However, each following make-up PR would result in *10 points off*.
 
 ### Pass the tests for each task (60%)
 
-You could use `pytest -<student ID>` to see if you pass all the tasks for the public data.
+* Task 1 (4%, no private data)
+
+* Task 2 ~ 8 (each 4% for public data, 4% for private data)
+
+You could use `python autograder.py -student_id <student ID>` to see if you pass all the tasks for the public data.
 
 You will know the score for the private data once the PR is merged.
 
@@ -154,7 +212,9 @@ Please use `flake8 src/<student ID>.py` to see if your file has passed the Flake
 
 Please write readable code and commit message.
 
-Some examples could be found [here]().
+Some examples: 
+* [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
+* [zedr/clean-code-python](https://github.com/zedr/clean-code-python)
 
 ### Bonus (up to 50%)
 
@@ -169,4 +229,10 @@ Some examples could be found [here]().
 * Send a PR and solve a bug in this repository (30%)
 
 
+## Liscence
 
+MIT
+
+## Author
+
+Ya-Liang Chang (Allen) [amjltc295](https://github.com/amjltc295) - **Homework design, backend, frontend, CI/CD**
