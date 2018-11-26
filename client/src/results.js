@@ -9,26 +9,14 @@ import Paper from '@material-ui/core/Paper';
 
 
 const classes = theme => ({
-    root: {
-      width: '100%',
-      marginTop: theme.spacing.unit * 3,
-    },
-    table: {
-      width: '80%',
-    },
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+  },
+  table: {
+    width: '80%',
+  },
 });
-
-
-let id = 0;
-function createData(student_id, pr, t1, t2, t3, t4, t5, t6, t7, t8, flake8, codingStyle, total) {
-  id += 1;
-  return { id, student_id, pr, t1, t2, t3, t4, t5, t6, t7, t8, flake8, codingStyle, total};
-
-}
-
-const rows = [
-  createData('test_id', 20, 1, 2, 3, 4, 5, 6, 7 ,8, 10, 10, 100),
-];
 
 class ResultTable extends Component {
   constructor(props) {
@@ -51,76 +39,147 @@ class ResultTable extends Component {
         throw new Error('Something went wrong');
       }
     })
-    .then((responseJson) => {
-      console.log(responseJson.results);
-      let results = JSON.stringify(responseJson);
-      this.setState(
-        {
-          loading: false,
-          results: results
-        }
-      );
-      console.log(responseJson);
-      return responseJson;
-    })
-    .catch((error) => {
+      .then((responseJson) => {
+        console.log(responseJson.results);
+        let results = responseJson;
+        this.setState(
+          {
+            loading: false,
+            results: results
+          }
+        );
+        console.log(responseJson);
+        return responseJson;
+      })
+      .catch((error) => {
         console.log(error)
-
-    });
+      });
   }
   render() {
     let {loading, results} = this.state;
     if (loading) {
       return null;
     }
+    results = results.results;
+    let rows = []
+    for (let id in results) {
+      if (results[id].hasOwnProperty('public_scores')) {
+        let totalScore = 0;
+        for (let no in results[id].public_scores) {
+          totalScore += results[id].public_scores[no];
+          if (results[id].hasOwnProperty('private_scores')) {
+            totalScore += results[id].private_scores[no];
+          }
+        }
+        totalScore += results[id].flake8
+        totalScore += 20 // pr score baseline
+        let style_score = parseInt((process.env['REACT_APP_' + id + '_style'] ? process.env['REACT_APP_' + id + '_style'] : 0), 10)
+        let bonus_score = parseInt((process.env['REACT_APP_' + id + '_bonus'] ? process.env['REACT_APP_' + id + '_bonus'] : 0), 10)
+        totalScore += style_score
+        totalScore += bonus_score
+        rows.push({
+          'student_id': id,
+          'flake8': results[id].flake8,
+          'public_scores': results[id].public_scores,
+          'private_scores': results[id].private_scores,
+          'total_scores': totalScore,
+          'pr_scores': 20, // pr score baseline
+          'style_score': style_score,
+          'bonus_score': bonus_score,
+        });
+      }
+    }
+    let customHeadStyle = {
+      'padding': '0.5em',
+      'textAlign': 'center'
+    }
+
+    rows = rows.map((row, idx) => {
+      return (
+        <TableRow key={idx}>
+          <TableCell component='th' scope='row' style={customHeadStyle}>
+            {row.student_id}
+          </TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.flake8}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['1']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['2']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['3']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['4']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['5']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['6']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['7']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['8']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['2'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['3'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['4'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['5'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['6'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['7'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['8'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.style_score}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.pr_scores}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.bonus_score}</TableCell>
+          <TableCell numeric style={{...customHeadStyle, color: row.total_scores >= 60 ? 'green':'red'}}>{row.total_scores}</TableCell>
+        </TableRow>
+      )
+    })
     return (
       <div>
         <Paper className={classes.root}>
-          <Table className={classes.table}>
+          <Table className={classes.table} >
+            <colgroup>
+              <col style={{width:'10%', background:'#DCDCDC'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'10%'}}/>
+            </colgroup>
             <TableHead>
               <TableRow>
-                <TableCell>Student ID</TableCell>
-                <TableCell numeric>PR</TableCell>
-                <TableCell numeric>Task 1</TableCell>
-                <TableCell numeric>Task 2</TableCell>
-                <TableCell numeric>Task 3</TableCell>
-                <TableCell numeric>Task 4</TableCell>
-                <TableCell numeric>Task 5</TableCell>
-                <TableCell numeric>Task 6</TableCell>
-                <TableCell numeric>Task 7</TableCell>
-                <TableCell numeric>Task 8</TableCell>
-                <TableCell numeric>Flake8 Check</TableCell>
-                <TableCell numeric>Coding Style</TableCell>
-                <TableCell numeric>Total Score</TableCell>
+                <TableCell style={customHeadStyle}>ID</TableCell>
+                <TableCell style={customHeadStyle}>Flake8</TableCell>
+                <TableCell style={customHeadStyle}>Pub1</TableCell>
+                <TableCell style={customHeadStyle}>Pub2</TableCell>
+                <TableCell style={customHeadStyle}>Pub3</TableCell>
+                <TableCell style={customHeadStyle}>Pub4</TableCell>
+                <TableCell style={customHeadStyle}>Pub5</TableCell>
+                <TableCell style={customHeadStyle}>Pub6</TableCell>
+                <TableCell style={customHeadStyle}>Pub7</TableCell>
+                <TableCell style={customHeadStyle}>Pub8</TableCell>
+                <TableCell style={customHeadStyle}>Pri2</TableCell>
+                <TableCell style={customHeadStyle}>Pri3</TableCell>
+                <TableCell style={customHeadStyle}>Pri4</TableCell>
+                <TableCell style={customHeadStyle}>Pri5</TableCell>
+                <TableCell style={customHeadStyle}>Pri6</TableCell>
+                <TableCell style={customHeadStyle}>Pri7</TableCell>
+                <TableCell style={customHeadStyle}>Pri8</TableCell>
+                <TableCell style={customHeadStyle}>Style</TableCell>
+                <TableCell style={customHeadStyle}>PR</TableCell>
+                <TableCell style={customHeadStyle}>Bonus</TableCell>
+                <TableCell style={customHeadStyle}>Score</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map(row => {
-                return (
-                  <TableRow key={row.id}>
-                    <TableCell component="th" scope="row">
-                      {row.student_id}
-                    </TableCell>
-                    <TableCell numeric>{row.pr}</TableCell>
-                    <TableCell numeric>{row.t1}</TableCell>
-                    <TableCell numeric>{row.t2}</TableCell>
-                    <TableCell numeric>{row.t3}</TableCell>
-                    <TableCell numeric>{row.t4}</TableCell>
-                    <TableCell numeric>{row.t5}</TableCell>
-                    <TableCell numeric>{row.t6}</TableCell>
-                    <TableCell numeric>{row.t7}</TableCell>
-                    <TableCell numeric>{row.t8}</TableCell>
-                    <TableCell numeric>{row.flake8}</TableCell>
-                    <TableCell numeric>{row.codingStyle}</TableCell>
-                    <TableCell numeric>{row.total}</TableCell>
-                  </TableRow>
-                );
-              })}
+              {rows}
             </TableBody>
           </Table>
         </Paper>
-
-        <h5> Results: {results} </h5>
       </div>
     )
   }

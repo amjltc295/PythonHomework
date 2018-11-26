@@ -115,3 +115,7 @@ dmypy.json
 
 # outputs
 **outputs*
+task_5_output.txt
+
+# vim temp files
+*.swp

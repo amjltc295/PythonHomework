@@ -31,17 +31,17 @@ def task_1(dummy=None):
 
     '''
     # Hint:
-    # Run `python autograder.py -task 1 -student_id <your student ID>`
-    # under src/ to see if you pass this task.
+    # Run `python src/autograder.py -task 1 -student <your student ID>`
+    # to see if you pass this task.
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
     # `flake8 src/student/<your student ID>.py`
 
     # TODO: fix the syntax error for the following code
-    if true:
-        sentence="Hello world"
-      print (sentence)
+    if True:
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -115,8 +115,8 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = None
-    sentence = None
+    length = len(input_list)
+    sentence = (str(input_list[target_index]) + input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,22 +145,21 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
-    print(prime_factors_below_10)
     return prime_factors_below_10
 
 
@@ -201,8 +200,8 @@ def task_4(
     # In Python, the for loop could iterate through a list directly
     for number in numbers:
         # TODO: change stars to correct length
-        for i in range(1, number+1):
-            stars = "*"
+        for i in range(1, number + 1):
+            stars = "*" * i
             list_of_stars.append(stars)
         # End of TODO
 
@@ -213,7 +212,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*" * j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -235,6 +234,11 @@ def task_5(
     input_filename: str = 'task_5_input.txt',
     output_filename: str = 'task_5_output.txt'
 ) -> str:
+    input_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_input.txt')
+    output_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_output.txt')
+    # Remove previous output file
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
     '''
     Task 5: I/O with files
 
@@ -250,12 +254,6 @@ def task_5(
         * Use fout.write(something) to write text into the output file
 
     '''
-    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
-    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
-    # Remove previous output file
-    if os.path.exists(output_filename):
-        os.remove(output_filename)
-
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
         print(f"=======> Input file content:")
@@ -263,7 +261,8 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        pass
+            for splitstr in line.split(','):
+                fout.write(splitstr)
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -310,7 +309,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -359,7 +358,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say("Explosion")
     # End of TODO
 
     print(student.hello())
@@ -399,6 +399,13 @@ def task_8(
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
+    import utils
+    request.urlretrieve(img_url,'test.jpg')
+    from PIL import Image
+    result_img = Image.open('test.jpg')
+    utils.draw_text(result_img,"b07902049")
+   
+    # reference : https://blog.csdn.net/qq_28304687/article/details/76551196
 
     # End of TODO
 

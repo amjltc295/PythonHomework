@@ -3,14 +3,9 @@ This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
 '''
-import os
-
-# Define global variables with upper case
-SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
-def task_1(dummy=None):
+def task_1():
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -31,17 +26,17 @@ def task_1(dummy=None):
 
     '''
     # Hint:
-    # Run `python autograder.py -task 1 -student_id <your student ID>`
-    # under src/ to see if you pass this task.
+    # Run `python src/autograder.py -task 1 -student <your student ID>`
+    # to see if you pass this task.
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
     # `flake8 src/student/<your student ID>.py`
 
     # TODO: fix the syntax error for the following code
-    if true:
-        sentence="Hello world"
-      print (sentence)
+    if True:
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -90,8 +85,8 @@ def task_2(
             value with this key (i.e., input_dictionary[target_key])
 
     Returns:
-        input_list_length_and_sentence: a tuple that contains two elements.
-            The first one is an integer that indicates the length of input_list
+            input_list_length_and_sentence: a tuple that contains two elements.
+            The first  one is an integer that indicate the length of input_list
             The second one is a string that contains the combination of
             input_list[target_index] and input_dictionary[target_key]
 
@@ -115,8 +110,8 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = None
-    sentence = None
+    length = len(input_list)
+    sentence = str(input_list[target_index])+input_dictionary[target_key]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,22 +140,21 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
-    print(prime_factors_below_10)
     return prime_factors_below_10
 
 
@@ -202,18 +196,18 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number+1):
-            stars = "*"
+            stars = "*"*i
             list_of_stars.append(stars)
         # End of TODO
 
     # This could be done by the while loop
     list_of_stars_while = []
     i = 0
-    while i < len(numbers):
+    while i <= len(numbers)-1:
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*"*j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -232,9 +226,9 @@ def task_4(
 
 
 def task_5(
-    input_filename: str = 'task_5_input.txt',
-    output_filename: str = 'task_5_output.txt'
-) -> str:
+    input_filename: str = 'test_data/task_5_input.txt',
+    output_filename: str = 'test_data/task_5_output.txt'
+) -> list:
     '''
     Task 5: I/O with files
 
@@ -250,12 +244,6 @@ def task_5(
         * Use fout.write(something) to write text into the output file
 
     '''
-    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
-    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
-    # Remove previous output file
-    if os.path.exists(output_filename):
-        os.remove(output_filename)
-
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
         print(f"=======> Input file content:")
@@ -263,14 +251,18 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
+            words = line.split(',')
+            for word in words:
+                fout.write(word)
         pass
     # End of TODO
 
     with open(output_filename, 'r') as fin:
         lines = fin.readlines()
         print(f"=======> Output file content:")
-        print(lines)
-        return "".join(lines)
+        for line in lines:
+            print(f"{line}")
+        return lines
 
 
 def task_6(
@@ -304,20 +296,20 @@ def task_6(
         # approximation of square root
         return dot_product(vector, vector) ** 0.5
 
-    def get_cosine_simialrity(v1, v2):
+    def get_cosine_similarity(v1, v2):
         '''
         Calculate the cosine similarity = v1 * v2 / (|v1| *  |v2|)
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
 
     cos_sims = []
     for v1 in matrix:
-        cos_sim = get_cosine_simialrity(v1, vector)
+        cos_sim = get_cosine_similarity(v1, vector)
         print(f"Cosine similarity between {v1} and {vector}: {cos_sim}")
         cos_sims.append(cos_sim)
     return cos_sims
@@ -359,7 +351,9 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.words_to_say = "I can't wait for winter vacation"
+
     # End of TODO
 
     print(student.hello())
@@ -385,19 +379,22 @@ def task_8(
     '''
     from urllib import request
     result_img = None
-
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
-
     # You are allowed to change the img_url to your own image URL.
+    from PIL import Image
+    import utils
 
+    resp = request.urlopen(img_url)
+    result_img = Image.open(resp)
+    result_img = utils.draw_text(result_img, "B06902100")
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
-    # result.save('test.jpg')
+    # result_img.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
 
     # End of TODO

@@ -31,17 +31,17 @@ def task_1(dummy=None):
 
     '''
     # Hint:
-    # Run `python autograder.py -task 1 -student_id <your student ID>`
-    # under src/ to see if you pass this task.
+    # Run `python src/autograder.py -task 1 -student <your student ID>`
+    # to see if you pass this task.
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
     # `flake8 src/student/<your student ID>.py`
 
     # TODO: fix the syntax error for the following code
-    if true:
-        sentence="Hello world"
-      print (sentence)
+    if True:
+        sentence = "Hello world"
+    print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -83,8 +83,8 @@ def task_2(
 
     Args:
         input_list: a list with several items
-        target_index: target index for the input_list. You need to get the
-            list element with this index (i.e, 'input_list[target_index]')
+        target_index: target index for the input_list. You need to get the設定
+            list element with this index (i.e, 'input_list[target_index]')設定
         input_dictionary: a dictionary with several key-value pairs.
         target_key: target key for the input_dictionary You need to get the
             value with this key (i.e., input_dictionary[target_key])
@@ -115,10 +115,10 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = None
-    sentence = None
+    length = len(input_list)
+    s = str(input_list[target_index]) + str(input_dictionary[target_key])
     # End of TODO
-    input_list_length_and_sentence = (length, sentence)
+    input_list_length_and_sentence = (length, s)
     print(input_list_length_and_sentence)
     return input_list_length_and_sentence
 
@@ -144,20 +144,20 @@ def task_3(
           conditions simpler
     '''
     prime_factors_below_10 = []
-    # TODO: fill in the conditions
-    if "some condition here":
+    # TODO: fill in the condition
+    if number < 0:
         prime_factors_below_10 = [-1]
-    # elif stands for "else if" in Python.
-    elif "some condition here":
+    # elif stands for "else if"
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if not number % 2:
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if not number % 3:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if not number % 5:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if not number % 7:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -202,7 +202,7 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number+1):
-            stars = "*"
+            stars = "*" * i
             list_of_stars.append(stars)
         # End of TODO
 
@@ -213,7 +213,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*" * j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -263,6 +263,13 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
+            temp = ""
+            for tp in line:
+                if tp == ',':
+                    temp += ''
+                else:
+                    temp += tp
+            fout.write(str(temp))
         pass
     # End of TODO
 
@@ -310,7 +317,8 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -359,7 +367,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say("blablabla")
     # End of TODO
 
     print(student.hello())
@@ -385,10 +394,16 @@ def task_8(
     '''
     from urllib import request
     result_img = None
-
+    import utils
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
+    import io
+    from PIL import Image
+    img_bytes = request.urlopen(img_url).read()
+    result_img = Image.open(io.BytesIO(img_bytes))
+
+    utils.draw_text(result_img, "B05201050")
 
     # You are allowed to change the img_url to your own image URL.
 
