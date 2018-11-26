@@ -1,8 +1,10 @@
 import os
 import argparse
 import importlib
+from time import gmtime, strftime
 
 import yaml
+import PIL
 
 from logging_config import logger
 
@@ -67,26 +69,44 @@ def autograde(student_id, tasks):
         logger.info(f"Testing Task {task_id}")
         # Use try-except to catch erros in order to run througth all tasks
         try:
-            result = eval(
-                f"student_module.task_{task_id}(**{test_data[task_id]})")
-            if test_answers[task_id]['check'] == 0:
+            # This part is a bit dirty. If you have a better way, send a PR to
+            # improve!
+            if task_id == 7:
+                time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+                student = student_module.task_7(student_id, time)
+                assert student.student_id == student_id
+                assert student.time == time
+                assert student.words_to_say != "initial value"
                 points[task_id] = test_answers[task_id]['points']
-            elif test_answers[task_id]['check'] == 1:
-                if result == test_answers[task_id]['answer']:
-                    points[task_id] = test_answers[task_id]['points']
-                else:
-                    print(result)
-                    print(test_answers[task_id]['answer'])
-                    points[task_id] = 0
-            elif test_answers[task_id]['check'] == 2:
-                if set(result) == set(test_answers[task_id]['answer']):
-                    points[task_id] = test_answers[task_id]['points']
-                else:
-                    print(result)
-                    print(test_answers[task_id]['answer'])
-                    points[task_id] = 0
+            elif task_id == 8:
+                image = student_module.task_8()
+                assert type(image) == PIL.JpegImagePlugin.JpegImageFile
+                points[task_id] = test_answers[task_id]['points']
             else:
-                points[task_id] = None
+                result = eval(
+                    f"student_module.task_{task_id}(**{test_data[task_id]})")
+                if test_answers[task_id]['check'] == 0:
+                    points[task_id] = test_answers[task_id]['points']
+                elif test_answers[task_id]['check'] == 1:
+                    if result == test_answers[task_id]['answer']:
+                        points[task_id] = test_answers[task_id]['points']
+                    else:
+                        logger.error(f"Your result {result}")
+                        logger.error(
+                            f"is different from ")
+                        logger.error(f"{test_answers[task_id]['answer']}")
+                        points[task_id] = 0
+                elif test_answers[task_id]['check'] == 2:
+                    if set(result) == set(test_answers[task_id]['answer']):
+                        points[task_id] = test_answers[task_id]['points']
+                    else:
+                        logger.error(f"Your result {result}")
+                        logger.error(
+                            f"is different from ")
+                        logger.error(f"{test_answers[task_id]['answer']}")
+                        points[task_id] = 0
+                else:
+                    points[task_id] = None
 
         except Exception as err:
             logger.error(err, exc_info=True)
