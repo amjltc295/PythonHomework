@@ -34,7 +34,7 @@ def get_data_and_ans_paths():
     private_ans_filename = os.path.join(
         DIR_PATH, 'test_data', 'private_answers.yaml')
 
-    # Dowonload private daata
+    # Dowonload private data
     private_data_url = os.environ.get('PRIVATE_DATA_URL')
     urllib.request.urlretrieve(private_data_url, private_data_filename)
     private_ans_url = os.environ.get('PRIVATE_ANS_URL')
