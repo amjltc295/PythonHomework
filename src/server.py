@@ -1,4 +1,7 @@
 import os
+import sys
+dir_path = os.path.dirname(os.path.realpath(__file__))  # NOQA
+sys.path.append(dir_path)  # NOQA
 import importlib
 
 from flask import Flask, jsonify
@@ -26,7 +29,6 @@ def grade():
     '''
 
     # Get path of this file
-    dir_path = os.path.dirname(os.path.realpath(__file__))
 
     # Save results to a dict
     results = {}
@@ -37,7 +39,7 @@ def grade():
         student_result = {}
         student_module = None
         try:
-            student_module = importlib.import_module(f'students.{student_id}')  # NOQA
+            student_module = importlib.import_module(f'src.students.{student_id}')  # NOQA
         except Exception as err:
             logger.info(err, exc_info=True)
             student_result['import'] = "Failed"
@@ -81,6 +83,6 @@ def get_results():
     return jsonify(results)
 
 
+results = grade()
 if __name__ == "__main__":
-    results = grade()
     app.run()
