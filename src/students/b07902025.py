@@ -145,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -202,7 +202,7 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number+1):
-            stars = "*"
+            stars = "*" * i  # Mutiple mean having N repeat of the String
             list_of_stars.append(stars)
         # End of TODO
 
@@ -213,7 +213,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*" * j  # Have Star Contain j repeat of "*"
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
