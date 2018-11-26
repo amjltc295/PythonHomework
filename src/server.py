@@ -1,5 +1,6 @@
 import os
 import sys
+import urllib.request
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))  # NOQA
 sys.path.append(DIR_PATH)  # NOQA
 
@@ -27,10 +28,18 @@ def get_data_and_ans_paths():
         DIR_PATH, 'test_data', 'public_data.yaml')
     public_ans_filename = os.path.join(
         DIR_PATH, 'test_data', 'public_answers.yaml')
+
     private_data_filename = os.path.join(
         DIR_PATH, 'test_data', 'private_data.yaml')
     private_ans_filename = os.path.join(
         DIR_PATH, 'test_data', 'private_answers.yaml')
+
+    # Dowonload private daata
+    private_data_url = os.environ.get('PRIVATE_DATA_URL')
+    urllib.request.urlretrieve(private_data_url, private_data_filename)
+    private_ans_url = os.environ.get('PRIVATE_ANS_URL')
+    urllib.request.urlretrieve(private_ans_url, private_ans_filename)
+
     return (
         public_data_filename, public_ans_filename,
         private_data_filename, private_ans_filename
