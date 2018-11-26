@@ -99,7 +99,7 @@ def task_2(
         Inputs:
             input_list = [1, 3, 5, 7, 9]
             target_index = 0
-            input_dictionary = {"1": "8", "f": "abc", "s": 5.5, "5.5" 900}
+            input_dictionary = {"1": "8", "f": "abc", "s": 5.5, "5.5": 900}
             target_key = "5.5"
 
         Returns:
