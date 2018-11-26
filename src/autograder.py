@@ -4,7 +4,6 @@ import importlib
 from time import gmtime, strftime
 
 import yaml
-import PIL
 
 from logging_config import logger
 
@@ -80,7 +79,7 @@ def autograde(student_id, tasks):
                 points[task_id] = test_answers[task_id]['points']
             elif task_id == 8:
                 image = student_module.task_8()
-                assert type(image) == PIL.JpegImagePlugin.JpegImageFile
+                assert str(type(image))[8:11] == 'PIL', type(image)
                 points[task_id] = test_answers[task_id]['points']
             else:
                 result = eval(
@@ -109,6 +108,7 @@ def autograde(student_id, tasks):
                     points[task_id] = None
 
         except Exception as err:
+            points[task_id] = 0
             logger.error(err, exc_info=True)
     logger.info(f"Points {points}")
 
