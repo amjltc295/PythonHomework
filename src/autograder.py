@@ -4,8 +4,12 @@ import importlib
 from time import gmtime, strftime
 
 import yaml
+from flake8.api import legacy as flake8
 
 from logging_config import logger
+
+
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
 
 def parse_args():
@@ -38,26 +42,33 @@ def parse_yaml(filename):
     return test_data
 
 
-def autograde(student_id, tasks):
+def check_flake8(filename):
+    style_guide = flake8.get_style_guide()
+    report = style_guide.check_files([filename])
+    if (report.get_statistics('E') == [] and
+            report.get_statistics('W') == []):
+        logger.info(report.get_statistics('E'))
+        logger.info(report.get_statistics('W'))
+        return "Pass"
+    else:
+        return "Fail"
+
+
+def autograde(student_id, tasks, test_data_filename, test_answers_filename):
     ''' Grade tasks specified in args.'''
     # Get path of this file
-    dir_path = os.path.dirname(os.path.realpath(__file__))
 
     # Check if student's file exists
-    student_file = os.path.join(dir_path, 'students', student_id + '.py')
+    student_file = os.path.join(DIR_PATH, 'students', student_id + '.py')
     assert os.path.exists(student_file), f"{student_file} not exists"
 
     # Import student's file as module
     student_module = importlib.import_module(f'students.{student_id}')  # NOQA
 
     # Load testing data
-    test_data_filename = os.path.join(
-        dir_path, 'test_data', 'public_data.yaml')
     test_data = parse_yaml(test_data_filename)
 
     # Load testing answers
-    test_answers_filename = os.path.join(
-        dir_path, 'test_data', 'public_answers.yaml')
     test_answers = parse_yaml(test_answers_filename)
 
     # Run each task
@@ -109,18 +120,29 @@ def autograde(student_id, tasks):
             points[task_id] = 0
             logger.error(err, exc_info=True)
     logger.info(f"TaskID/Points {points}")
+    return points
 
 
 if __name__ == '__main__':
     args = parse_args()
+    test_data_filename = os.path.join(
+        DIR_PATH, 'test_data', 'public_data.yaml')
+    test_answers_filename = os.path.join(
+        DIR_PATH, 'test_data', 'public_answers.yaml')
     if args.all:
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        student_ids = os.listdir(os.path.join(dir_path, 'students'))
+        student_ids = os.listdir(os.path.join(DIR_PATH, 'students'))
         student_ids = [
             x[:-3] for x in student_ids if x[-3:] == '.py' and
             'sample' not in x
         ]
         for student_id in student_ids:
-            autograde(student_id, args.tasks)
+            logger.info(f"Student {student_id}")
+            autograde(
+                student_id, args.tasks,
+                test_data_filename, test_answers_filename
+            )
     else:
-        autograde(args.student_id, args.tasks)
+        autograde(
+            args.student_id, args.tasks,
+            test_data_filename, test_answers_filename
+        )
