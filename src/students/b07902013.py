@@ -144,10 +144,10 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if number < 0:
+    if number < 0:  # condition negative
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif number == 0:
+    elif number == 0:   # condition 0
         prime_factors_below_10 = [0]
     else:
         if number % 2 == 0:
@@ -213,7 +213,7 @@ def task_4(
         j = 1
         while j <= numbers[i]:
             stars = "*"
-            list_of_stars_while.append(stars * j)
+            list_of_stars_while.append(stars * j) # This line should be prior to j += 1.
             j += 1  # This line is equivalant to j = j + 1
         i += 1
         # End of TODO
