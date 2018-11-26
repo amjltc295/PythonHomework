@@ -110,7 +110,7 @@ def autograde(student_id, tasks):
         except Exception as err:
             points[task_id] = 0
             logger.error(err, exc_info=True)
-    logger.info(f"Points {points}")
+    logger.info(f"TaskID/Points {points}")
 
 
 if __name__ == '__main__':
