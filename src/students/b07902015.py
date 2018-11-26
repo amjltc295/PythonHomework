@@ -3,6 +3,11 @@ This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
 '''
+import os
+
+# Define global variables with upper case
+SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
 def task_1(dummy=None):
@@ -246,6 +251,12 @@ def task_5(
         * Use fout.write(something) to write text into the output file
 
     '''
+    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
+    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
+    # Remove previous output file
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
+
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
         print(f"=======> Input file content:")
@@ -253,7 +264,10 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        pass
+            line = line.split(',')
+            for word in line:
+                fout.write(word)
+
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -301,7 +315,8 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1,v2)/(norm(v1)*norm(v2))
+        
         # End of TODO
 
         return cos_sim
