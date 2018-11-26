@@ -10,7 +10,7 @@ SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
-def task_1():
+def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -41,7 +41,7 @@ def task_1():
     # TODO: fix the syntax error for the following code
     if True:
         sentence = "Hello world"
-        print (sentence)
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -145,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if number < 0: 
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif number == 0: 
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if number % 2 == 0: 
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     return prime_factors_below_10
