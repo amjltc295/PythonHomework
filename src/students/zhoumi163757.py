@@ -39,11 +39,11 @@ def task_1():
     # `flake8 src/student/<your student ID>.py`
 
     # TODO: fix the syntax error for the following code
-    if True:
+    if true:
         sentence="Hello world"
-        print (sentence)
+      print (sentence)
 
-    # Ed of TODO (do not change the code below)
+    # End of TODO (do not change the code below)
     return True
 
 
@@ -87,7 +87,7 @@ def task_2(
             list element with this index (i.e, 'input_list[target_index]')
         input_dictionary: a dictionary with several key-value pairs.
         target_key: target key for the input_dictionary You need to get the
-            value wi://github.com/zhoumi163757/PythonHomework.gitth this key (i.e., input_dictionary[target_key])
+            value with this key (i.e., input_dictionary[target_key])
 
     Returns:
         input_list_length_and_sentence: a tuple that contains two elements.
@@ -116,7 +116,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = None
-    sent = None
+    sentence = None
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
