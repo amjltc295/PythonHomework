@@ -46,11 +46,13 @@ def check_flake8(filename):
     style_guide = flake8.get_style_guide()
     report = style_guide.check_files([filename])
     if (report.get_statistics('E') == [] and
-            report.get_statistics('W') == []):
-        logger.info(report.get_statistics('E'))
-        logger.info(report.get_statistics('W'))
+            report.get_statistics('W') == [] and
+            report.get_statistics('F') == []):
         return "Pass"
     else:
+        logger.info(report.get_statistics('E'))
+        logger.info(report.get_statistics('F'))
+        logger.info(report.get_statistics('W'))
         return "Fail"
 
 
