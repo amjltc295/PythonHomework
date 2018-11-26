@@ -160,6 +160,7 @@ def task_3(
         if "some condition here":
             prime_factors_below_10.append(7)
     # End of TODO
+    print(prime_factors_below_10)
     return prime_factors_below_10
 
 
