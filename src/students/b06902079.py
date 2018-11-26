@@ -40,8 +40,8 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-    	 sentence= 'Hello world'
-    	 print (sentence)
+        sentence = 'Hello world'
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -116,7 +116,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence =str(input_list[target_index])+input_dictionary[target_key]
+    sentence = str(input_list[target_index])+input_dictionary[target_key]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif number == 100:
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -202,7 +202,7 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number+1):
-            stars = "*"
+            stars = "*"*i
             list_of_stars.append(stars)
         # End of TODO
 
@@ -213,7 +213,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*"*j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -260,7 +260,9 @@ def task_5(
         lines = fin.readlines()
         print(f"=======> Input file content:")
         for line in lines:
-            print(f"{line}")
+            line = line.split(',')
+            print(''.join(line))
+            fout.write(''.join(line))
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
         pass
@@ -310,7 +312,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = (dot_product(v1, v2)) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -359,7 +361,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say("asadsa")
     # End of TODO
 
     print(student.hello())
@@ -383,9 +386,13 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
+    from PIL import Image, ImageFont, ImageDraw
     from urllib import request
-    result_img = None
-
+    result_img = Image.open(request.urlopen(img_url))
+    draw = ImageDraw.Draw(result_img)
+    font = ImageFont.load_default().font
+    draw.text((0, 0), "B06902079", (0, 0, 0), font=font)
+    result_img.save('output.jpg')
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
