@@ -227,8 +227,14 @@ Some examples:
 * Answer an issue that could not be solved easily (10%)
 
 * Send a PR and solve a bug in this repository (30%)
-
-
+###FAQ
+1.Please make sure that Python3 version is 3.5 or later.
+You could use `python3 -V` to check your Python version.
+2.In order to pass Task 8, please make sure that you have already install the font 'arial' or arial.ttf has already in your system's font folder.
+If you are using Debian/Ubuntu, you can install the font 'arial' by using apt:
+`sudo apt install ttf-mscorefonts-installer`
+`sudo fc-cache`
+To check whether the font has successfully installed, you can use `fc-match Arial`
 ## Liscence
 
 MIT
