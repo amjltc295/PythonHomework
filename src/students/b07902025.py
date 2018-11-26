@@ -145,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -202,7 +202,7 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number+1):
-            stars = "*"
+            stars = "*" * i  # Mutiple mean having N repeat of the String
             list_of_stars.append(stars)
         # End of TODO
 
@@ -213,7 +213,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*" * j  # Have Star Contain j repeat of "*"
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -263,7 +263,12 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        pass
+            words = line.split(',')  # spilt the processing line with comma
+            # stores the result in words
+            line = ""  # empty line to store output
+            for word in words:  # add each word back into line
+                line += word
+            fout.write(line)  # write the result to output file
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -310,7 +315,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -359,7 +364,10 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)  # Create Student Object as asked
+    # As found in autograder,  set words_to_say to "Hi"
+    # "Hi" can be anything
+    student.set_words_to_say("Hi")
     # End of TODO
 
     print(student.hello())
@@ -389,11 +397,18 @@ def task_8(
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
-
+    respond = request.urlopen(img_url)
+    from PIL import Image
+    result_img = Image.open(respond)
+    # download img from img_url
+    # adding my id to the image
+    from utils import draw_text
+    my_id = "B07902025"
+    draw_text(result_img, my_id)
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
-    # result_img.show()
+    result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
