@@ -64,7 +64,7 @@ Miniconda is a light-weighted version of Conda. Installing Miniconda for Python3
 
     It should display something like `conda 4.5.11`. If you found `conda: command not found` or similar message, it probably means you did not add the path to the  conda binary to the environment variable `PATH`. Don't worry; just type `export PATH=~/miniconda3/bin:$PATH`  and try it again. It would be better to add `export PATH=~/anaconda3/bin:$PATH` to your `~/.bashrc`
 
-3. Create a new environment from scatch `conda create -n <any name>` or from file `conda env create -f environement.yaml`
+3. Create a new environment from scatch `conda create -n <any name>` or from file (suggested) `conda env create -f environement.yaml`
 
 4. Activate the environment by `source activate <name>`.
     Your terminal should now look like this:
@@ -119,6 +119,58 @@ Please copy `src/students/sample_code.py` to `src/students/<your student ID>.py`
 ### Task 8: Modules
 
 
+## Repository Structure
+```
+├── client
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   └── manifest.json
+│   ├── README.md
+│   └── src
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── index.css
+│       ├── index.js
+│       ├── logo.svg
+│       ├── python.png
+│       ├── results.js
+│       └── serviceWorker.js
+├── .gitignore
+├── .travis.yml
+├── environment.yaml
+├── netlify.toml
+├── Procfile
+├── README.md
+├── LICENSE
+├── requirements.txt
+└── src
+    ├── autograder.py
+    ├── logging_config.py
+    ├── server.py
+    ├── students 
+    │   └── sample_code.py
+    └── utils.py
+
+```
+`client/` is for the frontend. It is written in ReactJS, based on [facebook/create-react-app](https://github.com/facebook/create-react-app)
+
+`src/` is for the backend and homework. The `server.py` uses Flask to build a backend server. The rest are files for homework. Students should only create a file under `src/students` to submit their homework.
+
+`environment.yaml` is for conda environemnt.
+
+`netlify.toml` is for the Netlify settings. It is used to deploy the frontend.
+
+`.travis.yml` is for [travis CI](https://travis-ci.org/).
+
+`Procfile` is for the Heroku settings. It is used to deploy the backend.
+
+`requirements.txt` is for pip environemnt, required by Heroku.
+
+
 ## Grading
 
 ### Send a Pull Request (PR) (20%)
@@ -143,6 +195,10 @@ However, each following make-up PR would result in *10 points off*.
 
 
 ### Pass the tests for each task (60%)
+
+* Task 1 (4%, no private data)
+
+* Task 2 ~ 8 (each 4% for public data, 4% for private data)
 
 You could use `python autograder.py -student_id <student ID>` to see if you pass all the tasks for the public data.
 
@@ -173,4 +229,10 @@ Some examples:
 * Send a PR and solve a bug in this repository (30%)
 
 
+## Liscence
 
+MIT
+
+## Author
+
+Ya-Liang Chang (Allen) [amjltc295](https://github.com/amjltc295) - **Homework design, backend, frontend, CI/CD**
