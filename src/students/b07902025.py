@@ -31,17 +31,17 @@ def task_1(dummy=None):
 
     '''
     # Hint:
-    # Run `python autograder.py -task 1 -student_id <your student ID>`
-    # under src/ to see if you pass this task.
+    # Run `python src/autograder.py -task 1 -student <your student ID>`
+    # to see if you pass this task.
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
     # `flake8 src/student/<your student ID>.py`
 
     # TODO: fix the syntax error for the following code
-    if True:
+    if true:
         sentence="Hello world"
-        print (sentence)
+      print (sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -112,7 +112,7 @@ def task_2(
         to string.
         * Run `python src/autograder.py -task 2 -student_id <your student ID>`
         to see if you pass this task.
-        * The correct output would be (4, '1 taiwan')
+        * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
     length = None
@@ -387,7 +387,7 @@ def task_8(
     result_img = None
 
     # TODO: download the image from img_url with the request module
-    # and add your student ID on it with draw_text() in the utils module
+    # and add your student ID on it with draw_name() in the utils module
     # under src/.
 
     # You are allowed to change the img_url to your own image URL.
