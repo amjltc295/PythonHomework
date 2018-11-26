@@ -51,7 +51,7 @@
         a b  c d
 
 6:
-    check: 4
+    check: 1
     points: 4
     answer: [0.0, 1.0, -0.6, -1.0]
 

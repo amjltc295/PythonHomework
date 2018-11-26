@@ -1,6 +1,7 @@
 import os
 import argparse
 import importlib
+import math
 from time import gmtime, strftime
 
 import yaml
@@ -86,7 +87,17 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
         try:
             # This part is a bit dirty. If you have a better way, send a PR to
             # improve!
-            if task_id == 7:
+            if task_id == 6:
+                result = eval(f"student_module.task_{task_id}(**{test_data[task_id]})")
+                assert len(result) == len(test_answers[task_id]['answer']) , "Length of the output and answer does not match"
+                if sum(int(not math.isclose(a, b, rel_tol = 1e-6)) for a, b in zip(result, test_answers[task_id]['answer'])):
+                    logger.error(f"Your result {result}")
+                    logger.error(f"is different from ")
+                    logger.error(f"{test_answers[task_id]['answer']}")
+                    points[task_id] = 0
+                else:
+                    points[task_id] = test_answers[task_id]['points']
+            elif task_id == 7:
                 time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
                 student = student_module.task_7(student_id, time)
                 assert student.student_id == student_id
