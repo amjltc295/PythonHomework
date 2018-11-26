@@ -93,8 +93,10 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
             else:
                 result = eval(
                     f"student_module.task_{task_id}(**{test_data[task_id]})")
+                # No check
                 if test_answers[task_id]['check'] == 0:
                     points[task_id] = test_answers[task_id]['points']
+                # Check equality
                 elif test_answers[task_id]['check'] == 1:
                     if result == test_answers[task_id]['answer']:
                         points[task_id] = test_answers[task_id]['points']
@@ -104,6 +106,7 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
                             f"is different from ")
                         logger.error(f"{test_answers[task_id]['answer']}")
                         points[task_id] = 0
+                # Check list equality
                 elif test_answers[task_id]['check'] == 2:
                     if set(result) == set(test_answers[task_id]['answer']):
                         points[task_id] = test_answers[task_id]['points']
@@ -113,6 +116,7 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
                             f"is different from ")
                         logger.error(f"{test_answers[task_id]['answer']}")
                         points[task_id] = 0
+                # Other checks (should not be processed here)
                 else:
                     points[task_id] = None
 
