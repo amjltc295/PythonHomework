@@ -208,7 +208,7 @@ def task_4(
     # This could be done by the while loop
     list_of_stars_while = []
     i = 0
-    while i <= len(numbers):
+    while i < len(numbers):
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
