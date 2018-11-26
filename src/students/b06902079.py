@@ -308,7 +308,7 @@ def task_6(
 
     def get_cosine_simialrity(v1, v2):
         '''
-        Calculate the cosine similarity = v1 * v2 / (|v1| *  |v2|)
+        Calculate the cosine similarity = v1 * v2 / ( |v1| *  |v2|)
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
