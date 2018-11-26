@@ -109,8 +109,7 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
                         points[task_id] = test_answers[task_id]['points']
                     else:
                         logger.error(f"Your result {result}")
-                        logger.error(
-                            f"is different from ")
+                        logger.error("is different from ")
                         logger.error(f"{test_answers[task_id]['answer']}")
                         points[task_id] = 0
                 # Check list equality
@@ -119,8 +118,7 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
                         points[task_id] = test_answers[task_id]['points']
                     else:
                         logger.error(f"Your result {result}")
-                        logger.error(
-                            f"is different from ")
+                        logger.error("is different from ")
                         logger.error(f"{test_answers[task_id]['answer']}")
                         points[task_id] = 0
                 # Other checks (should not be processed here)
