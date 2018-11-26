@@ -39,9 +39,10 @@ def task_1(dummy=None):
     # `flake8 src/student/<your student ID>.py`
 
     # TODO: fix the syntax error for the following code
-    if True:
-        sentence = "Hello world"
-        print(sentence)
+    if True:  # the first character of boolean type in Python is uppercase
+        sentence = "Hello world"  # add space around operator for style
+        print(sentence)  # fix indentation error
+        # and delete the space before '(' for style
 
     # End of TODO (do not change the code below)
     return True
@@ -116,7 +117,8 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index]) + str(input_dictionary[target_key])
+    sentence = str(input_list[target_index])
+    + str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -264,9 +266,9 @@ def task_5(
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
         for line in lines:
-            new = line.split(",")
+            new = line.split(",")  # Split line to a list
             for n in new:
-                fout.write(n)
+                fout.write(n)  # write token into fout
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -362,8 +364,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = Student(student_id, time)
-    student.set_words_to_say("You can't see me")
+    student = Student(student_id, time)  # Create Student object
+    student.set_words_to_say("the meaning of world is 42")  # call method
     # End of TODO
 
     print(student.hello())
@@ -388,8 +390,6 @@ def task_8(
         * You could easily find answers with Google
     '''
     from urllib import request
-    result_img = None
-
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
@@ -403,6 +403,19 @@ def task_8(
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
+
+    from PIL import Image
+    from utils import draw_text
+    import sys
+    # use the last token of url as file name
+    file_name = img_url.split("/")[-1]
+    # download image
+    request.urlretrieve(img_url, f"./{file_name}")
+    # convert image to PIL Image object
+    result_img = Image.open(f"./{file_name}")
+    # In order to import module from parent directory, add "../" to sys.path
+    sys.path.append('../')
+    draw_text(result_img, "I am B07902075")
 
     # End of TODO
 
