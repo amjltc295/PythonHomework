@@ -40,8 +40,8 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
-        print (sentence)
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
