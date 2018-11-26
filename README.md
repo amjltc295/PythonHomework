@@ -227,14 +227,21 @@ Some examples:
 * Answer an issue that could not be solved easily (10%)
 
 * Send a PR and solve a bug in this repository (30%)
-###FAQ
-1.Please make sure that Python3 version is 3.5 or later.
+##FAQ
+1a.(Recommended) If you are using miniconda, please make sure that you have create the environment 
+By using `conda env create -f environment.yaml`, you can create an environment to meet the need for this homework.
+To activate your environment:`source activate your_environment_name` 
+1b.If you have problem or can't install miniconda (e.g. Arm-based linux such as Raspbian) ,please make sure that Python3 version is 3.5 or later.
 You could use `python3 -V` to check your Python version.
 2.In order to pass Task 8, please make sure that you have already install the font 'arial' or arial.ttf has already in your system's font folder.
 If you are using Debian/Ubuntu, you can install the font 'arial' by using apt:
 `sudo apt install ttf-mscorefonts-installer`
 `sudo fc-cache`
 To check whether the font has successfully installed, you can use `fc-match Arial`
+3.In task 8, due to utils.py and your_student_id.py in different directory, you should add `sys.path.append('../')` in your file.
+4.If you are using CSIE workstation, to install Python packages, you can use "pip3" to install needed modules.
+`pip3 install <package_name> --user`
+5.
 ## Liscence
 
 MIT
