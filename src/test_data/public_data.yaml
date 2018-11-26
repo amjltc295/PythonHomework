@@ -1,0 +1,36 @@
+1: 
+    dummy:
+        None
+2: 
+    input_list:
+        [1, 4, 53, 27]
+    target_index:
+        0
+    input_dictionary:
+        {"a": " taiwan", "b": 20, "c": "CSIE"}
+    target_key:
+        "a"
+3:
+    number:
+        1314151677777
+4:
+    numbers:
+        [2, 4, 5, 6, 9]
+5:
+    input_filename: 
+        'task_5_input.txt'
+    output_filename: 
+        'task_5_output.txt'
+6:
+    matrix:
+        [[-0.5, 1], [1, 0.5], [-1, 0.5], [-1, -0.5]]
+    vector: 
+        [1, 0.5]
+7:
+    student_id:
+        'test_id'
+    time: 
+        '2018_11_24_0000'
+8:
+    img_url: 
+        'https://i.imgur.com/B75zq0x.jpg'
