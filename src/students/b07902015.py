@@ -364,7 +364,16 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    words_to_say = 'initial valu'
+    class Student:
+        def __init__(self):
+            self.student_id = student_id
+            self.time = time
+            self.words_to_say = words_to_say
+        def hello(self):
+            return self.student_id, self.time, self.words_to_say
+
+    student = Student()
     # End of TODO
 
     print(student.hello())
