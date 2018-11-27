@@ -9,23 +9,14 @@ import Paper from '@material-ui/core/Paper';
 
 
 const classes = theme => ({
-    root: {
-      width: '100%',
-      marginTop: theme.spacing.unit * 3,
-    },
-    table: {
-      width: '80%',
-    },
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+  },
+  table: {
+    width: '80%',
+  },
 });
-
-
-let id = 0;
-function createData(student_id, pr, t1, t2, t3, t4, t5, t6, t7, t8, flake8, codingStyle, total) {
-  id += 1;
-  return { id, student_id, pr, t1, t2, t3, t4, t5, t6, t7, t8, flake8, codingStyle, total};
-
-}
-
 
 class ResultTable extends Component {
   constructor(props) {
@@ -48,22 +39,21 @@ class ResultTable extends Component {
         throw new Error('Something went wrong');
       }
     })
-    .then((responseJson) => {
-      console.log(responseJson.results);
-      let results = responseJson;
-      this.setState(
-        {
-          loading: false,
-          results: results
-        }
-      );
-      console.log(responseJson);
-      return responseJson;
-    })
-    .catch((error) => {
+      .then((responseJson) => {
+        console.log(responseJson.results);
+        let results = responseJson;
+        this.setState(
+          {
+            loading: false,
+            results: results
+          }
+        );
+        console.log(responseJson);
+        return responseJson;
+      })
+      .catch((error) => {
         console.log(error)
-
-    });
+      });
   }
   render() {
     let {loading, results} = this.state;
@@ -72,59 +62,60 @@ class ResultTable extends Component {
     }
     results = results.results;
     let rows = []
-    for(let id in results){
-        if (results[id].hasOwnProperty('public_scores')){
-          let totalScore = 0;
-          for(let no in results[id].public_scores){
-            totalScore += results[id].public_scores[no];
+    for (let id in results) {
+      if (results[id].hasOwnProperty('public_scores')) {
+        let totalScore = 0;
+        for (let no in results[id].public_scores) {
+          totalScore += results[id].public_scores[no];
+          if (results[id].hasOwnProperty('private_scores')) {
             totalScore += results[id].private_scores[no];
           }
-          totalScore += results[id].flake8
-          rows.push({
-            "student_id": id,
-            "flake8": results[id].flake8,
-            "public_scores": results[id].public_scores,
-            "private_scores": results[id].private_scores,
-            "total_scores": totalScore
-          });
+        }
+        totalScore += results[id].flake8
+        rows.push({
+          'student_id': id,
+          'flake8': results[id].flake8,
+          'public_scores': results[id].public_scores,
+          'private_scores': results[id].private_scores,
+          'total_scores': totalScore
+        });
       }
     }
 
-    
     rows = rows.map((row, idx) => {
       return (
         <TableRow key={idx}>
-          <TableCell component="th" scope="row">
+          <TableCell component='th' scope='row'>
             {row.student_id}
           </TableCell>
           <TableCell numeric>{row.flake8}</TableCell>
-          <TableCell numeric>{row.public_scores["1"]}</TableCell>
-          <TableCell numeric>{row.public_scores["2"]}</TableCell>
-          <TableCell numeric>{row.public_scores["3"]}</TableCell>
-          <TableCell numeric>{row.public_scores["4"]}</TableCell>
-          <TableCell numeric>{row.public_scores["5"]}</TableCell>
-          <TableCell numeric>{row.public_scores["6"]}</TableCell>
-          <TableCell numeric>{row.public_scores["7"]}</TableCell>
-          <TableCell numeric>{row.public_scores["8"]}</TableCell>
-          <TableCell numeric>{row.private_scores["1"]}</TableCell>
-          <TableCell numeric>{row.private_scores["2"]}</TableCell>
-          <TableCell numeric>{row.private_scores["3"]}</TableCell>
-          <TableCell numeric>{row.private_scores["4"]}</TableCell>
-          <TableCell numeric>{row.private_scores["5"]}</TableCell>
-          <TableCell numeric>{row.private_scores["6"]}</TableCell>
-          <TableCell numeric>{row.private_scores["7"]}</TableCell>
-          <TableCell numeric>{row.private_scores["8"]}</TableCell>
+          <TableCell numeric>{row.public_scores['1']}</TableCell>
+          <TableCell numeric>{row.public_scores['2']}</TableCell>
+          <TableCell numeric>{row.public_scores['3']}</TableCell>
+          <TableCell numeric>{row.public_scores['4']}</TableCell>
+          <TableCell numeric>{row.public_scores['5']}</TableCell>
+          <TableCell numeric>{row.public_scores['6']}</TableCell>
+          <TableCell numeric>{row.public_scores['7']}</TableCell>
+          <TableCell numeric>{row.public_scores['8']}</TableCell>
+          <TableCell numeric>{row.private_scores ? row.private_scores['1'] : '?'}</TableCell>
+          <TableCell numeric>{row.private_scores ? row.private_scores['2'] : '?'}</TableCell>
+          <TableCell numeric>{row.private_scores ? row.private_scores['3'] : '?'}</TableCell>
+          <TableCell numeric>{row.private_scores ? row.private_scores['4'] : '?'}</TableCell>
+          <TableCell numeric>{row.private_scores ? row.private_scores['5'] : '?'}</TableCell>
+          <TableCell numeric>{row.private_scores ? row.private_scores['6'] : '?'}</TableCell>
+          <TableCell numeric>{row.private_scores ? row.private_scores['7'] : '?'}</TableCell>
+          <TableCell numeric>{row.private_scores ? row.private_scores['8'] : '?'}</TableCell>
           <TableCell numeric>{row.total_scores}</TableCell>
         </TableRow>
       )
     })
     let customHeadStyle = {
-      "padding": "4px 22px 4px 11px"
+      'padding': '4px 22px 4px 11px'
     }
     return (
       <div>
         <Paper className={classes.root}>
-          <Table className={classes.table} fixedHeader={false} style={{ width: "auto", tableLayout: "auto" }}>
+          <Table className={classes.table} fixedHeader={false} style={{ width: 'auto', tableLayout: 'auto' }}>
             <TableHead>
               <TableRow>
                 <TableCell style={customHeadStyle}>ID</TableCell>
