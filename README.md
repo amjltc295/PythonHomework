@@ -228,7 +228,11 @@ Some examples:
 
 * Send a PR and solve a bug in this repository (30%)
 
-## Using Github
+## FAQ
+
+### Git
+
+#### Update local and remote repository
 
 Since this repository is frequently updated, you may need to update your repository to latest version but also keep your changes. To do this:
 
