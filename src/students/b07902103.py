@@ -40,8 +40,8 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
-        print (sentence)
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -115,7 +115,7 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length =len (input_list) 
+    length = len(input_list)
     sentence = str(input_list[target_index]) + input_dictionary[target_key]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
@@ -201,9 +201,9 @@ def task_4(
     # In Python, the for loop could iterate through a list directly
     for number in numbers:
         # TODO: change stars to correct length
-        for i in range(1,number + 1):
-            stars = "*"
-            list_of_stars.append(stars * i)
+        for i in range(1, number+1):
+            stars = "*" * i
+            list_of_stars.append(stars)
         # End of TODO
 
     # This could be done by the while loop
@@ -213,9 +213,9 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
-            list_of_stars_while.append(stars * j)
-            j += 1
+            stars = "*" * j
+            j += 1  # This line is equivalant to j = j + 1
+            list_of_stars_while.append(stars)
         i += 1
         # End of TODO
 
@@ -263,6 +263,9 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
+            todo = line.split(',')
+            for string in todo:
+                fout.write(string)
         pass
     # End of TODO
 
