@@ -152,14 +152,14 @@ def task_3(
     elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if (number % 7) == 0:
-            prime_factors_below_10.append(7)
-        elif (number % 5) == 0:
-            prime_factors_below_10.append(5)
-        elif (number % 3) == 0:
-            prime_factors_below_10.append(3)
-        elif (number % 2) == 0:
+        if (number % 2 == 0) and (number % 3 != 0) and (number % 5 != 0) and (number % 7 != 0):
             prime_factors_below_10.append(2)
+        if (number % 3 == 0) and (number % 5 != 0) and (number % 7 != 0):
+            prime_factors_below_10.append(3)
+        if (number % 5 == 0) and (number % 7 != 0):
+            prime_factors_below_10.append(5)
+        if (number % 7 == 0):
+            prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
     return prime_factors_below_10
@@ -361,7 +361,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say(f"nice to meet you {student.student_id}.")
     # End of TODO
 
     print(student.hello())
