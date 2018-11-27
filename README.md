@@ -228,25 +228,28 @@ Some examples:
 
 * Send a PR and solve a bug in this repository (30%)
 ##FAQ
-1.Python Environment
+###Python Environment
     1a.(Recommended) If you are using miniconda, please make sure that you have create the environment 
     By using `conda env create -f environment.yaml`, you can create an environment to meet the need for this homework.
     To activate your environment:`source activate your_environment_name` 
-    1b.If you have problem or can't install miniconda (e.g. Arm-based linux such as Raspbian) ,please make sure that Python3 version is 3.5 or later.
-    You could use `python3 -V` to check your Python version. And if you want to install python package, you could use `pip3 install <package_name>`
+    1b.If you have problem or can't install miniconda (e.g. Arm-based linux such as Raspbian),please make sure that Python3 version is          3.6 or later.
+       You could use `python3 -V` to check your Python version. And if you want to install python package, we recommended to create a
+       virtual environment first with `python3 -m venv tutorial-env` and use `pip3 install <package_name>` to install packages.
+###Install Packages
+    1.To install Python packages, we recommended to use "conda" to install needed modules.
+        `conda install <package_name>`
+        If you have not installed miniconda, you can use `pip`.
+    2.To install linux packages:
+        2a.If you use Debian/Ubuntu based distros, please use `apt` to install packages.
+        2b.If you use Fedora, please use `yum` to install packages.
+        2c.If you use Arch, please use `pacman` to install packages.
+###Error messages
+    1.To solve `ModuleNotFoundError: No module named 'yaml' `, please make sure you have already install `pyyaml` by using
+    `conda install pyyaml`
+###Git
 
-2.In order to pass Task 8, please make sure that you have already install the font 'arial' or arial.ttf has already in your system's font folder.
-If you are using Debian/Ubuntu, you can install the font 'arial' by using apt:
-`sudo apt install ttf-mscorefonts-installer`
-`sudo fc-cache`
-To check whether the font has successfully installed, you can use `fc-match Arial`
+###Github
 
-3.In task 8, due to utils.py and your_student_id.py in different directory, you should add `sys.path.append('../')` in your file.
-
-4.To install Python packages, you can use "conda" to install needed modules.
-`conda install <package_name>`
-
-5.To solve `ModuleNotFoundError: No module named 'yaml' `, please make sure you have already install `pyyaml` by using `conda install pyyaml`
 ## Liscence
 
 MIT
