@@ -1,8 +1,5 @@
-'''
-This is the sample code from the homework. You shold NOT modify this file.
-Instead, please copy this file to src/students/<your student ID>.py and
-edit it there.
-'''
+#Homework of b07902115
+
 import os
 
 # Define global variables with upper case
@@ -10,7 +7,7 @@ SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
-def task_1():
+def task_1(dummy = None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -40,12 +37,10 @@ def task_1():
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
-        print (sentence)
-
+        sentence = "Hello world"
+        print(sentence)
     # End of TODO (do not change the code below)
     return True
-
 
 def task_2(
     input_list: list = [1, 4, 53, 27, 9],
@@ -232,8 +227,8 @@ def task_4(
 
 
 def task_5(
-    input_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_input.txt'),
-    output_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_output.txt')
+    input_filename: str = 'task_5_input.txt',
+    output_filename: str = 'task_5_output.txt'
 ) -> list:
     '''
     Task 5: I/O with files
@@ -250,6 +245,12 @@ def task_5(
         * Use fout.write(something) to write text into the output file
 
     '''
+    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
+    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
+    # Remove previous output file
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
+
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
         print(f"=======> Input file content:")
@@ -266,7 +267,7 @@ def task_5(
         print(f"=======> Output file content:")
         for line in lines:
             print(f"{line}")
-        return lines
+        return "".join(lines)
 
 
 def task_6(
@@ -306,7 +307,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = dot_product(v1, v2)/ (norm(v1) * norm(v2))
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -356,6 +357,7 @@ def task_7(
     '''
     # TODO: create a student object with different words to say
     student = Student(student_id, time)
+    student.words_to_say = "I love HK416!"
     # End of TODO
 
     print(student.hello())
@@ -385,17 +387,28 @@ def task_8(
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
-
+    from PIL import Image, ImageFont, ImageDraw
+    request.urlretrieve(img_url, 'test.jpg')
+    result_img = Image.open('test.jpg')
     # You are allowed to change the img_url to your own image URL.
-
+    def draw_name(
+        img: Image,
+        text: str,
+        location: tuple = (50, 50),
+        text_color = (0, 0, 0)
+    ) -> Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.load_default()
+        draw.text = (location, text, font, text_color)
+        return img
+    result_img = draw_name(result_img, "b07902115")
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
-    # result.save('test.jpg')
+    result_img.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
-
     # End of TODO
 
     return result_img
