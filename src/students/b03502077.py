@@ -116,7 +116,8 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index]) + input_dictionary[target_key]
+    sentence = str(input_list[target_index]) + \
+        str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -202,7 +203,7 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number + 1):
-            stars = "*"
+            stars = "*" * i
             list_of_stars.append(stars)
         # End of TODO
 
@@ -213,7 +214,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*" * j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
