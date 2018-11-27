@@ -26,9 +26,6 @@ function createData(student_id, pr, t1, t2, t3, t4, t5, t6, t7, t8, flake8, codi
 
 }
 
-const rows = [
-  createData('test_id', 20, 1, 2, 3, 4, 5, 6, 7 ,8, 10, 10, 100),
-];
 
 class ResultTable extends Component {
   constructor(props) {
@@ -53,7 +50,7 @@ class ResultTable extends Component {
     })
     .then((responseJson) => {
       console.log(responseJson.results);
-      let results = JSON.stringify(responseJson);
+      let results = responseJson;
       this.setState(
         {
           loading: false,
@@ -73,54 +70,89 @@ class ResultTable extends Component {
     if (loading) {
       return null;
     }
+    results = results.results;
+    let rows = []
+    for(let id in results){
+        if (results[id].hasOwnProperty('public_scores')){
+          let totalScore = 0;
+          for(let no in results[id].public_scores){
+            totalScore += results[id].public_scores[no];
+            totalScore += results[id].private_scores[no];
+          }
+          totalScore += results[id].flake8
+          rows.push({
+            "student_id": id,
+            "flake8": results[id].flake8,
+            "public_scores": results[id].public_scores,
+            "private_scores": results[id].private_scores,
+            "total_scores": totalScore
+          });
+      }
+    }
+
+    
+    rows = rows.map((row, idx) => {
+      return (
+        <TableRow key={idx}>
+          <TableCell component="th" scope="row">
+            {row.student_id}
+          </TableCell>
+          <TableCell numeric>{row.flake8}</TableCell>
+          <TableCell numeric>{row.public_scores["1"]}</TableCell>
+          <TableCell numeric>{row.public_scores["2"]}</TableCell>
+          <TableCell numeric>{row.public_scores["3"]}</TableCell>
+          <TableCell numeric>{row.public_scores["4"]}</TableCell>
+          <TableCell numeric>{row.public_scores["5"]}</TableCell>
+          <TableCell numeric>{row.public_scores["6"]}</TableCell>
+          <TableCell numeric>{row.public_scores["7"]}</TableCell>
+          <TableCell numeric>{row.public_scores["8"]}</TableCell>
+          <TableCell numeric>{row.private_scores["1"]}</TableCell>
+          <TableCell numeric>{row.private_scores["2"]}</TableCell>
+          <TableCell numeric>{row.private_scores["3"]}</TableCell>
+          <TableCell numeric>{row.private_scores["4"]}</TableCell>
+          <TableCell numeric>{row.private_scores["5"]}</TableCell>
+          <TableCell numeric>{row.private_scores["6"]}</TableCell>
+          <TableCell numeric>{row.private_scores["7"]}</TableCell>
+          <TableCell numeric>{row.private_scores["8"]}</TableCell>
+          <TableCell numeric>{row.total_scores}</TableCell>
+        </TableRow>
+      )
+    })
+    let customHeadStyle = {
+      "padding": "4px 22px 4px 11px"
+    }
     return (
       <div>
         <Paper className={classes.root}>
-          <Table className={classes.table}>
+          <Table className={classes.table} fixedHeader={false} style={{ width: "auto", tableLayout: "auto" }}>
             <TableHead>
               <TableRow>
-                <TableCell>Student ID</TableCell>
-                <TableCell numeric>PR</TableCell>
-                <TableCell numeric>Task 1</TableCell>
-                <TableCell numeric>Task 2</TableCell>
-                <TableCell numeric>Task 3</TableCell>
-                <TableCell numeric>Task 4</TableCell>
-                <TableCell numeric>Task 5</TableCell>
-                <TableCell numeric>Task 6</TableCell>
-                <TableCell numeric>Task 7</TableCell>
-                <TableCell numeric>Task 8</TableCell>
-                <TableCell numeric>Flake8 Check</TableCell>
-                <TableCell numeric>Coding Style</TableCell>
-                <TableCell numeric>Total Score</TableCell>
+                <TableCell style={customHeadStyle}>ID</TableCell>
+                <TableCell style={customHeadStyle}>Flake8</TableCell>
+                <TableCell style={customHeadStyle}>Public1</TableCell>
+                <TableCell style={customHeadStyle}>Public2</TableCell>
+                <TableCell style={customHeadStyle}>Public3</TableCell>
+                <TableCell style={customHeadStyle}>Public4</TableCell>
+                <TableCell style={customHeadStyle}>Public5</TableCell>
+                <TableCell style={customHeadStyle}>Public6</TableCell>
+                <TableCell style={customHeadStyle}>Public7</TableCell>
+                <TableCell style={customHeadStyle}>Public8</TableCell>
+                <TableCell style={customHeadStyle}>Private1</TableCell>
+                <TableCell style={customHeadStyle}>Private2</TableCell>
+                <TableCell style={customHeadStyle}>Private3</TableCell>
+                <TableCell style={customHeadStyle}>Private4</TableCell>
+                <TableCell style={customHeadStyle}>Private5</TableCell>
+                <TableCell style={customHeadStyle}>Private6</TableCell>
+                <TableCell style={customHeadStyle}>Private7</TableCell>
+                <TableCell style={customHeadStyle}>Private8</TableCell>
+                <TableCell style={customHeadStyle}>Score</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map(row => {
-                return (
-                  <TableRow key={row.id}>
-                    <TableCell component="th" scope="row">
-                      {row.student_id}
-                    </TableCell>
-                    <TableCell numeric>{row.pr}</TableCell>
-                    <TableCell numeric>{row.t1}</TableCell>
-                    <TableCell numeric>{row.t2}</TableCell>
-                    <TableCell numeric>{row.t3}</TableCell>
-                    <TableCell numeric>{row.t4}</TableCell>
-                    <TableCell numeric>{row.t5}</TableCell>
-                    <TableCell numeric>{row.t6}</TableCell>
-                    <TableCell numeric>{row.t7}</TableCell>
-                    <TableCell numeric>{row.t8}</TableCell>
-                    <TableCell numeric>{row.flake8}</TableCell>
-                    <TableCell numeric>{row.codingStyle}</TableCell>
-                    <TableCell numeric>{row.total}</TableCell>
-                  </TableRow>
-                );
-              })}
+              {rows}
             </TableBody>
           </Table>
         </Paper>
-
-        <h5> Results: {results} </h5>
       </div>
     )
   }
