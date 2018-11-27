@@ -2,8 +2,9 @@
 Provides some helped functions
 '''
 
-from PIL import Image, ImageFont, ImageDraw
 import math
+
+from PIL import Image, ImageFont, ImageDraw
 
 
 def draw_text(
