@@ -1,7 +1,6 @@
 import os
 import argparse
 import importlib
-import math
 from time import gmtime, strftime
 
 import yaml
@@ -9,6 +8,7 @@ from flake8.api import legacy as flake8
 
 from logging_config import logger
 
+import utils
 
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -88,18 +88,16 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
             # This part is a bit dirty. If you have a better way, send a PR to
             # improve!
             if task_id == 6:
+                answer = test_answers[task_id]['answer']
                 result = eval(
                     f"student_module.task_{task_id}(**{test_data[task_id]})")
-                assert len(result) == len(test_answers[task_id]['answer']), (
-                    "Length of the output and answer does not match")
-                if sum(int(not math.isclose(a, b, rel_tol=1e-6)) for a, b
-                        in zip(result, test_answers[task_id]['answer'])):
+                if utils.floating_judge(result, answer):
+                    points[task_id] = test_answers[task_id]['points']
+                else:
                     logger.error(f"Your result {result}")
                     logger.error(f"is different from ")
                     logger.error(f"{test_answers[task_id]['answer']}")
                     points[task_id] = 0
-                else:
-                    points[task_id] = test_answers[task_id]['points']
             elif task_id == 7:
                 time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
                 student = student_module.task_7(student_id, time)
@@ -135,17 +133,6 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
                         logger.error("is different from ")
                         logger.error(f"{test_answers[task_id]['answer']}")
                         points[task_id] = 0
-                elif test_answers[task_id]['check'] == 4:
-                    # assert len(result) == len(test_answers[task_id]['answer']
-                    if sum(int(a - b > 1e-8) for a, b in zip(result, test_answers[task_id]['answer'])):
-                        logger.error(f"Your result {result}")
-                        logger.error(
-                            f"is different from ")
-                        logger.error(f"{test_answers[task_id]['answer']}")
-                        points[task_id] = 0
-                        
-                    else:
-                        points[task_id] = test_answers[task_id]['points']
                 # Other checks (should not be processed here)
                 else:
                     points[task_id] = None
