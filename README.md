@@ -227,9 +227,9 @@ Some examples:
 * Answer an issue that could not be solved easily (10%)
 
 * Send a PR and solve a bug in this repository (30%)
-##FAQ
+## FAQ
 
-###Python Environment
+### Python Environment
 
     1a.(Recommended) If you are using miniconda, please make sure that you have create the environment 
     By using `conda env create -f environment.yaml`, you can create an environment to meet the need for this homework.
@@ -238,7 +238,7 @@ Some examples:
        You could use `python3 -V` to check your Python version. And if you want to install python package, we recommended to create a
        virtual environment first with `python3 -m venv tutorial-env` and use `pip3 install <package_name>` to install packages.
 
-###Install Packages
+### Install Packages
 
     1.To install Python packages, we recommended to use "conda" to install needed modules.
         `conda install <package_name>`
@@ -248,14 +248,14 @@ Some examples:
         2b.If you use Fedora, please use `yum` to install packages.
         2c.If you use Arch, please use `pacman` to install packages.
 
-###Error messages
+### Error messages
 
     1.To solve `ModuleNotFoundError: No module named 'yaml' `, please make sure you have already install `pyyaml` by using
     `conda install pyyaml`
 
-###Git
+### Git
 
-###Github
+### Github
 
 ## Liscence
 
