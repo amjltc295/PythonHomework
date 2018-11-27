@@ -407,7 +407,7 @@ def task_8(
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
-    result_img.save('test.jpg')
+    # result_img.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
     # End of TODO
 
