@@ -26,8 +26,8 @@ def task_1(dummy=None):
 
     '''
     # Hint:
-    # Run `python src/autograder.py -task 1 -student <your student ID>`
-    # to see if you pass this task.
+    # Run `python autograder.py -task 1 -student_d <your student ID>`
+    # under src/ to see if you pass this task.
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
@@ -107,7 +107,7 @@ def task_2(
         to string.
         * Run `python src/autograder.py -task 2 -student_id <your student ID>`
         to see if you pass this task.
-        * The correct output would be (5, '1 taiwan')
+        * The correct output would be (4, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
@@ -383,14 +383,14 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
+    import io
     from urllib import request
     from PIL import Image
-    import io
     import utils
     result_img = None
 
     # TODO: download the image from img_url with the request module
-    # and add your student ID on it with draw_name() in the utils module
+    # and add your student ID on it with draw_text() in the utils module
     # under src/.
 
     # You are allowed to change the img_url to your own image URL.
