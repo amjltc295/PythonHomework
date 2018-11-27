@@ -315,8 +315,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = dot_product(v1,v2)/(norm(v1)*norm(v2))
-        
+        cos_sim = dot_product(v1, v2)/(norm(v1)*norm(v2))
         # End of TODO
 
         return cos_sim
@@ -395,13 +394,23 @@ def task_8(
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
-
+    import urllib.request
+    from pathlib import Path
+    file_path = '/Users/bruce19960912/Desktop/PythonHomework/src/'
+    file_name = 'b07902015'
+    full_path = file_path+file_name+'.jpg'
+    urllib.request.urlretrieve(img_url, full_path)
+    from PIL import Image
+    with Image.open(full_path) as result_img:
+        result_img.show()
+   
+    #result_img.show()
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
-
+    
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
