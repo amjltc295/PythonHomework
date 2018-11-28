@@ -1,66 +1,4 @@
-''''
-This is the sample code from the homework. You shold NOT modify this file.
-Instead, please copy this file to src/students/<your student ID>.py and
-edit it there.
 '''
-import os
-
-# Define global variables with upper case
-SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
-
-
-def task_1(dummy=None):
-    '''
-    Task 1: Basic Syntax and Flake8 Checker
-
-    Python uses indentations to separate blocks instead of backets.
-    Unlike most programming language (like C++), indentations in Python
-    are required.
-
-    See https://www.python-course.eu/python3_blocks.php for some examples.
-
-    Flake8 (http://flake8.pycqa.org/en/latest/) could help you check these
-    syntax error. It also regular your coding style. For example, using
-    two whitespaces as indentation is allowed in Python. However, Flake8
-    will tell you it is an error "E111: indentation is not a multiple of four".
-    This is because when many people work on the same project, it would be
-    confusing if people are using different identation style.
-
-    Following the coding style in Flake8 is strongly suggested.
-
- '''
-This is the sample code from the homework. You shold NOT modify this file.
-Instead, please copy this file to src/students/<your student ID>.py and
-edit it there.
-'''
-import os
-
-# Define global variables with upper case
-SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
-
-
-def task_1(dummy=None):
-    '''
-    Task 1: Basic Syntax and Flake8 Checker
-
-    Python uses indentations to separate blocks instead of backets.
-    Unlike most programming language (like C++), indentations in Python
-    are required.
-
-    See https://www.python-course.eu/python3_blocks.php for some examples.
-
-    Flake8 (http://flake8.pycqa.org/en/latest/) could help you check these
-    syntax error. It also regular your coding style. For example, using
-    two whitespaces as indentation is allowed in Python. However, Flake8
-    will tell you it is an error "E111: indentation is not a multiple of four".
-    This is because when many people work on the same project, it would be
-    confusing if people are using different identation style.
-
-    Following the coding style in Flake8 is strongly suggested.
-
- ''
 This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
@@ -454,14 +392,7 @@ def task_8(
         * You could easily find answers with Google
     '''
     import requests
-    from PIL import Image
-    from io import BytesIO
-    import utils
-    response = requests.get(img_url)
-    result_img = Image.open(BytesIO(response.content))
-    utils.draw_text(result_img,"b07902001")
-    result_img.show()
-
+        result_img = requests.get(img_url).content
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
@@ -477,4 +408,5 @@ def task_8(
     # and copy the file to local or use Jupyter Notebook to render.
 
     # End of TODO
+    result_img.show()
     return result_img
