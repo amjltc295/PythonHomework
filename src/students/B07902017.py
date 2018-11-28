@@ -201,19 +201,19 @@ def task_4(
     # In Python, the for loop could iterate through a list directly
     for number in numbers:
         # TODO: change stars to correct length
-        for i in range(1, numbers[number]+1):
-            stars = "*"
+        for i in range(1, number+1):
+            stars ="*" * i
             list_of_stars.append(stars)
         # End of TODO
 
     # This could be done by the while loop
     list_of_stars_while = []
     i = 0
-    while i <= len(numbers):
+    while i < len(numbers):
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*" * j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
