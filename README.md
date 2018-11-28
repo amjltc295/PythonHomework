@@ -233,7 +233,8 @@ Some examples:
 1a.(Recommended) If you are using miniconda, please make sure that you have create the environment 
 By using `conda env create -f environment.yaml`, you can create an environment to meet the need for this homework.
 To activate your environment:`source activate your_environment_name` 
-1b.If you have problem or can't install miniconda (e.g. Arm-based linux such as Raspbian),please make sure that Python3 version is        3.6 or later.You could use `python3 -V` to check your Python version. And if you want to install python package, we recommended to create a virtual environment first with `python3 -m venv your_env_name` and activate the environment with 
+
+1b.If you have problem or can't install miniconda (e.g. Arm-based linux such as Raspbian),please make sure that Python3 version is 3.6 or later.You could use `python3 -V` to check your Python version. And if you want to install python package, we recommended to create a virtual environment first with `python3 -m venv your_env_name` and activate the environment with 
 `source ~/envs/your_env_name/bin/activate` then use `pip3 install <package_name>` to install packages.
 
 ### Install Packages
@@ -241,15 +242,21 @@ To activate your environment:`source activate your_environment_name`
 1. To install Python packages, we recommended to use "conda" to install needed modules.
 `conda install <package_name>`
 If you have not installed miniconda, you can use `pip`.
-2. To install linux packages:
-  *If you use Debian/Ubuntu based distros, please use `apt` to install packages.
-  *If you use Fedora, please use `yum` to install packages.
-  *If you use Arch, please use `pacman` to install packages.
 
 ### Error messages
 
 1. To solve `ModuleNotFoundError: No module named 'yaml' `, please make sure you have already install `pyyaml` by using
 `conda install pyyaml`
+
+
+2. If you are using Python 2.7, you might got an error message:
+`File "autograder.py", line 70
+
+assert os.path.exists(student_file), f"{student_file} not exists"
+                                                                    ^
+SyntaxError: invalid syntax`
+
+
 ### Git
 
 #### Update local and remote repository
@@ -260,6 +267,7 @@ Since this repository is frequently updated, you may need to update your reposit
 $ git checkout <your-working-branch>
 $ git fetch upstream master
 $ git rebase upstream/master
+
 ```
 
 If you only modify `src/students/<student-id>.py`, conflicts should not happen. If there are conflicts, just fix it and use `git add <conflicted-file>` and `git rebase --continue` to complete rebase.
@@ -267,6 +275,69 @@ If you only modify `src/students/<student-id>.py`, conflicts should not happen. 
 After rebase your local git, `git push` may not work since your git tree has changed. Use `git push -f` to force push to remote instead. Notice that **don't** use this command to a branch if there are somebody else is using this branch, unless you exactly know what you are doing.
 
 To read more: [merging vs rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
+#### Send PR with only one commit 
+
+If you want to only make a PR with only one commit from original repo (e.g. Edit README.md only), you could create a new branch to do this:
+
+```
+$ git fetch upstream master
+$ git checkout -b <new-branch> upstream/master
+$ git cherry-pick <specify-commit>
+$ git push origin <new-branch>
+```
+
+Then you can make a PR with only a commit difference from original repo.
+
+#### Merge multiple commit into one commit
+
+For example:
+
+```
+$ git log --oneline
+
+920baae All tasks done
+56d7c58 typo in sample_code
+885a781 task 6&task 7 done
+b787f9b task 5 already done
+e281991 task4 done
+525bdf5 Update env for yaml
+
+```
+If you want to merge these commits into one commit, you can use rebase in interactive mode
+```
+$ git rebase -i 525bdf5
+
+```
+
+It will open a vim/nano window :
+
+```
+
+pick e281991 task4 done
+pick b787f9b task 5 already done
+pick 885a781 task 6&task 7 done
+pick 56d7c58 typo in sample_code
+pick 920baae All tasks done
+
+# Rebase 525bdf5..15f6a57 onto 525bdf5 (12 command(s))
+#
+# Commands:...(skip)
+
+```
+If you want to merge e281991 b787f9b 885a781, you can use `squash` to merge:
+
+```
+pick e281991 task4 done
+squash b787f9b task 5 already done
+squash 885a781 task 6&task 7 done
+pick 56d7c58 typo in sample_code
+pick 920baae All tasks done
+
+```
+
+Then save the file, it will start rebase.
+It will be a pop-up  window when rebassing so that you can modify your commit message.
+After that, it would merge these commit into one commit.
 
 ## License
 
