@@ -146,6 +146,10 @@ def autograde(student_id, tasks, test_data_filename, test_answers_filename):
 
 if __name__ == '__main__':
     args = parse_args()
+    from PIL import Image
+    img = Image.new("RGB", (200, 200))
+    from utils import draw_text
+    draw_text(img, 'test')
     test_data_filename = os.path.join(
         DIR_PATH, 'test_data', 'public_data.yaml')
     test_answers_filename = os.path.join(
