@@ -228,6 +228,25 @@ Some examples:
 
 * Send a PR and solve a bug in this repository (30%)
 
+## FAQ
+
+### Git
+
+#### Update local and remote repository
+
+Since this repository is frequently updated, you may need to update your repository to latest version but also keep your changes. To do this:
+
+```
+$ git checkout <your-working-branch>
+$ git fetch upstream master
+$ git rebase upstream/master
+```
+
+If you only modify `src/students/<student-id>.py`, conflicts should not happen. If there are conflicts, just fix it and use `git add <conflicted-file>` and `git rebase --continuse` to complete rebase.
+
+After rebase your local git, `git push` may not work since your git tree has changed. Use `git push -f` to force push to remote instead. Notice that **don't** use this command to a branch if there are somebody else is using this branch, unless you exactly know what you are doing.
+
+To read more: [merging vs rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
 
 ## Liscence
 
