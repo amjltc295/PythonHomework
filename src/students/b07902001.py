@@ -1,4 +1,66 @@
+''''
+This is the sample code from the homework. You shold NOT modify this file.
+Instead, please copy this file to src/students/<your student ID>.py and
+edit it there.
 '''
+import os
+
+# Define global variables with upper case
+SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
+
+
+def task_1(dummy=None):
+    '''
+    Task 1: Basic Syntax and Flake8 Checker
+
+    Python uses indentations to separate blocks instead of backets.
+    Unlike most programming language (like C++), indentations in Python
+    are required.
+
+    See https://www.python-course.eu/python3_blocks.php for some examples.
+
+    Flake8 (http://flake8.pycqa.org/en/latest/) could help you check these
+    syntax error. It also regular your coding style. For example, using
+    two whitespaces as indentation is allowed in Python. However, Flake8
+    will tell you it is an error "E111: indentation is not a multiple of four".
+    This is because when many people work on the same project, it would be
+    confusing if people are using different identation style.
+
+    Following the coding style in Flake8 is strongly suggested.
+
+ '''
+This is the sample code from the homework. You shold NOT modify this file.
+Instead, please copy this file to src/students/<your student ID>.py and
+edit it there.
+'''
+import os
+
+# Define global variables with upper case
+SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
+
+
+def task_1(dummy=None):
+    '''
+    Task 1: Basic Syntax and Flake8 Checker
+
+    Python uses indentations to separate blocks instead of backets.
+    Unlike most programming language (like C++), indentations in Python
+    are required.
+
+    See https://www.python-course.eu/python3_blocks.php for some examples.
+
+    Flake8 (http://flake8.pycqa.org/en/latest/) could help you check these
+    syntax error. It also regular your coding style. For example, using
+    two whitespaces as indentation is allowed in Python. However, Flake8
+    will tell you it is an error "E111: indentation is not a multiple of four".
+    This is because when many people work on the same project, it would be
+    confusing if people are using different identation style.
+
+    Following the coding style in Flake8 is strongly suggested.
+
+ ''
 This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
@@ -203,7 +265,7 @@ def task_4(
         # TODO: change stars to correct length
         for i in range(1, number+1):
             stars = "*"
-            list_of_stars.append(stars)
+            list_of_stars.append(stars*i)
         # End of TODO
 
     # This could be done by the while loop
@@ -213,7 +275,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*"*j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -261,6 +323,9 @@ def task_5(
         print(f"=======> Input file content:")
         for line in lines:
             print(f"{line}")
+            output = line
+            output = output.replace(",","")
+            fout.write(output)
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
         pass
@@ -311,6 +376,10 @@ def task_6(
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
         cos_sim = 0
+        dot = dot_product(v1,v2)
+        d1 = norm(v1)
+        d2 = norm(v2)
+        cos_sim = dot / (d1 * d2)
         # End of TODO
 
         return cos_sim
@@ -359,7 +428,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id,time)
+    student.words_to_say = "FUCK HomeWork"
     # End of TODO
 
     print(student.hello())
@@ -383,8 +453,14 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
-    from urllib import request
-    result_img = None
+    import requests
+    from PIL import Image
+    from io import BytesIO
+    import utils
+    response = requests.get(img_url)
+    result_img = Image.open(BytesIO(response.content))
+    utils.draw_text(result_img,"b07902001")
+    result_img.show()
 
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
@@ -401,5 +477,4 @@ def task_8(
     # and copy the file to local or use Jupyter Notebook to render.
 
     # End of TODO
-
     return result_img
