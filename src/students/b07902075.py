@@ -117,7 +117,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index])
+    sentence = str(input_list[target_index]) \
     + str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
