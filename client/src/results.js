@@ -72,12 +72,14 @@ class ResultTable extends Component {
           }
         }
         totalScore += results[id].flake8
+        totalScore +=20 // pr score baseline
         rows.push({
           'student_id': id,
           'flake8': results[id].flake8,
           'public_scores': results[id].public_scores,
           'private_scores': results[id].private_scores,
-          'total_scores': totalScore
+          'total_scores': totalScore, 
+          'pr_scores': 20 // pr score baseline
         });
       }
     }
@@ -110,8 +112,8 @@ class ResultTable extends Component {
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['7'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['8'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.coding_style ? row.coding_style : '?'}</TableCell>
-          <TableCell numeric style={customHeadStyle}>{row.pull_request ? row.pull_request : '?'}</TableCell>
-          <TableCell numeric style={{...customHeadStyle, background: row.total_scores >= 60 ? 'yellow':'red'}}>{row.total_scores}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.pr_scores}</TableCell>
+          <TableCell numeric style={{...customHeadStyle, color: row.total_scores >= 60 ? 'green':'red'}}>{row.total_scores}</TableCell>
         </TableRow>
       )
     })
@@ -120,7 +122,7 @@ class ResultTable extends Component {
         <Paper className={classes.root}>
           <Table className={classes.table} >
             <colgroup>
-              <col style={{width:'10%', background:'yellow'}}/>
+              <col style={{width:'10%', background:'#e5efff'}}/>
               <col style={{width:'4%'}}/>
               <col style={{width:'4%'}}/>
               <col style={{width:'4%'}}/>
