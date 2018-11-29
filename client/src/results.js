@@ -122,7 +122,7 @@ class ResultTable extends Component {
         <Paper className={classes.root}>
           <Table className={classes.table} >
             <colgroup>
-              <col style={{width:'10%', background:'#e5efff'}}/>
+              <col style={{width:'10%', background:'#DCDCDC'}}/>
               <col style={{width:'4%'}}/>
               <col style={{width:'4%'}}/>
               <col style={{width:'4%'}}/>
