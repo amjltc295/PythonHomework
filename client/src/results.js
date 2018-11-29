@@ -81,61 +81,89 @@ class ResultTable extends Component {
         });
       }
     }
-
+    let customHeadStyle = {
+      'padding': '0.5em',
+      'textAlign': 'center'
+    }
+    
     rows = rows.map((row, idx) => {
       return (
         <TableRow key={idx}>
-          <TableCell component='th' scope='row'>
+          <TableCell component='th' scope='row' style={customHeadStyle}>
             {row.student_id}
           </TableCell>
-          <TableCell numeric>{row.flake8}</TableCell>
-          <TableCell numeric>{row.public_scores['1']}</TableCell>
-          <TableCell numeric>{row.public_scores['2']}</TableCell>
-          <TableCell numeric>{row.public_scores['3']}</TableCell>
-          <TableCell numeric>{row.public_scores['4']}</TableCell>
-          <TableCell numeric>{row.public_scores['5']}</TableCell>
-          <TableCell numeric>{row.public_scores['6']}</TableCell>
-          <TableCell numeric>{row.public_scores['7']}</TableCell>
-          <TableCell numeric>{row.public_scores['8']}</TableCell>
-          <TableCell numeric>{row.private_scores ? row.private_scores['1'] : '?'}</TableCell>
-          <TableCell numeric>{row.private_scores ? row.private_scores['2'] : '?'}</TableCell>
-          <TableCell numeric>{row.private_scores ? row.private_scores['3'] : '?'}</TableCell>
-          <TableCell numeric>{row.private_scores ? row.private_scores['4'] : '?'}</TableCell>
-          <TableCell numeric>{row.private_scores ? row.private_scores['5'] : '?'}</TableCell>
-          <TableCell numeric>{row.private_scores ? row.private_scores['6'] : '?'}</TableCell>
-          <TableCell numeric>{row.private_scores ? row.private_scores['7'] : '?'}</TableCell>
-          <TableCell numeric>{row.private_scores ? row.private_scores['8'] : '?'}</TableCell>
-          <TableCell numeric>{row.total_scores}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.flake8}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['1']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['2']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['3']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['4']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['5']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['6']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['7']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.public_scores['8']}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['1'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['2'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['3'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['4'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['5'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['6'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['7'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['8'] : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.coding_style ? row.coding_style : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.pull_request ? row.pull_request : '?'}</TableCell>
+          <TableCell numeric style={{...customHeadStyle, background: row.total_scores >= 60 ? 'yellow':'red'}}>{row.total_scores}</TableCell>
         </TableRow>
       )
     })
-    let customHeadStyle = {
-      'padding': '4px 22px 4px 11px'
-    }
     return (
       <div>
         <Paper className={classes.root}>
-          <Table className={classes.table} fixedHeader={false} style={{ width: 'auto', tableLayout: 'auto' }}>
+          <Table className={classes.table} >
+            <colgroup>
+              <col style={{width:'10%', background:'yellow'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'4%'}}/>
+              <col style={{width:'10%'}}/>
+            </colgroup>
             <TableHead>
               <TableRow>
                 <TableCell style={customHeadStyle}>ID</TableCell>
                 <TableCell style={customHeadStyle}>Flake8</TableCell>
-                <TableCell style={customHeadStyle}>Public1</TableCell>
-                <TableCell style={customHeadStyle}>Public2</TableCell>
-                <TableCell style={customHeadStyle}>Public3</TableCell>
-                <TableCell style={customHeadStyle}>Public4</TableCell>
-                <TableCell style={customHeadStyle}>Public5</TableCell>
-                <TableCell style={customHeadStyle}>Public6</TableCell>
-                <TableCell style={customHeadStyle}>Public7</TableCell>
-                <TableCell style={customHeadStyle}>Public8</TableCell>
-                <TableCell style={customHeadStyle}>Private1</TableCell>
-                <TableCell style={customHeadStyle}>Private2</TableCell>
-                <TableCell style={customHeadStyle}>Private3</TableCell>
-                <TableCell style={customHeadStyle}>Private4</TableCell>
-                <TableCell style={customHeadStyle}>Private5</TableCell>
-                <TableCell style={customHeadStyle}>Private6</TableCell>
-                <TableCell style={customHeadStyle}>Private7</TableCell>
-                <TableCell style={customHeadStyle}>Private8</TableCell>
+                <TableCell style={customHeadStyle}>Pub1</TableCell>
+                <TableCell style={customHeadStyle}>Pub2</TableCell>
+                <TableCell style={customHeadStyle}>Pub3</TableCell>
+                <TableCell style={customHeadStyle}>Pub4</TableCell>
+                <TableCell style={customHeadStyle}>Pub5</TableCell>
+                <TableCell style={customHeadStyle}>Pub6</TableCell>
+                <TableCell style={customHeadStyle}>Pub7</TableCell>
+                <TableCell style={customHeadStyle}>Pub8</TableCell>
+                <TableCell style={customHeadStyle}>Pri1</TableCell>
+                <TableCell style={customHeadStyle}>Pri2</TableCell>
+                <TableCell style={customHeadStyle}>Pri3</TableCell>
+                <TableCell style={customHeadStyle}>Pri4</TableCell>
+                <TableCell style={customHeadStyle}>Pri5</TableCell>
+                <TableCell style={customHeadStyle}>Pri6</TableCell>
+                <TableCell style={customHeadStyle}>Pri7</TableCell>
+                <TableCell style={customHeadStyle}>Pri8</TableCell>
+                <TableCell style={customHeadStyle}>Style</TableCell>
+                <TableCell style={customHeadStyle}>PR</TableCell>
                 <TableCell style={customHeadStyle}>Score</TableCell>
               </TableRow>
             </TableHead>
