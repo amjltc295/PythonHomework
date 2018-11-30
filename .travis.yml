@@ -19,6 +19,6 @@ install:
   - source activate PythonHomeworkEnvironment
 
 script:
-  - flake8 .
+  - flake8 . --exclude=src/students
   - cd src
   - python autograder.py -all -student_id None

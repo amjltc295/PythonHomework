@@ -1,2 +1,2 @@
 [flake8]
-exclude = .git,*migrations*,src/students*,*logs*,client
+exclude = .git,*migrations*,*logs*,client
