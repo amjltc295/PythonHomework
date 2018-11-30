@@ -392,7 +392,6 @@ def task_8(
     draw = ImageDraw.Draw(result_img)
     font = ImageFont.load_default().font
     draw.text((0, 0), "B06902079", (0, 0, 0), font=font)
-    result_img.save('output.jpg')
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
