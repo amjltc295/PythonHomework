@@ -152,7 +152,8 @@ def task_3(
     elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if (number % 2 == 0) and (number % 3 != 0) and (number % 5 != 0) and (number % 7 != 0):
+        if (number % 2 == 0) and (number % 3 != 0) \
+                and (number % 5 != 0) and (number % 7 != 0):
             prime_factors_below_10.append(2)
         if (number % 3 == 0) and (number % 5 != 0) and (number % 7 != 0):
             prime_factors_below_10.append(3)
@@ -398,8 +399,6 @@ def task_8(
     request.urlretrieve(img_url, "pythonHomework.jpg")
     result_img = utils.Image.open("pythonHomework.jpg")
     result_img = utils.draw_text(result_img, "b03502077")
-    result_img.show()
-    result_img.close()
 
     # You are allowed to change the img_url to your own image URL.
 
@@ -407,6 +406,10 @@ def task_8(
     # result_img.show()
     # Note: please comment this line when hand in.
 
+    # Add my student id on the upper left corner of the picture.
+    result_img.show()
+
+    result_img.close()
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
