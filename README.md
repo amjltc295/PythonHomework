@@ -304,11 +304,11 @@ If you want to store current contents of the index, you can use `git commit`
 Before making a commit, you *should* add modified files first, using `git add <file_name>`
 After adding modified files, you can make a commit to describe what you change in the repo.
 
-If you only want to descibe the commit only, you can use `git commit -m "your_message"`
+If you only want to describe the commit only, you can use `git commit -m "your_message"`
 
 After making a commit, you can push your commit to remote by using `git push origin <branch_name>`
 Note:Default name of the branch is *master*
-So that your remote repository will up-to-date with your local repository.
+So that your remote repository will be up-to-date with your local repository.
 
 Example:
 
