@@ -37,13 +37,9 @@ def task_1(dummy=None):
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
     # `flake8 src/student/<your student ID>.py`
-
-  
     if True:
         sentence = "Hello world"
         print(sentence)
-
-   
     return True
 
 
@@ -116,7 +112,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index]) + str(input_dictionary[target_key])
+    sentence = str(input_list[target_index])+str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -408,7 +404,7 @@ def task_8(
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
-    result_img.show()
+    # result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
