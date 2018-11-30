@@ -250,16 +250,91 @@ If you have not installed miniconda, you can use `pip`.
 
 
 2. If you are using Python 2.7, you might got an error message:
-`File "autograder.py", line 70
+```
+File "autograder.py", line 70
 
 assert os.path.exists(student_file), f"{student_file} not exists"
                                                                     ^
-SyntaxError: invalid syntax`
+SyntaxError: invalid syntax
+```
 
 
 ### Git
 
-#### Update local and remote repository
+
+
+#### Basic Operation
+
+##### Clone
+
+If you want to clone a remote repository (e.g. Github) to local, you can use `git clone`
+
+a. Clone via SSH (Recommended)
+
+To use SSH to clone, please read the article first:
+(https://help.github.com/articles/connecting-to-github-with-ssh/)
+
+Example:
+
+```
+$ git clone git@github.com:<owner_of_repo>/<repo_name>
+
+```
+b. clone via Https
+
+```
+$ git clone https://github.com/<owner_of_repo>/<repo_name>.git
+
+```
+
+No matter which method you choose to use, you may see some message like:
+
+```
+
+Cloning into 'repo_name'...
+remote: Enumerating objects: 669, done.
+remote: Total 669 (delta 0), reused 0 (delta 0), pack-reused 669
+Receiving objects: 100% (669/669), 600.65 KiB | 335.00 KiB/s, done.
+Resolving deltas: 100% (368/368), done.
+Checking connectivity... done.
+
+```
+It will create a directory <repo_name> under your current directory, and you can modify the files now.
+
+##### Commit && Push
+
+If you want to store current contents of the index, you can use `git commit`
+Before making a commit, you *should* add modified files first, using `git add <file_name>`
+After adding modified files, you can make a commit to describe what you change in the repo.
+
+If you only want to descibe the commit only, you can use `git commit -m "your_message"`
+
+After making a commit, you can push your commit to remote by using `git push origin <branch_name>`
+Note:Default name of the branch is *master*
+So that your remote repository will up-to-date with your local repository.
+
+Example:
+
+```
+$ git add b07902999.py
+$ git commit -m "Pass task 1"
+[master ba496b5] Pass task 1
+ 1 file changed, 2 insertions(+)
+ create mode 100644 b07902999.py
+$ git push
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 303 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:b07902999/PythonHomework
+   608fe24..ba496b5  master -> master
+
+```
+
+#### Advanced Operation
+
+##### Update local and remote repository
 
 Since this repository is frequently updated, you may need to update your repository to latest version but also keep your changes. To do this:
 
@@ -275,7 +350,8 @@ If you only modify `src/students/<student-id>.py`, conflicts should not happen. 
 After rebase your local git, `git push` may not work since your git tree has changed. Use `git push -f` to force push to remote instead. Notice that **don't** use this command to a branch if there are somebody else is using this branch, unless you exactly know what you are doing.
 
 To read more: [merging vs rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
-#### Send PR with only one commit 
+
+##### Send PR with only one commit 
 
 If you want to only make a PR with only one commit from original repo (e.g. Edit README.md only), you could create a new branch to do this:
 
@@ -288,7 +364,7 @@ $ git push origin <new-branch>
 
 Then you can make a PR with only a commit difference from original repo.
 
-#### Merge multiple commit into one commit
+##### Merge multiple commit into one commit
 
 For example:
 
