@@ -20,7 +20,7 @@ def task_1(dummy=None):
 
     See https://www.python-course.eu/python3_blocks.php for some examples.
 
-    Flake8 (http://flake8.pycqa.org/en/latest/) could help you check these
+    Flake8(http://flake8.pycqa.org/en/latest/) could help you check these
     syntax error. It also regular your coding style. For example, using
     two whitespaces as indentation is allowed in Python. However, Flake8
     will tell you it is an error "E111: indentation is not a multiple of four".
@@ -40,8 +40,8 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
-        print (sentence)
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -116,7 +116,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index]) + str(input_dictionary[target_key])
+    sentence = str(input_list[target_index])+str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -209,7 +209,7 @@ def task_4(
     # In Python, the for loop could iterate through a list directly
     for number in numbers:
         # TODO: change stars to correct length
-        for i in range (1, number+1):
+        for i in range(1, number+1):
             stars = "*"*i
             list_of_stars.append(stars)
         # End of TODO
