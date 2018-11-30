@@ -393,6 +393,14 @@ def task_8(
     # and add your student ID on it with draw_text() in the utils module
     # under src/.
 
+    import utils
+
+    request.urlretrieve(img_url, "pythonHomework.jpg")
+    result_img = utils.Image.open("pythonHomework.jpg")
+    result_img = utils.draw_text(result_img, "b03502077")
+    result_img.show()
+    result_img.close()
+
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
