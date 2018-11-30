@@ -262,10 +262,7 @@ SyntaxError: invalid syntax
 ### Git
 
 
-
-#### Basic Operation
-
-##### Clone
+#### Clone
 
 If you want to clone a remote repository (e.g. Github) to local, you can use `git clone`
 
@@ -301,7 +298,7 @@ Checking connectivity... done.
 ```
 It will create a directory <repo_name> under your current directory, and you can modify the files now.
 
-##### Commit && Push
+#### Commit && Push
 
 If you want to store current contents of the index, you can use `git commit`
 Before making a commit, you *should* add modified files first, using `git add <file_name>`
@@ -332,9 +329,7 @@ To git@github.com:b07902999/PythonHomework
 
 ```
 
-#### Advanced Operation
-
-##### Update local and remote repository
+#### Update local and remote repository
 
 Since this repository is frequently updated, you may need to update your repository to latest version but also keep your changes. To do this:
 
@@ -351,69 +346,10 @@ After rebase your local git, `git push` may not work since your git tree has cha
 
 To read more: [merging vs rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
 
-##### Send PR with only one commit 
-
-If you want to only make a PR with only one commit from original repo (e.g. Edit README.md only), you could create a new branch to do this:
-
-```
-$ git fetch upstream master
-$ git checkout -b <new-branch> upstream/master
-$ git cherry-pick <specify-commit>
-$ git push origin <new-branch>
-```
-
-Then you can make a PR with only a commit difference from original repo.
-
-##### Merge multiple commit into one commit
-
-For example:
-
-```
-$ git log --oneline
-
-920baae All tasks done
-56d7c58 typo in sample_code
-885a781 task 6&task 7 done
-b787f9b task 5 already done
-e281991 task4 done
-525bdf5 Update env for yaml
-
-```
-If you want to merge these commits into one commit, you can use rebase in interactive mode
-```
-$ git rebase -i 525bdf5
-
-```
-
-It will open a vim/nano window :
-
-```
-
-pick e281991 task4 done
-pick b787f9b task 5 already done
-pick 885a781 task 6&task 7 done
-pick 56d7c58 typo in sample_code
-pick 920baae All tasks done
-
-# Rebase 525bdf5..15f6a57 onto 525bdf5 (12 command(s))
-#
-# Commands:...(skip)
-
-```
-If you want to merge e281991 b787f9b 885a781, you can use `squash` to merge:
-
-```
-pick e281991 task4 done
-squash b787f9b task 5 already done
-squash 885a781 task 6&task 7 done
-pick 56d7c58 typo in sample_code
-pick 920baae All tasks done
-
-```
-
-Then save the file, it will start rebase.
-It will be a pop-up  window when rebassing so that you can modify your commit message.
-After that, it would merge these commit into one commit.
+#### Advanced Operation
+1. Merge Multiple Commits into One Commit
+2. Send PR with only one commit
+https://medium.com/@s950449/git-advanced-operation-c1d56ac4d920
 
 ## License
 
