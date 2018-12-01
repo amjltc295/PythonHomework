@@ -12,6 +12,6 @@ def draw_text(
     text_color=(0, 0, 0)
 ) -> Image:
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("arial.ttf", 20)
+    font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeMono.ttf", 20)
     draw.text(location, text, font=font, fill=text_color)
     return img
