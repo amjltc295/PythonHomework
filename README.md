@@ -227,9 +227,131 @@ Some examples:
 * Answer an issue that could not be solved easily (10%)
 
 * Send a PR and solve a bug in this repository (30%)
+## FAQ
+### Python Environment
+
+1a.(Recommended) If you are using miniconda, please make sure that you have create the environment 
+By using `conda env create -f environment.yaml`, you can create an environment to meet the need for this homework.
+To activate your environment:`source activate your_environment_name` 
+
+1b.If you have problem or can't install miniconda (e.g. Arm-based linux such as Raspbian),please make sure that Python3 version is 3.6 or later.You could use `python3 -V` to check your Python version. And if you want to install python package, we recommended to create a virtual environment first with `python3 -m venv your_env_name` and activate the environment with 
+`source ~/envs/your_env_name/bin/activate` then use `pip3 install <package_name>` to install packages.
+
+### Install Packages
+
+1. To install Python packages, we recommended to use "conda" to install needed modules.
+`conda install <package_name>`
+If you have not installed miniconda, you can use `pip`.
+
+### Error messages
+
+1. To solve `ModuleNotFoundError: No module named 'yaml' `, please make sure you have already install `pyyaml` by using
+`conda install pyyaml`
 
 
-## Liscence
+2. If you are using Python 2.7, you might got an error message:
+```
+File "autograder.py", line 70
+
+assert os.path.exists(student_file), f"{student_file} not exists"
+                                                                    ^
+SyntaxError: invalid syntax
+```
+
+
+### Git
+
+
+#### Clone
+
+If you want to clone a remote repository (e.g. Github) to local, you can use `git clone`
+
+a. Clone via SSH (Recommended)
+
+To use SSH to clone, please read the article first:
+(https://help.github.com/articles/connecting-to-github-with-ssh/)
+
+Example:
+
+```
+$ git clone git@github.com:<owner_of_repo>/<repo_name>
+
+```
+b. clone via Https
+
+```
+$ git clone https://github.com/<owner_of_repo>/<repo_name>.git
+
+```
+
+No matter which method you choose to use, you may see some message like:
+
+```
+
+Cloning into 'repo_name'...
+remote: Enumerating objects: 669, done.
+remote: Total 669 (delta 0), reused 0 (delta 0), pack-reused 669
+Receiving objects: 100% (669/669), 600.65 KiB | 335.00 KiB/s, done.
+Resolving deltas: 100% (368/368), done.
+Checking connectivity... done.
+
+```
+It will create a directory <repo_name> under your current directory, and you can modify the files now.
+
+#### Commit && Push
+
+If you want to store current contents of the index, you can use `git commit`
+Before making a commit, you *should* add modified files first, using `git add <file_name>`
+After adding modified files, you can make a commit to describe what you change in the repo.
+
+If you only want to describe the commit only, you can use `git commit -m "your_message"`
+
+After making a commit, you can push your commit to remote by using `git push origin <branch_name>`
+Note:Default name of the branch is *master*
+So that your remote repository will be up-to-date with your local repository.
+
+Example:
+
+```
+$ git add b07902999.py
+$ git commit -m "Pass task 1"
+[master ba496b5] Pass task 1
+ 1 file changed, 2 insertions(+)
+ create mode 100644 b07902999.py
+$ git push
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 303 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:b07902999/PythonHomework
+   608fe24..ba496b5  master -> master
+
+```
+
+#### Update local and remote repository
+
+Since this repository is frequently updated, you may need to update your repository to latest version but also keep your changes. To do this:
+
+```
+$ git checkout <your-working-branch>
+$ git fetch upstream master
+$ git rebase upstream/master
+
+```
+
+If you only modify `src/students/<student-id>.py`, conflicts should not happen. If there are conflicts, just fix it and use `git add <conflicted-file>` and `git rebase --continue` to complete rebase.
+
+After rebase your local git, `git push` may not work since your git tree has changed. Use `git push -f` to force push to remote instead. Notice that **don't** use this command to a branch if there are somebody else is using this branch, unless you exactly know what you are doing.
+
+To read more: [merging vs rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
+
+#### Advanced Operation
+1. Merge Multiple Commits into One Commit
+2. Send PR with only one commit
+https://medium.com/@s950449/git-advanced-operation-c1d56ac4d920
+
+## License
 
 MIT
 
