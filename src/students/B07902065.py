@@ -116,7 +116,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(list)
-    sentence = str(list[int])+dict[str]
+    sentence = str(list[int]) + dict[str]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if int<0:
+    if int < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif int=0:
+    elif int == 0:
         prime_factors_below_10 = [0]
     else:
-        if int%2=0:
+        if int % 2 = 0:
             prime_factors_below_10.append(2)
-        if int%3=0:
+        if int % 3 = 0:
             prime_factors_below_10.append(3)
-        if int%5=0:
+        if int % 5 = 0:
             prime_factors_below_10.append(5)
-        if int%7=0:
+        if int % 7 = 0:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
