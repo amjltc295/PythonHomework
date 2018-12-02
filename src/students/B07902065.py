@@ -151,13 +151,13 @@ def task_3(
     elif int == 0:
         prime_factors_below_10 = [0]
     else:
-        if int % 2 = 0:
+        if int % 2 == 0:
             prime_factors_below_10.append(2)
-        if int % 3 = 0:
+        if int % 3 == 0:
             prime_factors_below_10.append(3)
-        if int % 5 = 0:
+        if int % 5 == 0:
             prime_factors_below_10.append(5)
-        if int % 7 = 0:
+        if int % 7 == 1:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -264,7 +264,7 @@ def task_5(
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
         for line in lines:
-            list splt = line.split(";")
+            splt = line.split(";")
             for elmnt in splt:
                 fout.write(elmnt)
                 fout.write("\n")
