@@ -263,7 +263,11 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        pass
+        for line in lines:
+            list splt = line.split(";")
+            for elmnt in splt:
+                fout.write(elmnt)
+                fout.write("\n")
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -310,7 +314,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1,v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -359,7 +363,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say("some random rambling.")
     # End of TODO
 
     print(student.hello())
@@ -387,14 +392,19 @@ def task_8(
     result_img = None
 
     # TODO: download the image from img_url with the request module
+    from PIL import Image
+    img = request.get(img_url)
+
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
+    result_img = draw_text(img, "B07902065", (10, 10), (0.457, 0.730, 0.988))
+
 
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
     # result_img.show()
-    # Note: please comment this line when hand in.
+    # Note: please comment this line when hand in
 
     # If you are running on a server, use
     # result.save('test.jpg')
