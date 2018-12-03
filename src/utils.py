@@ -14,7 +14,13 @@ def draw_text(
     text_color=(0, 0, 0)
 ) -> Image:
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("DejaVuSans.ttf", 20)
+
+    try:
+        # For Linux
+        font = ImageFont.truetype("DejaVuSans.ttf", 20)
+    except:
+        # For others
+        font = ImageFont.load_default()
     draw.text(location, text, font=font, fill=text_color)
     return img
 
