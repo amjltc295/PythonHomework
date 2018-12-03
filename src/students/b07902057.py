@@ -115,8 +115,8 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = None
-    sentence = None
+    length = len(input_list)
+    sentence = str(input_list[target_index])+str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,21 +145,22 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
+    print (prime_factors_below_10)
     return prime_factors_below_10
 
 
@@ -203,6 +204,7 @@ def task_4(
         for i in range(1, number+1):
             stars = "*"
             list_of_stars.append(stars)
+            i += 1
         # End of TODO
 
     # This could be done by the while loop
@@ -213,8 +215,8 @@ def task_4(
         j = 1
         while j <= numbers[i]:
             stars = "*"
-            j += 1  # This line is equivalant to j = j + 1
-            list_of_stars_while.append(stars)
+        j += 1  # This line is equivalant to j = j + 1
+        list_of_stars_while.append(stars)
         i += 1
         # End of TODO
 
