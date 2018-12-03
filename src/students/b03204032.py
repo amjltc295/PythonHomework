@@ -31,7 +31,7 @@ def task_1(dummy=None):
 
     '''
     # Hint:
-    # Run `python src/autograder.py -task 1 -student <your student ID>`
+    # Run `python src/autograder.py -task 1 -student_id <your student ID>`
     # to see if you pass this task.
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
@@ -202,7 +202,7 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number+1):
-            stars = "*"
+            stars = "*" * i
             list_of_stars.append(stars)
         # End of TODO
 
@@ -213,7 +213,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*" * j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -261,6 +261,9 @@ def task_5(
         print(f"=======> Input file content:")
         for line in lines:
             print(f"{line}")
+            tempList = line.split(',')
+            for temp in tempList:
+                fout.write(temp)
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
         pass
@@ -310,7 +313,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -359,7 +362,9 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    words = "hello, world"
+    student.set_words_to_say(words)
     # End of TODO
 
     print(student.hello())
@@ -384,7 +389,13 @@ def task_8(
         * You could easily find answers with Google
     '''
     from urllib import request
-    result_img = None
+    # result_img = Image.open(request.urlopen(img_url))
+    fullname = 'b03204032.jpg'
+    fname, h = request.urlretrieve(img_url,fullname)
+    from PIL import Image
+    result_img = Image.open(fname)
+    import utils
+    utils.draw_text(result_img, "b03204032", (0, 0), (0, 0, 0))
 
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
@@ -393,7 +404,7 @@ def task_8(
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
-    # result_img.show()
+    result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
