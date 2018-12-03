@@ -115,8 +115,8 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = len(input_list);
-    sentence = str(input_list[target_index]) + str(input_dictionary[target_key])
+    length = len(input_list)
+    sentence = str(input_list[target_index])+str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -391,7 +391,7 @@ def task_8(
     from urllib import request
     # result_img = Image.open(request.urlopen(img_url))
     fullname = 'b03204032.jpg'
-    fname, h = request.urlretrieve(img_url,fullname)
+    fname, h = request.urlretrieve(img_url, fullname)
     from PIL import Image
     result_img = Image.open(fname)
     import utils
