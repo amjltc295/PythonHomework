@@ -1,5 +1,3 @@
-#Homework of b07902115
-
 import os
 
 # Define global variables with upper case
@@ -7,7 +5,7 @@ SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
-def task_1(dummy = None):
+def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -41,6 +39,7 @@ def task_1(dummy = None):
         print(sentence)
     # End of TODO (do not change the code below)
     return True
+
 
 def task_2(
     input_list: list = [1, 4, 53, 27, 9],
@@ -387,21 +386,12 @@ def task_8(
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
-    from PIL import Image, ImageFont, ImageDraw
+    from PIL import Image
+    import utils
     request.urlretrieve(img_url, 'test.jpg')
     result_img = Image.open('test.jpg')
     # You are allowed to change the img_url to your own image URL.
-    def draw_name(
-        img: Image,
-        text: str,
-        location: tuple = (50, 50),
-        text_color = (0, 0, 0)
-    ) -> Image:
-        draw = ImageDraw.Draw(img)
-        font = ImageFont.load_default()
-        draw.text = (location, text, font, text_color)
-        return img
-    result_img = draw_name(result_img, "b07902115")
+    utils.draw_text(result_img, "b07902115")
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
