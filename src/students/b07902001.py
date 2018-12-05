@@ -29,7 +29,6 @@ def task_1(dummy=None):
 
     Following the coding style in Flake8 is strongly suggested.
 
- '''
 This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
@@ -439,6 +438,23 @@ def task_7(
 def task_8(
     img_url: str = 'https://i.imgur.com/B75zq0x.jpg'
 ) -> object:
+    from urllib import request
+    from PIL import Image, ImageFont, ImageDraw
+
+    def draw_text(
+            img: Image,
+            text: str,
+            location: tuple = (0,0),
+            text_color=(0,0,0)
+    ) -> Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.truetype("arial.ttf",20)
+        draw.text(location,text,font=font,fill=text_color)
+        return img
+    result_img = None
+    local_filename, headers = request.urlretrieve(img_url)
+    img = Image.open(local_filename)
+    result_img = draw_text(img,"B07902001")
     '''
     Task 8: Module
 
@@ -453,14 +469,7 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
-    import requests
-    from PIL import Image
-    from io import BytesIO
-    import utils
-    response = requests.get(img_url)
-    result_img = Image.open(BytesIO(response.content))
-    utils.draw_text(result_img,"b07902001")
-    result_img.show()
+    
 
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
