@@ -5,6 +5,7 @@ Provides some helped functions
 import math
 
 from PIL import Image, ImageFont, ImageDraw
+from logging_config import logger
 
 
 def draw_text(
@@ -14,7 +15,14 @@ def draw_text(
     text_color=(0, 0, 0)
 ) -> Image:
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("DejaVuSans.ttf", 20)
+
+    try:
+        # For Linux
+        font = ImageFont.truetype("DejaVuSans.ttf", 20)
+    except Exception as err:
+        logger.error(err, exc_info=True)
+        # For others
+        font = ImageFont.load_default()
     draw.text(location, text, font=font, fill=text_color)
     return img
 

@@ -334,8 +334,16 @@ To git@github.com:b07902999/PythonHomework
 Since this repository is frequently updated, you may need to update your repository to latest version but also keep your changes. To do this:
 
 ```
+# Set 'upstream' to the original repo
+$ git remote add upstream git@github.com:amjltc295/PythonHomework.git
+
+# Change to the branch you want to update. If you are already in that branch, this command is not needed.
 $ git checkout <your-working-branch>
+
+# Fetch data from the remote
 $ git fetch upstream master
+
+# Rebase current branch on the latest remote branch
 $ git rebase upstream/master
 
 ```
