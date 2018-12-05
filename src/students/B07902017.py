@@ -232,9 +232,9 @@ def task_4(
 
 
 def task_5(
-    input_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_input.txt'),
-    output_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_output.txt')
-) -> list:
+    input_filename: str = 'task_5_input.txt',
+    output_filename: str = 'task_5_output.txt'
+) -> str:
     '''
     Task 5: I/O with files
 
@@ -250,6 +250,12 @@ def task_5(
         * Use fout.write(something) to write text into the output file
 
     '''
+    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
+    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
+    # Remove previous output file
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
+
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
         print(f"=======> Input file content:")
@@ -257,15 +263,14 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        fout.write(lines.split(','))
+        fout.write(str(str(lines).split(',')))
     # End of TODO
 
     with open(output_filename, 'r') as fin:
         lines = fin.readlines()
         print(f"=======> Output file content:")
-        for line in lines:
-            print(f"{line}")
-        return lines
+        print(lines)
+        return "".join(lines)
 
 
 def task_6(
@@ -305,7 +310,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1,v2)/(norm(v1)*norm(v2))
         # End of TODO
 
         return cos_sim
@@ -354,7 +359,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id,time)
+    student.set_words_to_say("hi?")
     # End of TODO
 
     print(student.hello())
