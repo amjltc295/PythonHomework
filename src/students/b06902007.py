@@ -115,8 +115,13 @@ def task_2(
         * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
+<<<<<<< HEAD
     length = len(input_list)
     sentence = str(str(input_list[target_index]) + input_dictionary[target_key])
+=======
+    length = None
+    sentence = None
+>>>>>>> 6911ac37680e4e08894ea791954d87e76fc65760
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,6 +150,7 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
+<<<<<<< HEAD
     if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
@@ -158,6 +164,21 @@ def task_3(
         if number%5 == 0 and number%7:
             prime_factors_below_10.append(5)
         if number%7 == 0:
+=======
+    if "some condition here":
+        prime_factors_below_10 = [-1]
+    # elif stands for "else if" in Python.
+    elif "some condition here":
+        prime_factors_below_10 = [0]
+    else:
+        if "some condition here":
+            prime_factors_below_10.append(2)
+        if "some condition here":
+            prime_factors_below_10.append(3)
+        if "some condition here":
+            prime_factors_below_10.append(5)
+        if "some condition here":
+>>>>>>> 6911ac37680e4e08894ea791954d87e76fc65760
             prime_factors_below_10.append(7)
     # End of TODO
     return prime_factors_below_10
@@ -202,12 +223,17 @@ def task_4(
         # TODO: change stars to correct length
         for i in range(1, number+1):
             stars = "*"
+<<<<<<< HEAD
             list_of_stars.append(stars * i)
+=======
+            list_of_stars.append(stars)
+>>>>>>> 6911ac37680e4e08894ea791954d87e76fc65760
         # End of TODO
 
     # This could be done by the while loop
     list_of_stars_while = []
     i = 0
+<<<<<<< HEAD
     while i < len(numbers):
         # TODO: change stars to correct length
         j = 1
@@ -216,6 +242,15 @@ def task_4(
             stars = "*"
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars * (j - 1))
+=======
+    while i <= len(numbers):
+        # TODO: change stars to correct length
+        j = 1
+        while j <= numbers[i]:
+            stars = "*"
+            j += 1  # This line is equivalant to j = j + 1
+            list_of_stars_while.append(stars)
+>>>>>>> 6911ac37680e4e08894ea791954d87e76fc65760
         i += 1
         # End of TODO
 
@@ -231,7 +266,10 @@ def task_4(
     return list_of_stars
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6911ac37680e4e08894ea791954d87e76fc65760
 def task_5(
     input_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_input.txt'),
     output_filename: str = os.path.join(TEST_DATA_DIR, 'task_5_output.txt')
