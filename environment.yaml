@@ -34,6 +34,7 @@ dependencies:
   - pycodestyle=2.4.0=py37_0
   - pyflakes=2.0.0=py37_0
   - python=3.7.0=h6e4f718_3
+  - pyyaml=3.13=py37h14c3975_0
   - readline=7.0=h7b6447c_5
   - setuptools=40.6.2=py37_0
   - six=1.11.0=py37_1
@@ -42,6 +43,7 @@ dependencies:
   - werkzeug=0.14.1=py37_0
   - wheel=0.32.3=py37_0
   - xz=5.2.4=h14c3975_4
+  - yaml=0.1.7=had09818_2
   - zlib=1.2.11=ha838bed_2
 prefix: /home/master/07/yaliangchang/miniconda3/envs/PythonHomeworkEnvironment
 
