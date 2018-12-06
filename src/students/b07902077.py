@@ -145,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if (number < 0):
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif (number == 0):
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if (number % 2 == 0):
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if (number % 3 == 0):
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if (number % 5 == 0):
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if (number % 7 == 0):
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
