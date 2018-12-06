@@ -364,7 +364,7 @@ def task_7(
     '''
     # TODO: create a student object with different words to say
     student = Student(student_id, time)
-    student.set_words_to_say("intial value")
+    student.set_words_to_say("hello")
     # End of TODO
 
     print(student.hello())
@@ -394,14 +394,17 @@ def task_8(
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
-    from urllib import request
-    result_img = request.urlretrieve(img_url)
+    from PIL import Image
+    import io
+    tmp = request.urlopen(img_url).read()
+    result_img = Image.open(io.BytesIO(tmp))
 
     from utils import draw_text
+    result_img = draw_text(result_img, "B07902085")
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
-    #    result_img.show()
+    # result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
