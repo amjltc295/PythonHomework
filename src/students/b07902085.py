@@ -400,7 +400,7 @@ def task_8(
     result_img = Image.open(io.BytesIO(tmp))
 
     from utils import draw_text
-    result_img = draw_text(result_img, "B07902085")
+    result_img = draw_text(result_img, 'B07902085')
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
