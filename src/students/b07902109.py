@@ -36,13 +36,12 @@ def task_1(dummy=None):
     # The correct output would be "Hello world" without any
     # error. Note that passing this task does NOT mean you pass the
     # Flake8 chcker. Please check your style with
-    # `flake8 src/student/<your student ID>.py`
+    # `flake8 src/student/<your student ID>.py
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
-        print (sentence)
-
+        sentence = "Hello world"
+        print(sentence)
     # End of TODO (do not change the code below)
     return True
 
@@ -151,13 +150,13 @@ def task_3(
     elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if number%2 == 0:
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if number%3 == 0:
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if number%5 == 0:
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if number%7 == 0:
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -263,8 +262,12 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
+            list = line.split(",")
+            string = ""
+            str = string.join(list)
+            fout.write(str)
         pass
-    # End of TODO
+        # End of TODO
 
     with open(output_filename, 'r') as fin:
         lines = fin.readlines()
@@ -311,6 +314,7 @@ def task_6(
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
         cos_sim = 0
+        cos_sim = dot_product(v1, v2)/(norm(v1)*norm(v2))
         # End of TODO
 
         return cos_sim
@@ -360,6 +364,8 @@ def task_7(
     '''
     # TODO: create a student object with different words to say
     student = None
+    student = Student(student_id, time)
+    student.words_to_say = "hihi"
     # End of TODO
 
     print(student.hello())
@@ -383,13 +389,27 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
-    from urllib import request
-    result_img = None
-
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
+    from urllib import request
+    from PIL import Image, ImageFont, ImageDraw
 
+    def draw_text(
+        img: Image,
+        text: str,
+        location: tuple = (0, 0),
+        text_color=(0, 0, 0)
+    ) -> Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.truetype("DejaVuSans.ttf", 20)
+        draw.text(location, text, font=font, fill=text_color)
+        return img
+    result_img = None
+    local_filename, headers = request.urlretrieve(img_url)
+    img = Image.open(local_filename)
+    result_img = draw_text(img, 'B07902109')
+    result_img.show()
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
