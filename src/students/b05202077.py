@@ -377,7 +377,7 @@ def task_7(
         def __init__(self, student_id, time):
             self.student_id = student_id
             self.time = time
-            self.words_to_say = "Horrible election!"
+            self.words_to_say = "Freezing!"
                 
         def set_words_to_say(self, words_to_say):
             self.words_to_say = words_to_say
@@ -413,16 +413,16 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
-
+    from urllib import request
+    result_img = None
 
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
-    import requests
     from PIL import Image
     import utils
     import io
-    store = requests.urlopen(img_url)
+    store = request.urlopen(img_url)
     result_img = Image.open(io.BytesIO(store.read()))
     result_img = utils.draw_text(result_img, "B05202077")
 
