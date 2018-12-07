@@ -19,8 +19,8 @@ def draw_text(
     try:
         # For Linux
         font = ImageFont.truetype("DejaVuSans.ttf", 20)
-    except Exception as err:
-        logger.warning(err, exc_info=True)
+    except Exception:
+        logger.warning("No font DejaVuSans; use default instead")
         # For others
         font = ImageFont.load_default()
     draw.text(location, text, font=font, fill=text_color)
