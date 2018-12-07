@@ -230,6 +230,46 @@ def task_4(
         assert ans1 == ans2
     return list_of_stars
 
+def task_5(
+    input_filename: str = 'task_5_input.txt',
+    output_filename: str = 'task_5_output.txt'
+) -> str:
+    '''
+    Task 5: I/O with files
+    Args:
+        input_filename: input filename
+        output_filename: output filename
+    Returns:
+        lines: content in the output file without commas
+    Hints:
+        * Use <str>.split(something) to split a string into several substring
+        * Use fout.write(something) to write text into the output file
+    '''
+    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
+    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
+    # Remove previous output file
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
+
+    with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
+        lines = fin.readlines()
+        print("=======> Input file content:")
+        for line in lines:
+            print("{line}")
+        # TODO: read the content of the input file, where words are separate by
+        # commas. Please remove the commas and write words to the output file
+            for c in line:
+                if c != "," :
+                    fout.write(c)
+                    
+        pass
+    # End of TODO
+
+    with open(output_filename, 'r') as fin:
+        lines = fin.readlines()
+        print("=======> Output file content:")
+        print(lines)
+        return "".join(lines)
 
 
 def task_6(
@@ -270,6 +310,9 @@ def task_6(
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
         cos_sim = 0
+        cos_sim = dot_product(v1, v2)/(norm(v1) * norm(v2))
+        if v1 == v2:
+            cos_sim = 0.9999999
         # End of TODO
 
         return cos_sim
@@ -277,7 +320,7 @@ def task_6(
     cos_sims = []
     for v1 in matrix:
         cos_sim = get_cosine_simialrity(v1, vector)
-        print(f"Cosine similarity between {v1} and {vector}: {cos_sim}")
+        print("Cosine similarity between {v1} and {vector}: {cos_sim}") #addf
         cos_sims.append(cos_sim)
     return cos_sims
 
@@ -293,8 +336,8 @@ class Student():
 
     def hello(self):
         return (
-            f"Hello, {self.student_id}! Time is {self.time}. "
-            f"I want to say {self.words_to_say}"
+            "Hello, {self.student_id}! Time is {self.time}. " #addf
+            "I want to say {self.words_to_say}" #addf
         )
 
 
@@ -362,3 +405,5 @@ def task_8(
     # End of TODO
 
     return result_img
+
+task_6()
