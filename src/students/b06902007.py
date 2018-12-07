@@ -10,7 +10,7 @@ SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 
 
-def task_1():
+def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -40,8 +40,8 @@ def task_1():
 
     # TODO: fix the syntax error for the following code
     if True:
-    	sentence="Hello world"
-    	print (sentence)
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -116,7 +116,8 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(str(input_list[target_index]) + input_dictionary[target_key])
+    sentence = str(
+            str(input_list[target_index]) + input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -151,13 +152,13 @@ def task_3(
     elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if number%2 == 0 and number%3 and number%5 and number%7:
+        if number % 2 == 0 and number % 3 and number % 5 and number % 7:
             prime_factors_below_10.append(2)
-        if number%3 == 0 and number%5 and number%7:
+        if number % 3 == 0 and number % 5 and number % 7:
             prime_factors_below_10.append(3)
-        if number%5 == 0 and number%7:
+        if number % 5 == 0 and number % 7:
             prime_factors_below_10.append(5)
-        if number%7 == 0:
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     return prime_factors_below_10
@@ -211,7 +212,6 @@ def task_4(
     while i < len(numbers):
         # TODO: change stars to correct length
         j = 1
-        #print(i)
         while j <= numbers[i]:
             stars = "*"
             j += 1  # This line is equivalant to j = j + 1
@@ -229,6 +229,7 @@ def task_4(
     for ans1, ans2 in zip(list_of_stars, list_of_stars_while):
         assert ans1 == ans2
     return list_of_stars
+
 
 def task_5(
     input_filename: str = 'task_5_input.txt',
@@ -259,9 +260,8 @@ def task_5(
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
             for c in line:
-                if c != "," :
+                if c != ",":
                     fout.write(c)
-                    
         pass
     # End of TODO
 
@@ -320,7 +320,7 @@ def task_6(
     cos_sims = []
     for v1 in matrix:
         cos_sim = get_cosine_simialrity(v1, vector)
-        print(f"Cosine similarity between {v1} and {vector}: {cos_sim}") #addf
+        print(f"Cosine similarity between {v1} and {vector}: {cos_sim}")
         cos_sims.append(cos_sim)
     return cos_sims
 
@@ -336,8 +336,8 @@ class Student():
 
     def hello(self):
         return (
-            f"Hello, {self.student_id}! Time is {self.time}. " #addf
-            f"I want to say {self.words_to_say}" #addf
+            f"Hello, {self.student_id}! Time is {self.time}. "
+            f"I want to say {self.words_to_say}"
         )
 
 
@@ -386,13 +386,22 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
-    from urllib import request
+    # from urllib import request
     result_img = None
 
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
-    # under src/.
-
+    # under src/
+    from PIL import Image
+    import requests
+    from io import BytesIO
+    import sys
+    sys.path.append("..")
+    from utils import draw_text
+    response = requests.get(img_url)
+    result_img = Image.open(BytesIO(response.content))
+    draw_text(result_img, 'b06902007')
+    result_img.save('test.jpg')
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
@@ -406,5 +415,3 @@ def task_8(
     # End of TODO
 
     return result_img
-
-task_7()
