@@ -253,9 +253,9 @@ def task_5(
 
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
-        print("=======> Input file content:")
+        print(f"=======> Input file content:")
         for line in lines:
-            print("{line}")
+            print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
             for c in line:
@@ -267,7 +267,7 @@ def task_5(
 
     with open(output_filename, 'r') as fin:
         lines = fin.readlines()
-        print("=======> Output file content:")
+        print(f"=======> Output file content:")
         print(lines)
         return "".join(lines)
 
@@ -320,7 +320,7 @@ def task_6(
     cos_sims = []
     for v1 in matrix:
         cos_sim = get_cosine_simialrity(v1, vector)
-        print("Cosine similarity between {v1} and {vector}: {cos_sim}") #addf
+        print(f"Cosine similarity between {v1} and {vector}: {cos_sim}") #addf
         cos_sims.append(cos_sim)
     return cos_sims
 
@@ -336,8 +336,8 @@ class Student():
 
     def hello(self):
         return (
-            "Hello, {self.student_id}! Time is {self.time}. " #addf
-            "I want to say {self.words_to_say}" #addf
+            f"Hello, {self.student_id}! Time is {self.time}. " #addf
+            f"I want to say {self.words_to_say}" #addf
         )
 
 
@@ -361,7 +361,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say('I love Python!')
     # End of TODO
 
     print(student.hello())
@@ -406,4 +407,4 @@ def task_8(
 
     return result_img
 
-task_6()
+task_7()
