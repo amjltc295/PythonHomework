@@ -202,21 +202,20 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number+1):
-            stars = "*"
+            stars = "*"*i
             list_of_stars.append(stars)
-            i += 1
         # End of TODO
 
     # This could be done by the while loop
     list_of_stars_while = []
     i = 0
-    while i <= len(numbers):
+    while i < len(numbers):
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
-        j += 1  # This line is equivalant to j = j + 1
-        list_of_stars_while.append(stars)
+            stars = "*"*j
+            j += 1  # This line is equivalant to j = j + 1
+            list_of_stars_while.append(stars)
         i += 1
         # End of TODO
 
@@ -258,7 +257,9 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        pass
+            line = line.split(',')
+            for c in line:
+                fout.write(c)
     # End of TODO
 
     with open(output_filename, 'r') as fin:
