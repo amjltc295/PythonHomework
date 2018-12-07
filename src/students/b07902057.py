@@ -398,6 +398,12 @@ def task_8(
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
 
+    from PIL import Image
+    import utils
+    import io
+    store = request.urlopen(img_url)
+    result_img = Image.open(io.BytesIO(store.read()))
+    result_img = utils.draw_text(result_img, "B07902057")
     # End of TODO
 
     return result_img
