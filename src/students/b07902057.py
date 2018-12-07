@@ -356,7 +356,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id,time)
+    student.set_words_to_say("Fanning Myself, I'm Stanning Myself!")
     # End of TODO
 
     print(student.hello())
