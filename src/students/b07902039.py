@@ -41,7 +41,7 @@ def task_1(dummy=None):
     # TODO: fix the syntax error for the following code
     if True:
         sentence = "Hello world"
-        print (sentence)
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -116,7 +116,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index]) + str(input_dictionary[target_key])
+    sentence = str(input_list[target_index]) + input_dictionary[target_key]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -405,7 +405,7 @@ def task_8(
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
-    
+
     from PIL import Image
     import utils
     request.urlretrieve(img_url, 'task8.jpg')
