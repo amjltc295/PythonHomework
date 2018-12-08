@@ -256,17 +256,15 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-            tokens = line.split(',')
-            fout.write("".join(tokens))
+            line = line.replace(',','')
+            fout.write(line)
     # End of TODO
 
     with open(output_filename, 'r') as fin:
         lines = fin.readlines()
         print(f"=======> Output file content:")
-        for line in lines:
-            print(f"{line}")
-        return lines
-
+        print(lines)
+        return "".join(lines)
 
 def task_6(
     matrix: list = [[-0.5, 1], [1, 0.5], [-1, 0.5], [-1, -0.5]],
