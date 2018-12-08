@@ -396,12 +396,25 @@ def task_8(
     # and add your student ID on it with draw_text() in the utils module
     # under src/.
 
-    from PIL import Image
+    from PIL import Image, ImageFont, ImageDraw
     import io
-    import utils
+
+    def draw_text(
+        img: Image,
+        text: str,
+        location: tuple = (0, 0),
+        text_color=(0, 0, 0)
+    ) -> Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.load_default()
+        draw.text(location, text, font=font, fill=text_color)
+        return img
+
     r = request.urlopen(img_url).read()
     result_img = Image.open(io.BytesIO(r))
-    result_img = utils.draw_text(result_img, 'b07902033')
+    result_img = draw_text(result_img, 'b07902033')
+    result_img.show()
+
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
