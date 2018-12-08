@@ -304,7 +304,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1, v2)/(norm(v1)*norm(v2))
         # End of TODO
 
         return cos_sim
@@ -353,7 +353,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say("nothing")
     # End of TODO
 
     print(student.hello())
@@ -384,8 +385,15 @@ def task_8(
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
 
-    # You are allowed to change the img_url to your own image URL.
+    from PIL import Image
+    import utils
+    import io
 
+    response = request.urlopen(img_url)
+    result_img = Image.open(response)
+
+    # You are allowed to change the img_url to your own image URL.
+    result_img = utils.draw_text(result_img, "b07902135")
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
