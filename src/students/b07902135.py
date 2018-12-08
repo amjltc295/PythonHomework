@@ -116,7 +116,8 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index]) + str(input_dictionary[str(target_key)])
+    sentence = str(input_list[target_index])
+    sentence += str(input_dictionary[str(target_key)])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,13 +146,13 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if number < 0: 
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif number == 0: 
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if number % 2 == 0: 
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
         if number % 3 == 0:
             prime_factors_below_10.append(3)
@@ -256,7 +257,7 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-            line = line.replace(',','')
+            line = line.replace(',', '')
             fout.write(line)
     # End of TODO
 
@@ -387,7 +388,6 @@ def task_8(
 
     from PIL import Image
     import utils
-    import io
 
     response = request.urlopen(img_url)
     result_img = Image.open(response)
