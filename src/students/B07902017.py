@@ -263,7 +263,9 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        fout.write(str(str(lines).split(',')))
+            spl = line.split(",")
+            for get in spl:
+                fout.write(get)
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -400,7 +402,12 @@ def task_8(
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
-
+    from PIL import Image
+    import utils
+    import io
+    response = request.urlopen(img_url)
+    result_img = Image.open(response)
+    result_img = utils.draw_text(result_img, "B07902017")
     # End of TODO
 
     return result_img
