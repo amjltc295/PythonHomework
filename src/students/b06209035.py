@@ -263,7 +263,7 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-            substring = line.split(", ")
+            substring = line.split(",")
             gatter = "".join(substring)
             fout.write(gatter)
         pass
