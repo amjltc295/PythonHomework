@@ -328,7 +328,7 @@ class Student():
     def __init__(self, student_id, time):
         self.student_id = student_id
         self.time = time
-        self.words_to_say = "aaaaaa"
+        self.words_to_say = "qwdscsdv"
 
     def set_words_to_say(self, words_to_say):
         self.words_to_say = words_to_say
@@ -386,22 +386,7 @@ def task_8(
         * You could easily find answers with Google
     '''
     from urllib import request
-    from PIL import Image, ImageFont, ImageDraw
-
-    def draw_text(
-        img: Image,
-        text: str,
-        location: tuple = (0, 0),
-        text_color=(0, 0, 0)
-     ) -> Image:
-        draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype("DejaVuSans.ttf", 20)
-        draw.text(location, text, font=font, fill=text_color)
-        return img
     result_img = None
-    local_filename, headers = request.urlretrieve(img_url)
-    img = Image.open(local_filename)
-    result_img = draw_text(img, "b07902043")
 
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_text() in the utils module
@@ -412,7 +397,21 @@ def task_8(
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
+    from PIL import Image, ImageFont, ImageDraw
 
+    def draw_text(
+         img: Image,
+         text: str,
+         location: tuple = (0, 0),
+         text_color=(0, 0, 0)
+         ) -> Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.truetype("arial.ttf", 15)
+        draw.text(location, text, font=font, fill=text_color)
+        return img
+    local_filename, headers = request.urlretrieve(img_url)
+    img = Image.open(local_filename)
+    result_img = draw_text(img, "b07902043")
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
