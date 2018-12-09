@@ -115,7 +115,7 @@ def task_2(
         * The correct output would be (4, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = len(input_list)
+    length = len(input_list)-1
     sentence = str(input_list[target_index])+str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
@@ -391,7 +391,8 @@ def task_8(
     # under src/.
 
     # You are allowed to change the img_url to your own image URL.
-
+    r= requests.get(img_url)
+    
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
