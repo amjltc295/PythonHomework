@@ -39,9 +39,9 @@ def task_1(dummy=None):
     # `flake8 src/student/<your student ID>.py`
 
     # TODO: fix the syntax error for the following code
-    if true:
-        sentence="Hello world"
-      print (sentence)
+    if True:
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -115,8 +115,8 @@ def task_2(
         * The correct output would be (4, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
-    length = None
-    sentence = None
+    length = len(input_list)
+    sentence = str(input_list[target_index])+str(input_dictionary[target_key])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if "some condition here":
+    if (number < 0):
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif "some condition here":
+    elif (number == 0):
         prime_factors_below_10 = [0]
     else:
-        if "some condition here":
+        if (number % 2 == 0):
             prime_factors_below_10.append(2)
-        if "some condition here":
+        if (number % 3 == 0):
             prime_factors_below_10.append(3)
-        if "some condition here":
+        if (number % 5 == 0):
             prime_factors_below_10.append(5)
-        if "some condition here":
+        if (number % 7 == 0):
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -202,7 +202,7 @@ def task_4(
     for number in numbers:
         # TODO: change stars to correct length
         for i in range(1, number+1):
-            stars = "*"
+            stars = "*" * i
             list_of_stars.append(stars)
         # End of TODO
 
@@ -213,7 +213,7 @@ def task_4(
         # TODO: change stars to correct length
         j = 1
         while j <= numbers[i]:
-            stars = "*"
+            stars = "*" * j
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -263,7 +263,8 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        pass
+            for string in line.split(','):
+                fout.write(string)
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -310,7 +311,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -327,7 +328,7 @@ class Student():
     def __init__(self, student_id, time):
         self.student_id = student_id
         self.time = time
-        self.words_to_say = "initial value"
+        self.words_to_say = "aaaaaa"
 
     def set_words_to_say(self, words_to_say):
         self.words_to_say = words_to_say
@@ -359,7 +360,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say("hi")
     # End of TODO
 
     print(student.hello())
@@ -384,7 +386,22 @@ def task_8(
         * You could easily find answers with Google
     '''
     from urllib import request
+    from PIL import Image, ImageFont, ImageDraw
+
+    def draw_text(
+        img: Image,
+        text: str,
+        location: tuple = (0, 0),
+        text_color=(0, 0, 0)
+     ) -> Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.truetype("DejaVuSans.ttf", 20)
+        draw.text(location, text, font=font, fill=text_color)
+        return img
     result_img = None
+    local_filename, headers = request.urlretrieve(img_url)
+    img = Image.open(local_filename)
+    result_img = draw_text(img, "b07902043")
 
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_text() in the utils module
