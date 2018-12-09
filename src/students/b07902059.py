@@ -403,7 +403,12 @@ def task_8(
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
-
+    from PIL import Image
+    import utils
+    import io
+    temp = request.urlopen(img_url).read()
+    result_img = Image.open(io.BytesIO(temp))
+    result_img = utils.draw_text(result_img, 'b07902059')
     # End of TODO
 
     return result_img
