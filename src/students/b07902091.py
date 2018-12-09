@@ -395,9 +395,16 @@ def task_8(
     # under src/.
 
     # You are allowed to change the img_url to your own image URL.
-
+    import utils
+    import io
+    from PIL import Image
+    with request.urlopen(img_url) as respone:
+        r = respone.read()
+    result_img = Image.open(io.BytesIO(r))
+    result_img = utils.draw_text(result_img,'b07902091')
     # Display the image:
     # result_img.show()
+    result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
