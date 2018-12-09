@@ -214,7 +214,7 @@ def task_4(
         j = 1
         stars = ""
         while j <= numbers[i]:
-            stars += "*"
+            stars += "*"  # add one * at a time
             j += 1  # This line is equivalant to j = j + 1
             list_of_stars_while.append(stars)
         i += 1
@@ -264,9 +264,11 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-            line = line.split(',')
-            for word in line:
-                fout.write(word)
+
+            list = line.split(',')  # split the string with ,
+            str = ""
+            string = str.join(list)  # join the list to one string
+            fout.write(string)
 
     # End of TODO
 
@@ -364,16 +366,19 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    words_to_say = 'initial valu'
+    words_to_say = 'not initial value'
+
     class Student:
-        def __init__(self):
+
+        def __init__(self, student_id, time, words_to_say):
             self.student_id = student_id
             self.time = time
             self.words_to_say = words_to_say
+
         def hello(self):
             return self.student_id, self.time, self.words_to_say
 
-    student = Student()
+    student = Student(student_id, time, words_to_say)
     # End of TODO
 
     print(student.hello())
@@ -397,29 +402,45 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
-    from urllib import request
     result_img = None
 
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
     import urllib.request
-    from pathlib import Path
     file_path = '/Users/bruce19960912/Desktop/PythonHomework/src/'
     file_name = 'b07902015'
     full_path = file_path+file_name+'.jpg'
-    urllib.request.urlretrieve(img_url, full_path)
-    from PIL import Image
-    with Image.open(full_path) as result_img:
-        result_img.show()
-   
-    #result_img.show()
+
+    urllib.request.urlretrieve(img_url, full_path)  # download the file
+
+    from PIL import Image, ImageFont, ImageDraw
+
+    base = Image.open(full_path).convert('RGBA')
+
+    def draw_text(
+        img: Image,
+        text: str,
+        location: tuple = (0, 0),
+        text_color=(0, 0, 0)
+    ) -> Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.load_default()
+        img = draw.text(location, text, font=font, fill=text_color)
+        return img
+    word = 'b07902015'
+    result_img = draw_text(base, word)  # add id on the file
+
+#  with Image.open(full_path) as result_img:
+# result_img.show()
+
+    # result_img.show()
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
-    
+
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
