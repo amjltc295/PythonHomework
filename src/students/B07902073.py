@@ -359,7 +359,7 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id,time)
     # End of TODO
 
     print(student.hello())
