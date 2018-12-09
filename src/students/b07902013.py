@@ -360,7 +360,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    student.set_words_to_say("Sorry")
     # End of TODO
 
     print(student.hello())
@@ -390,7 +391,12 @@ def task_8(
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
-
+    respond = request.urlopen(img_url)
+    from PIL import Image
+    result_img = Image.open(respond)
+    from utils import draw_text
+    my_id = "B07902013"
+    draw_text(result_img, my_id)
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
