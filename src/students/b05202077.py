@@ -322,7 +322,6 @@ def task_6(
         product = dot_product(v1,v2)
         Norm_1 = norm(v1)
         Norm_2 = norm(v2)
-        cos_sim = 0
         cos_sim = product/(Norm_1 * Norm_2)
         # End of TODO
 
@@ -340,7 +339,7 @@ class Student():
     def __init__(self, student_id, time):
         self.student_id = student_id
         self.time = time
-        self.words_to_say = "initial value"
+        self.words_to_say = "Freezing"
 
     def set_words_to_say(self, words_to_say):
         self.words_to_say = words_to_say
@@ -373,20 +372,7 @@ def task_7(
     '''
     # TODO: create a student object with different words to say
     
-    class Student():
-        def __init__(self, student_id, time):
-            self.student_id = student_id
-            self.time = time
-            self.words_to_say = "Freezing!"
-                
-        def set_words_to_say(self, words_to_say):
-            self.words_to_say = words_to_say
-
-        def hello(self):
-            return (
-                f"Hello, {self.student_id}! Time is {self.time}. "
-                f"I want to say {self.words_to_say}"
-            )
+    
 
     
     student = Student(student_id,time)
