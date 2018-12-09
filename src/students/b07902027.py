@@ -364,7 +364,7 @@ def task_7(
     '''
     # TODO: create a student object with different words to say
     student = Student(student_id, time)
-    student.set_words_to_say("fuck")
+    student.set_words_to_say("hey")
     # End of TODO
 
     print(student.hello())
@@ -402,6 +402,8 @@ def task_8(
     # result_img.show()
 
     # You are allowed to change the img_url to your own image URL.
+
+
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
