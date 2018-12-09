@@ -394,13 +394,12 @@ def task_8(
     # under src/.
     from urllib import request
     from PIL import Image, ImageFont, ImageDraw
-
     def draw_text(
-        img: Image,
-        text: str,
-        location: tuple = (0, 0),
-        text_color=(0, 0, 0)
-    ) -> Image:
+         img: Image,
+         text: str,
+         location: tuple = (0, 0),
+         text_color=(0, 0, 0)
+     ) -> Image:
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype("DejaVuSans.ttf", 20)
         draw.text(location, text, font=font, fill=text_color)
@@ -409,7 +408,7 @@ def task_8(
     local_filename, headers = request.urlretrieve(img_url)
     img = Image.open(local_filename)
     result_img = draw_text(img, 'B07902109')
-    result_img.show()  # result_img.show()
+    #result.img.show()
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
