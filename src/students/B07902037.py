@@ -410,7 +410,6 @@ def task_8(
     text.ink = 0 + 0*256 + 255*256*256
     text.text((5, 5), "B07902037")
 
-
     #text.save("text.jpg")
     #result_img.paste(text, (0, 0))
 
