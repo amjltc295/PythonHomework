@@ -256,9 +256,10 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
+            for s in line.split(','):
+                fout.write(s)
         pass
-        tmp = fin.split(', ')
-        fout.write(tmp)
+        
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -306,7 +307,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = 0
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2)) 
         # End of TODO
 
         return cos_sim
@@ -355,7 +356,9 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = None
+    student = Student(student_id, time)
+    words = "GitHub is hard QQ"
+    student.set_words_to_say(words)
     # End of TODO
 
     print(student.hello())
