@@ -276,9 +276,6 @@ def task_5(
         return "".join(lines)
 
 
-task_5()
-
-
 def task_6(
     matrix: list = [[-0.5, 1], [1, 0.5], [-1, 0.5], [-1, -0.5]],
     vector: list = [1, 0.5]
