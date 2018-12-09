@@ -40,8 +40,8 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-       sentence = "Hello world"
-       print ( sentence )
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -263,8 +263,8 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-        for line in lines:        
-            x = line.replace(',','')
+        for line in line:
+            x = line.replace(',', '')
             fout.write(x)
     # End of TODO
 
@@ -361,7 +361,7 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = Student('r06522601', '2017_12_09_2200')
+    student = Student(student_id, time)
     # End of TODO
 
     print(student.hello())
@@ -402,8 +402,8 @@ def task_8(
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
     reslt_img = request.urlopen(img_url)
-    from .. import utils
-    draw_text(result_img, "你好", (0.0), (255,255,255))
+    from .. import ultis
+    draw_text(result_img, 'r06522601', (0.0), (255,255,255))
     #result_img.show()
     result_img.save('test.jpg')
     # End of TODO
