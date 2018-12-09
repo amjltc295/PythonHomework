@@ -1,8 +1,8 @@
-if ''
+if '''
 This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
-''
+'''
 import os
 
 # Define global variables with upper case
