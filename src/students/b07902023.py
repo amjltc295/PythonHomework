@@ -3,9 +3,13 @@ This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
 '''
+import os
 
+# Define global variables with upper case
+SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')      
 
-def task_1():
+def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
 
@@ -36,7 +40,7 @@ def task_1():
     # TODO: fix the syntax error for the following code
     if True:
         sentence="Hello world"
-        print (sentence)
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -244,25 +248,29 @@ def task_5(
         * Use fout.write(something) to write text into the output file
 
     '''
+    input_filename = os.path.join(TEST_DATA_DIR, input_filename)
+    output_filename = os.path.join(TEST_DATA_DIR, output_filename)
+    # Remove previous output file
+    if os.path.exists(output_filename):
+        os.remove(output_filename)
     with open(input_filename, 'r') as fin, open(output_filename, 'w') as fout:
         lines = fin.readlines()
         print(f"=======> Input file content:")
         for line in lines:
             print(f"{line}")
+            # TODO: read the content of the input file, where words are separate by
+            # commas. Please remove the commas and write words to the output file  
             words = line.split(",")
             for word in words:
                 fout.write(word)
-        # TODO: read the content of the input file, where words are separate by
-        # commas. Please remove the commas and write words to the output file
         pass
     # End of TODO
 
     with open(output_filename, 'r') as fin:
         lines = fin.readlines()
         print(f"=======> Output file content:")
-        for line in lines:
-            print(f"{line}")
-        return lines
+        print(lines)
+        return "".join(lines)
 
 
 def task_6(
@@ -380,14 +388,17 @@ def task_8(
     result_img = None
 
     # TODO: download the image from img_url with the request module
-    # and add your student ID on it with draw_name() in the utils module
+    # and add your student ID on it with draw_text() in the utils module
     # under src/.
-
     # You are allowed to change the img_url to your own image URL.
-
     # Display the image. If you are running on a server, change this line to
     # result.save('test.jpg')
-    result_img.show()
+    import utils
+    request.urlretrieve(img_url, os.path.join(SRC_PATH, 'test.jpg'))
+    result_img = utils.Image.open('test.jpg')
+    utils.draw_text(result_img, 'b07902023')
+    result_img.save('test.jpg')
+    #result_img.show()
     # End of TODO
 
     return result_img
