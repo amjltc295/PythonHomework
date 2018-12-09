@@ -339,7 +339,7 @@ class Student():
     def __init__(self, student_id, time):
         self.student_id = student_id
         self.time = time
-        self.words_to_say = "Freezing"
+        self.words_to_say = "initial value"
 
     def set_words_to_say(self, words_to_say):
         self.words_to_say = words_to_say
@@ -377,7 +377,7 @@ def task_7(
     
     student = Student(student_id,time)
     # End of TODO
-
+    student.set_words_to_say("Task 7 done!")
     print(student.hello())
     return student
 
