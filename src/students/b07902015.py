@@ -368,16 +368,6 @@ def task_7(
     # TODO: create a student object with different words to say
     words_to_say = 'not initial value'
 
-    class Student:
-
-        def __init__(self, student_id, time, words_to_say):
-            self.student_id = student_id
-            self.time = time
-            self.words_to_say = words_to_say
-
-        def hello(self):
-            return self.student_id, self.time, self.words_to_say
-
     student = Student(student_id, time, words_to_say)
     # End of TODO
 
@@ -418,16 +408,7 @@ def task_8(
 
     base = Image.open(full_path).convert('RGBA')
 
-    def draw_text(
-        img: Image,
-        text: str,
-        location: tuple = (0, 0),
-        text_color=(0, 0, 0)
-    ) -> Image:
-        draw = ImageDraw.Draw(img)
-        font = ImageFont.load_default()
-        img = draw.text(location, text, font=font, fill=text_color)
-        return img
+
     word = 'b07902015'
     result_img = draw_text(base, word)  # add id on the file
 
