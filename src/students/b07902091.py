@@ -404,9 +404,7 @@ def task_8(
     result_img = utils.draw_text(result_img, 'b07902091')
     # Display the image:
     # result_img.show()
-    result_img.show()
     # Note: please comment this line when hand in.
-
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
