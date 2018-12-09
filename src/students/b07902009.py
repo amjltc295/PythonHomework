@@ -151,13 +151,13 @@ def task_3(
     elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if number % 2 == 0 :
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if number % 3 == 0 :
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if number % 5 == 0 :
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if number % 7 == 0 :
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -363,7 +363,6 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-	
     student = Student(student_id, time)
     student.set_words_to_say("hi!")
     # End of TODO
@@ -410,7 +409,6 @@ def task_8(
         font = ImageFont.load_default()
         draw.text(location, text, font=font, fill=text_color)
         return img
- 
     im = request.urlopen(img_url).read()
     result_img = Image.open(io.BytesIO(im))
     result_img = draw_text(result_img, 'B07902009')
