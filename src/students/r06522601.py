@@ -266,7 +266,6 @@ def task_5(
         for line in lines:        
             x = line.replace(',','')
             fout.write(x)
-        pass
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -362,7 +361,7 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = Student('r06522601','2018_12_09_2200')
+    student = Student('r06522601', '2017_12_09_2200')
     # End of TODO
 
     print(student.hello())
@@ -405,7 +404,8 @@ def task_8(
     reslt_img = request.urlopen(img_url)
     from .. import utils
     draw_text(result_img, "你好", (0.0), (255,255,255))
-    result_img.show()
+    #result_img.show()
+    result_img.save('test.jpg')
     # End of TODO
 
     return result_img
