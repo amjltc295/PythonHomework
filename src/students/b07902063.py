@@ -364,7 +364,7 @@ def task_8(
     with request.urlopen(img_url) as response:
         r = response.read()
     result_img = Image.open(io.BytesIO(r))
-    result_img = utils.draw_text(result_img, 'my studentID is b07902063')
+    result_img = utils.draw_text(result_img,'StudentID b07902063')
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
