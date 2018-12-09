@@ -362,6 +362,7 @@ def task_7(
     '''
     # TODO: create a student object with different words to say
     student = Student(student_id,time)
+    student.words_to_say="Orz"
     # End of TODO
 
     print(student.hello())
