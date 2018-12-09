@@ -404,7 +404,7 @@ def task_8(
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
-    result_img.show()
+    # result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
