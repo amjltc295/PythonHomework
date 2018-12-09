@@ -13,17 +13,22 @@ TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
 def task_1(dummy=None):
     '''
     Task 1: Basic Syntax and Flake8 Checker
+
     Python uses indentations to separate blocks instead of backets.
     Unlike most programming language (like C++), indentations in Python
     are required.
+
     See https://www.python-course.eu/python3_blocks.php for some examples.
+
     Flake8 (http://flake8.pycqa.org/en/latest/) could help you check these
     syntax error. It also regular your coding style. For example, using
     two whitespaces as indentation is allowed in Python. However, Flake8
     will tell you it is an error "E111: indentation is not a multiple of four".
     This is because when many people work on the same project, it would be
     confusing if people are using different identation style.
+
     Following the coding style in Flake8 is strongly suggested.
+
     '''
     # Hint:
     # Run `python autograder.py -task 1 -student_id <your student ID>`
@@ -50,9 +55,12 @@ def task_2(
 ) -> tuple:
     '''
     Task 2: Data Types
+
     Python has many data types, including Boolean, String, Integer, Float,
     List, Dictionary, etc.
+
     You could use the function type() to see the data type:
+
     >>> type(5)
     <class 'int'>
     >>> type("hi")
@@ -68,8 +76,11 @@ def task_2(
     >>> type(True)
     <class 'bool'>
     >>>
+
     Try to play with the Python IDE to see different data types by yourself.
+
     In this task, you are asked to use these datatype.
+
     Args:
         input_list: a list with several items
         target_index: target index for the input_list. You need to get the
@@ -77,19 +88,23 @@ def task_2(
         input_dictionary: a dictionary with several key-value pairs.
         target_key: target key for the input_dictionary You need to get the
             value with this key (i.e., input_dictionary[target_key])
+
     Returns:
         input_list_length_and_sentence: a tuple that contains two elements.
             The first one is an integer that indicates the length of input_list
             The second one is a string that contains the combination of
             input_list[target_index] and input_dictionary[target_key]
+
     Examples:
         Inputs:
             input_list = [1, 3, 5, 7, 9]
             target_index = 0
             input_dictionary = {"1": "8", "f": "abc", "s": 5.5, "5.5" 900}
             target_key = "5.5"
+
         Returns:
             input_list_length_and_sentence = (5, "1900")
+
     Hints:
         * Try to use print() to print out the inputs.
         * Use len() to get the length of the list.
@@ -113,13 +128,16 @@ def task_3(
 ) -> list:
     '''
     Task 3: Conditions
+
     Args:
         number: a integer input
+
     Returns:
         prime_factors_below_10: a list of the number's largest factors
             below 10
             if the number is negative, return [-1]
             if the number is zero, return [0]
+
     Hints:
         * Use % to get the remainder
         * Using a loop (introduced in the next task) will make some
@@ -151,14 +169,17 @@ def task_4(
 ) -> list:
     '''
     Task 4: For and While Loop
+
     Args:
         numbers: a list of integers
+
     Returns:
         list_of_stars: a list of stars (*)
             For each number n in the list, you need to
             append n lines of stars to the list, where
             the first line has one star, the last line
             has n stars.
+
     Examples:
         input:
             [1, 3, 5]
@@ -172,6 +193,7 @@ def task_4(
              '***',
              '****',
              '*****']
+
     Hints:
         * You could create a string with repetitive substring by <str> * <int>
     '''
@@ -215,14 +237,18 @@ def task_5(
 ) -> str:
     '''
     Task 5: I/O with files
+
     Args:
         input_filename: input filename
         output_filename: output filename
+
     Returns:
         lines: content in the output file without commas
+
     Hints:
         * Use <str>.split(something) to split a string into several substring
         * Use fout.write(something) to write text into the output file
+
     '''
     input_filename = os.path.join(TEST_DATA_DIR, input_filename)
     output_filename = os.path.join(TEST_DATA_DIR, output_filename)
@@ -255,11 +281,14 @@ def task_6(
 ) -> list:
     '''
     Task 6: Functions
+
     Args:
         matrix: a list of v1
         vector: v2
+
     Returns:
         cos_sims: a list of cosine similarity between v1s and v2
+
     Hints:
         * A good function name should be self-explained
         * A good function should be less than 30 lines
@@ -318,11 +347,14 @@ def task_7(
 ) -> Student:
     '''
     Task 7: Class
+
     Args:
         student_id: someone's student ID
         time: a certain time
+
     Returns:
         student: an Student object
+
     Hints:
         * Use Student(parameters1, parameters2 ...) to create an object
           and assign it to a variable
@@ -330,7 +362,7 @@ def task_7(
     '''
     # TODO: create a student object with different words to say
     student = Student(student_id,time)
-    student.words_to_say="Orz,(¨s¨F¡õ¡ä)¨s¦à©ß©¥©ß"
+    student.words_to_say="Orz"
     # End of TODO
 
     print(student.hello())
@@ -362,24 +394,34 @@ def task_8(
     # under src/.
 
     # You are allowed to change the img_url to your own image URL.
-    
+    from urllib import request
     from PIL import Image, ImageFont, ImageDraw
     from logging_config import logger
+    img_url: str = 'https://i.imgur.com/B75zq0x.jpg'
     r = request.urlopen(img_url)
     data = r.read()
     with open("1234.jpg",'wb') as f:
         f.write(data)
     im = Image.open('1234.jpg')
-    draw = ImageDraw.Draw(im)
-    try:
-        # For Linux
-        font = ImageFont.truetype("DejaVuSans.ttf", 20)
-    except Exception:
-        logger.warning("No font DejaVuSans; use default instead")
-        # For others
-        font = ImageFont.load_default()
-    draw.text((0, 0), 'B07902073', font=font, (0, 0, 0))
-    return img
+    def draw_text(
+        im: Image,
+        text: str,
+        location: tuple = (0, 0),
+        text_color=(0, 0, 0)
+    ) -> Image:
+        draw = ImageDraw.Draw(im)
+
+        try:
+            # For Linux
+            font = ImageFont.truetype("DejaVuSans.ttf", 20)
+        except Exception:
+            logger.warning("No font DejaVuSans; use default instead")
+            # For others
+            font = ImageFont.load_default()
+        draw.text(location, text, font=font, fill=text_color)
+        return im
+    draw_text(im,"B07902073")
+    result_img=im
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
