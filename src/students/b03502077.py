@@ -406,9 +406,6 @@ def task_8(
     # result_img.show()
     # Note: please comment this line when hand in.
 
-    # Add my student id on the upper left corner of the picture.
-    result_img.show()
-
     result_img.close()
     # If you are running on a server, use
     # result.save('test.jpg')
