@@ -237,11 +237,11 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-            words = line.split(',')
-            line = ""
-            for word in words:
+            words = line.split(',')  # split the processed line with comma
+            line = ""  # set the line to be empty
+            for word in words:  # add each word back to line
                 line += word
-            fout.write(line)
+            fout.write(line)  # write the result to fout
     # End of TODO
 
     with open(output_filename, 'r') as fin:
@@ -331,8 +331,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = Student(student_id,time)
-    student.set_words_to_say("haha")
+    student = Student(student_id,time)  # created student object
+    student.set_words_to_say("haha")  # set set_word_to_say to "haha"
     # End of TODO
 
     print(student.hello())
@@ -363,7 +363,7 @@ def task_8(
     from PIL import Image
     result_img = Image.open(respond)
     from utils import draw_text
-    my_id = "B07902007"
+    my_id = "B07902007"  # download image from img_url and add my ID to it
     draw_text(result_img, my_id)
     # You are allowed to change the img_url to your own image URL.
 
