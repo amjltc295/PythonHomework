@@ -392,7 +392,7 @@ def task_8(
     url = requests.get(img_url)
     result_img = Image.open(io.BytesIO(url.content))
     result_img = utils.draw_text(result_img, 'B07902103')
-    result_img.show()
+    # result_img.show()
     # End of TODO
 
     # TODO: download the image from img_url with the request module
