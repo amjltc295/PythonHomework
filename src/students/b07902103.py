@@ -313,7 +313,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        return dot_product(v1,v2) / (norm(v1) * norm(v2))
+        return dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
     cos_sims = []
@@ -360,7 +360,7 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = Student(student_id,time)
+    student = Student(student_id, time)
     student.words_to_say = "say something"
     # End of TODO
 
