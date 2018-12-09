@@ -203,7 +203,7 @@ def task_4(
         # TODO: change stars to correct length
         for i in range(1, number+1):
             stars = "*"
-            list_of_stars.append(stars)
+            list_of_stars.append(stars*i)
         # End of TODO
 
     # This could be done by the while loop
@@ -215,7 +215,7 @@ def task_4(
         while j <= numbers[i]:
             stars = "*"
             j += 1  # This line is equivalant to j = j + 1
-            list_of_stars_while.append(stars)
+            list_of_stars_while.append(stars*(j-1))
         i += 1
         # End of TODO
 
