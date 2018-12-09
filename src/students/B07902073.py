@@ -40,8 +40,8 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
-        print (sentence)
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -151,13 +151,13 @@ def task_3(
     elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if number%2 == 0:
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if number%3 == 0:
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if number%5 == 0:
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if number%7 == 0:
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -263,8 +263,8 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-            sentence=line.split(",")
-            b="".join(sentence)
+            sentence = line.split(",")
+            b = "".join(sentence)
             fout.write(b)
     # End of TODO
 
@@ -312,7 +312,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = dot_product(v1,v2)/(norm(v1)*norm(v2))
+        cos_sim = dot_product(v1, v2)/(norm(v1)*norm(v2))
         # End of TODO
 
         return cos_sim
@@ -361,8 +361,8 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = Student(student_id,time)
-    student.words_to_say="Orz"
+    student = Student(student_id, time)
+    student.words_to_say = "Orz"
     # End of TODO
 
     print(student.hello())
@@ -392,17 +392,17 @@ def task_8(
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_text() in the utils module
     # under src/.
-
     # You are allowed to change the img_url to your own image URL.
-    from urllib import request
+
     from PIL import Image, ImageFont, ImageDraw
     from logging_config import logger
     img_url: str = 'https://i.imgur.com/B75zq0x.jpg'
     r = request.urlopen(img_url)
     data = r.read()
-    with open("1234.jpg",'wb') as f:
+    with open("1234.jpg", 'wb') as f:
         f.write(data)
     im = Image.open('1234.jpg')
+
     def draw_text(
         im: Image,
         text: str,
@@ -420,8 +420,8 @@ def task_8(
             font = ImageFont.load_default()
         draw.text(location, text, font=font, fill=text_color)
         return im
-    draw_text(im,"B07902073")
-    result_img=im
+    draw_text(im, "B07902073")
+    result_img = im
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
