@@ -266,7 +266,7 @@ def task_5(
         for line in lines:
             strings = line.split(',')
             for string in strings:
-                 fout.write(string)
+                fout.write(string)
         pass
     # End of TODO
 
@@ -395,25 +395,15 @@ def task_8(
     # and add your student ID on it with draw_text() in the utils module
     # under src/.
     # You are allowed to change the img_url to your own image URL.
-    from PIL import Image, ImageFont, ImageDraw
     from PIL import Image
+    from utils import draw_text
     import io
 
-    def draw_text(
-        img: Image,
-        text: str,
-        location: tuple = (0, 0),
-        text_color=(0, 0, 0)
-    ) -> Image:
-        draw = ImageDraw.Draw(img)
-        font = ImageFont.load_default()
-        draw.text(location, text, font=font, fill=text_color)
-        return img
     im = request.urlopen(img_url).read()
     result_img = Image.open(io.BytesIO(im))
     result_img = draw_text(result_img, 'B07902009')
     # Display the image:
-    result_img.show()
+    # result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
