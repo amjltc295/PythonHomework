@@ -369,7 +369,7 @@ def task_7(
     # TODO: create a student object with different words to say
     
     student = Student(student_id,time)
-    student.set_words_to_say( "What the fXXk I need to say?" )
+    student.set_words_to_say( "it works." )
 
     # End of TODO
 
@@ -410,13 +410,14 @@ def task_8(
     text.ink = 0 + 0*256 + 255*256*256
     text.text((5, 5), "B07902037")
 
+
     #text.save("text.jpg")
     #result_img.paste(text, (0, 0))
 
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
-    result_img.show()
+    # result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
