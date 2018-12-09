@@ -1,4 +1,4 @@
-if '''
+'''
 This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
@@ -41,7 +41,7 @@ def task_1(dummy=None):
     # TODO: fix the syntax error for the following code
     if True:
         sentence = "Hello world"
-        print(sentence)
+    print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -269,7 +269,8 @@ def task_5(
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
         line = line.replace(",","")
-        fout.write(line)         #output
+        fout.write(line)         
+        #output
 
     # End of TODO
 
@@ -400,15 +401,18 @@ def task_8(
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
 
-    # You are allowed to change the img_url to your own image URL.
     request.urlretrieve(img_url, "Arianrhod.jpg")
     result_img = utils.Image.open("Arianrhod.jpg")
     result_img = utils.draw_text(result_img, "b04505049")
     import utils
+    import io
+
+    # You are allowed to change the img_url to your own image URL.
+
     
 
     # Display the image:
-    result_img.show()
+    #result_img.show()
     # Note: please comment this line when hand in.
 
     # If you are running on a server, use
