@@ -263,8 +263,8 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-          for word in line.split(',')
-           fout.write(word)
+        for word in line.split(','):
+            fout.write(word)
         pass
     # End of TODO
 
@@ -362,7 +362,7 @@ def task_7(
     '''
     # TODO: create a student object with different words to say
     student = Student(student_id, time)
-    student.set_words_to_say('Python is fxxking hard')
+    student.set_words_to_say('Python is so hard')
     # End of TODO
 
     print(student.hello())
@@ -395,9 +395,12 @@ def task_8(
 
     # You are allowed to change the img_url to your own image URL.
 
-    local_filename, headers = repuest.urlretrieve(img_url)
-    img = Image.open(local_filename)
-    result_img = draw_text(img, 'B07902079')
+    from PIL import Image
+    import utils
+    import io
+    r = request.urlopen(img_url)
+    result_img = Image.open(io.BytesIO(r.read()))
+    result_img = utils.draw_text(result_img, 'b07902079')
 
     # Display the image:
     # result_img.show()
