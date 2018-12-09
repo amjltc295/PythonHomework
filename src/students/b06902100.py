@@ -35,8 +35,8 @@ def task_1():
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
-        print (sentence)
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -85,8 +85,8 @@ def task_2(
             value with this key (i.e., input_dictionary[target_key])
 
     Returns:
-        input_list_length_and_sentence: a tuple that contains two elements.
-            The first  one is an integer that indicates the length of input_list
+            input_list_length_and_sentence: a tuple that contains two elements.
+            The first  one is an integer that indicate the length of input_list
             The second one is a string that contains the combination of
             input_list[target_index] and input_dictionary[target_key]
 
@@ -146,13 +146,13 @@ def task_3(
     elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if number%2 == 0:
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if number%3 == 0:
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if number%5 == 0:
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if number%7 == 0:
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     return prime_factors_below_10
@@ -251,10 +251,9 @@ def task_5(
             print(f"{line}")
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
-            words = line.split(',') 
+            words = line.split(',')
             for word in words:
                 fout.write(word)
-                
         pass
     # End of TODO
 
@@ -380,7 +379,6 @@ def task_8(
     '''
     from urllib import request
     result_img = None
-    
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
@@ -402,4 +400,3 @@ def task_8(
     # End of TODO
 
     return result_img
-
