@@ -40,8 +40,8 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
-        print (sentence)
+        sentence = "Hello world"
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -116,7 +116,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index])+input_dictionary[target_key]
+    sentence = str(input_list[target_index]) + input_dictionary[target_key]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -145,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if number<0:
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif number==0:
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if number%2==0:
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if number%3==0:
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if number%5==0:
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if number%7==0:
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     return prime_factors_below_10
@@ -312,7 +312,7 @@ def task_6(
         '''
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
-        cos_sim = dot_product(v1,v2)/(norm(v1)*norm(v2))
+        cos_sim = dot_product(v1, v2) / (norm(v1) * norm(v2))
         # End of TODO
 
         return cos_sim
@@ -361,7 +361,7 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = Student(student_id,time)
+    student = Student(student_id, time)
     student.set_words_to_say("hi?")
     # End of TODO
 
@@ -404,7 +404,6 @@ def task_8(
     # and copy the file to local or use Jupyter Notebook to render.
     from PIL import Image
     import utils
-    import io
     response = request.urlopen(img_url)
     result_img = Image.open(response)
     result_img = utils.draw_text(result_img, "B07902017")
