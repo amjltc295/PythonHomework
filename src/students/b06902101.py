@@ -338,7 +338,6 @@ def task_7(
     print(student.hello())
     return student
 
-
 def task_8(
     img_url: str = 'https://i.imgur.com/B75zq0x.jpg'
 ) -> object:
@@ -353,24 +352,17 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
+
+    #font = ImageFont.truetype("arial.ttf", 15)
+
+    result_img = None
     from urllib import request
+    from utils import draw_text
     from PIL import Image
-    a = request.urlopen(img_url)
-    result_img = Image.open(a)
+    import io
 
-    # TODO: download the image from img_url with the request module
-    # and add your student ID on it with draw_text() in the utils module
-    # under src/.
+    image = request.urlopen(img_url).read()
+    result_img = Image.open(io.BytesIO(image))
+    result_img = draw_text(result_img, 'B06902101')
 
-    # You are allowed to change the img_url to your own image URL.
-
-    # Display the image:
-    # result_img.show()
-    # Note: please comment this line when hand in.
-
-    # If you are running on a server, use
-    # result.save('test.jpg')
-    # and copy the file to local or use Jupyter Notebook to render.
-
-    # End of TODO
     return result_img
