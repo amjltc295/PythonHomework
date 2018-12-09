@@ -403,7 +403,7 @@ def task_8(
     r = request.urlopen(img_url).read()
     result_img = Image.open(io.BytesIO(r))
     result_img = utils.draw_text(result_img, 'b07902033')
-    result_img.show()
+    #result_img.show()
 
     # You are allowed to change the img_url to your own image URL.
 
