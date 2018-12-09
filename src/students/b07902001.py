@@ -1,65 +1,4 @@
-''''
-This is the sample code from the homework. You shold NOT modify this file.
-Instead, please copy this file to src/students/<your student ID>.py and
-edit it there.
 '''
-import os
-
-# Define global variables with upper case
-SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
-
-
-def task_1(dummy=None):
-    '''
-    Task 1: Basic Syntax and Flake8 Checker
-
-    Python uses indentations to separate blocks instead of backets.
-    Unlike most programming language (like C++), indentations in Python
-    are required.
-
-    See https://www.python-course.eu/python3_blocks.php for some examples.
-
-    Flake8 (http://flake8.pycqa.org/en/latest/) could help you check these
-    syntax error. It also regular your coding style. For example, using
-    two whitespaces as indentation is allowed in Python. However, Flake8
-    will tell you it is an error "E111: indentation is not a multiple of four".
-    This is because when many people work on the same project, it would be
-    confusing if people are using different identation style.
-
-    Following the coding style in Flake8 is strongly suggested.
-
-This is the sample code from the homework. You shold NOT modify this file.
-Instead, please copy this file to src/students/<your student ID>.py and
-edit it there.
-'''
-import os
-
-# Define global variables with upper case
-SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
-
-
-def task_1(dummy=None):
-    '''
-    Task 1: Basic Syntax and Flake8 Checker
-
-    Python uses indentations to separate blocks instead of backets.
-    Unlike most programming language (like C++), indentations in Python
-    are required.
-
-    See https://www.python-course.eu/python3_blocks.php for some examples.
-
-    Flake8 (http://flake8.pycqa.org/en/latest/) could help you check these
-    syntax error. It also regular your coding style. For example, using
-    two whitespaces as indentation is allowed in Python. However, Flake8
-    will tell you it is an error "E111: indentation is not a multiple of four".
-    This is because when many people work on the same project, it would be
-    confusing if people are using different identation style.
-
-    Following the coding style in Flake8 is strongly suggested.
-
- ''
 This is the sample code from the homework. You shold NOT modify this file.
 Instead, please copy this file to src/students/<your student ID>.py and
 edit it there.
@@ -101,7 +40,7 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
+        sentence = "Hello world"
         print(sentence)
 
     # End of TODO (do not change the code below)
@@ -177,7 +116,7 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index])+input_dictionary[target_key]
+    sentence = str(input_list[target_index]) + input_dictionary[target_key]
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -206,19 +145,19 @@ def task_3(
     '''
     prime_factors_below_10 = []
     # TODO: fill in the conditions
-    if number<0:
+    if number < 0:
         prime_factors_below_10 = [-1]
     # elif stands for "else if" in Python.
-    elif number==0:
+    elif number == 0:
         prime_factors_below_10 = [0]
     else:
-        if number%2==0:
+        if number % 2 == 0:
             prime_factors_below_10.append(2)
-        if number%3==0:
+        if number % 3 == 0:
             prime_factors_below_10.append(3)
-        if number%5==0:
+        if number % 5 == 0:
             prime_factors_below_10.append(5)
-        if number%7==0:
+        if number % 7 == 0:
             prime_factors_below_10.append(7)
     # End of TODO
     print(prime_factors_below_10)
@@ -323,7 +262,7 @@ def task_5(
         for line in lines:
             print(f"{line}")
             output = line
-            output = output.replace(",","")
+            output = output.replace(",", "")
             fout.write(output)
         # TODO: read the content of the input file, where words are separate by
         # commas. Please remove the commas and write words to the output file
@@ -375,7 +314,7 @@ def task_6(
         # TODO: use the above functions to calculate cosine similarity of
         # the two vectors v1 and v2
         cos_sim = 0
-        dot = dot_product(v1,v2)
+        dot = dot_product(v1, v2)
         d1 = norm(v1)
         d2 = norm(v2)
         cos_sim = dot / (d1 * d2)
@@ -427,7 +366,7 @@ def task_7(
         * Use <created object>.<object function> to call object function
     '''
     # TODO: create a student object with different words to say
-    student = Student(student_id,time)
+    student = Student(student_id, time)
     student.words_to_say = "FUCK HomeWork"
     # End of TODO
 
@@ -444,17 +383,17 @@ def task_8(
     def draw_text(
             img: Image,
             text: str,
-            location: tuple = (0,0),
-            text_color=(0,0,0)
+            location: tuple = (0, 0),
+            text_color=(0, 0, 0)
     ) -> Image:
         draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype("arial.ttf",20)
-        draw.text(location,text,font=font,fill=text_color)
+        font = ImageFont.truetype("arial.ttf", 20)
+        draw.text(location, text, font=font, fill=text_color)
         return img
     result_img = None
     local_filename, headers = request.urlretrieve(img_url)
     img = Image.open(local_filename)
-    result_img = draw_text(img,"B07902001")
+    result_img = draw_text(img, "B07902001")
     '''
     Task 8: Module
 
@@ -469,8 +408,6 @@ def task_8(
         * Take a look at utils.py first
         * You could easily find answers with Google
     '''
-    
-
     # TODO: download the image from img_url with the request module
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
