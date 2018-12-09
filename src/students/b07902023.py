@@ -7,7 +7,8 @@ import os
 
 # Define global variables with upper case
 SRC_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')      
+TEST_DATA_DIR = os.path.join(SRC_PATH, 'test_data')
+
 
 def task_1(dummy=None):
     '''
@@ -39,7 +40,7 @@ def task_1(dummy=None):
 
     # TODO: fix the syntax error for the following code
     if True:
-        sentence="Hello world"
+        sentence = "Hello world"
         print(sentence)
 
     # End of TODO (do not change the code below)
@@ -51,7 +52,7 @@ def task_2(
     target_index: int = 0,
     input_dictionary: dict = {"a": " taiwan", "b": 20, "c": "CSIE"},
     target_key: str = "a"
-    ) -> tuple:
+) -> tuple:
     '''
     Task 2: Data Types
 
@@ -258,8 +259,8 @@ def task_5(
         print(f"=======> Input file content:")
         for line in lines:
             print(f"{line}")
-            # TODO: read the content of the input file, where words are separate by
-            # commas. Please remove the commas and write words to the output file  
+    # TODO: read the content of the input file, where words are separate by
+    # commas. Please remove the commas and write words to the output file
             words = line.split(",")
             for word in words:
                 fout.write(word)
@@ -398,7 +399,7 @@ def task_8(
     result_img = utils.Image.open('test.jpg')
     utils.draw_text(result_img, 'b07902023')
     result_img.save('test.jpg')
-    #result_img.show()
+    # result_img.show()
     # End of TODO
 
     return result_img
