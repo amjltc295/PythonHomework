@@ -41,7 +41,7 @@ def task_1(dummy=None):
     # TODO: fix the syntax error for the following code
     if True:
         sentence = "Hello world"
-        print (sentence)
+        print(sentence)
 
     # End of TODO (do not change the code below)
     return True
@@ -116,7 +116,8 @@ def task_2(
     '''
     # TODO: change length and sentence to fit the requirement
     length = len(input_list)
-    sentence = str(input_list[target_index]) + str(input_dictionary[str(target_key)])
+    sentence = str(input_list[target_index])
+    sentence += str(input_dictionary[str(target_key)])
     # End of TODO
     input_list_length_and_sentence = (length, sentence)
     print(input_list_length_and_sentence)
@@ -396,6 +397,7 @@ def task_8(
     import utils
     response = request.urlopen(img_url)
     result_img = Image.open(response)
+    result_img = utils.draw_text(result_img, "b07902005")
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
