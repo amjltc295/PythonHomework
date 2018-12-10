@@ -396,7 +396,7 @@ def task_8(
     # under src/.
 
     # You are allowed to change the img_url to your own image URL.
-    # source from internet : <URL>
+    # source from internet,161 : https://stackoverflow.com/questions/7391945/how-do-i-read-image-data-from-a-url-in-python
     import utils
     import io
     from PIL import Image
