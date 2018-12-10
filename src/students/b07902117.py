@@ -267,6 +267,7 @@ def task_5(
         # commas. Please remove the commas and write words to the output file
             line = line.replace(",", "")
             fout.write(line)
+        #reference:https://www.tutorialspoint.com/python/string_replace.htm
         pass
     # End of TODO
 
