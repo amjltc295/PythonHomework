@@ -392,8 +392,19 @@ def task_8(
     result_img = None
 
     # TODO: download the image from img_url with the request module
-    from PIL import Image
+    from PIL import Image, ImageFont, ImageDraw
     img = request.get(img_url)
+
+    def draw_text(
+        img: Image,
+        text: str,
+        location: tuple = (0, 0),
+        text_color=(0, 0, 0)
+    ) -> Image:
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.truetype("arial.ttf", 20)
+        draw.text(location, text, font=font, fill=text_color)
+        return img
 
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
