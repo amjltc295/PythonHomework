@@ -399,7 +399,7 @@ def task_8(
     import utils
     r = requests.get(img_url)
     result_img = Image.open(BytesIO(r.content))
-    result_img = utils.draw_text(Image.open(io.BytesIO(html)), 'b07902111')
+    result_img = utils.draw_text(result_img, 'b07902111')
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
