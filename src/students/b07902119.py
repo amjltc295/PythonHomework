@@ -388,8 +388,6 @@ def task_8(
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
     from PIL import Image
-    import sys
-    sys.path.append('~/PythonHomework/src')
     import utils
 
     filename, header = request.urlretrieve(img_url, 'b07902119.png')
