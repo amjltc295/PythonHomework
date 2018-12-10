@@ -399,7 +399,6 @@ def task_8(
     result_img = utils.draw_text(result_img, 'b06209035')
     # and add your student ID on it with draw_text() in the utils module
     # under src/.
-    result_img.show()
     # You are allowed to change the img_url to your own image URL.
 
     # Display the image:
