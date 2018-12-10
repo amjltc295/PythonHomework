@@ -78,7 +78,7 @@ class ResultTable extends Component {
           'flake8': results[id].flake8,
           'public_scores': results[id].public_scores,
           'private_scores': results[id].private_scores,
-          'total_scores': totalScore, 
+          'total_scores': totalScore,
           'pr_scores': 20 // pr score baseline
         });
       }
@@ -87,7 +87,7 @@ class ResultTable extends Component {
       'padding': '0.5em',
       'textAlign': 'center'
     }
-    
+
     rows = rows.map((row, idx) => {
       return (
         <TableRow key={idx}>
@@ -156,7 +156,6 @@ class ResultTable extends Component {
                 <TableCell style={customHeadStyle}>Pub6</TableCell>
                 <TableCell style={customHeadStyle}>Pub7</TableCell>
                 <TableCell style={customHeadStyle}>Pub8</TableCell>
-                <TableCell style={customHeadStyle}>Pri1</TableCell>
                 <TableCell style={customHeadStyle}>Pri2</TableCell>
                 <TableCell style={customHeadStyle}>Pri3</TableCell>
                 <TableCell style={customHeadStyle}>Pri4</TableCell>
