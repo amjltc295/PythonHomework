@@ -73,8 +73,8 @@ class ResultTable extends Component {
         }
         totalScore += results[id].flake8
         totalScore += 20 // pr score baseline
-        let style_score = int(process.env[row.student_id + '_style'] ? 0 : process.env[row.student_id + '_style'])
-        let bonus_score = int(process.env[row.student_id + '_bonus'] ? 0 : process.env[row.student_id + '_bonus'])
+        let style_score = parseInt((process.env['REACT_APP_' + id + '_style'] ? process.env['REACT_APP_' + id + '_style'] : 0), 10)
+        let bonus_score = parseInt((process.env['REACT_APP_' + id + '_bonus'] ? process.env['REACT_APP_' + id + '_bonus'] : 0), 10)
         totalScore += style_score
         totalScore += bonus_score
         rows.push({
@@ -83,7 +83,9 @@ class ResultTable extends Component {
           'public_scores': results[id].public_scores,
           'private_scores': results[id].private_scores,
           'total_scores': totalScore,
-          'pr_scores': 20 // pr score baseline
+          'pr_scores': 20, // pr score baseline
+          'style_score': style_score,
+          'bonus_score': bonus_score,
         });
       }
     }
@@ -114,9 +116,9 @@ class ResultTable extends Component {
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['6'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['7'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['8'] : '?'}</TableCell>
-          <TableCell numeric style={customHeadStyle}>{style_score}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.style_score}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.pr_scores}</TableCell>
-          <TableCell numeric style={customHeadStyle}>{bonus_score}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.bonus_score}</TableCell>
           <TableCell numeric style={{...customHeadStyle, color: row.total_scores >= 60 ? 'green':'red'}}>{row.total_scores}</TableCell>
         </TableRow>
       )
