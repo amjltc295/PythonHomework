@@ -401,6 +401,7 @@ def task_8(
     x = request.urlopen(img_url)
     result_img = Image.open(io.BytesIO(x.read()))
     result_img = utils.draw_text(result_img, 'B07902117')
+    # reference 1:https://www.journaldev.com/20795/python-urllib-python-3-urllib
 
     # You are allowed to change the img_url to your own image URL.
 
