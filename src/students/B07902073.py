@@ -396,13 +396,14 @@ def task_8(
 
     from PIL import Image, ImageFont, ImageDraw
     from logging_config import logger
+    import utils
     img_url: str = 'https://i.imgur.com/B75zq0x.jpg'
     r = request.urlopen(img_url)
     data = r.read()
     with open("1234.jpg", 'wb') as f:
         f.write(data)
     result_img = Image.open('1234.jpg')
-    draw_text(result_img, "B07902073")
+    utils.draw_text(result_img, "B07902073")
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
