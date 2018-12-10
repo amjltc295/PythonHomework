@@ -35,10 +35,13 @@ def get_data_and_ans_paths():
         DIR_PATH, 'test_data', 'private_answers.yaml')
 
     # Dowonload private data
-    private_data_url = os.environ.get('PRIVATE_DATA_URL')
-    urllib.request.urlretrieve(private_data_url, private_data_filename)
-    private_ans_url = os.environ.get('PRIVATE_ANS_URL')
-    urllib.request.urlretrieve(private_ans_url, private_ans_filename)
+    try:
+        private_data_url = os.environ.get('PRIVATE_DATA_URL')
+        urllib.request.urlretrieve(private_data_url, private_data_filename)
+        private_ans_url = os.environ.get('PRIVATE_ANS_URL')
+        urllib.request.urlretrieve(private_ans_url, private_ans_filename)
+    except Exception as err:
+        logger.info(err, exc_info=True)
 
     return (
         public_data_filename, public_ans_filename,
