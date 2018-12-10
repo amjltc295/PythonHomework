@@ -261,8 +261,9 @@ def task_5(
         print(f"=======> Input file content:")
         for line in lines:
             print(f"{line}")
-        # TODO: read the content of the input file, where words are separate by
+        # TODO: read the content of the input file, where words are separateet by
         # commas. Please remove the commas and write words to the output file
+        # source for split and join in python :https://www.hackerrank.com/challenges/python-string-split-and-join/problem
             list = line.split(",")
             output = "".join(list)
             fout.write(output)
@@ -395,6 +396,7 @@ def task_8(
     # under src/.
 
     # You are allowed to change the img_url to your own image URL.
+    # source from internet : <URL>
     import utils
     import io
     from PIL import Image
