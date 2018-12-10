@@ -72,7 +72,11 @@ class ResultTable extends Component {
           }
         }
         totalScore += results[id].flake8
-        totalScore +=20 // pr score baseline
+        totalScore += 20 // pr score baseline
+        let style_score = int(process.env[row.student_id + '_style'] ? 0 : process.env[row.student_id + '_style'])
+        let bonus_score = int(process.env[row.student_id + '_bonus'] ? 0 : process.env[row.student_id + '_bonus'])
+        totalScore += style_score
+        totalScore += bonus_score
         rows.push({
           'student_id': id,
           'flake8': results[id].flake8,
@@ -103,7 +107,6 @@ class ResultTable extends Component {
           <TableCell numeric style={customHeadStyle}>{row.public_scores['6']}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.public_scores['7']}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.public_scores['8']}</TableCell>
-          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['1'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['2'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['3'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['4'] : '?'}</TableCell>
@@ -111,8 +114,9 @@ class ResultTable extends Component {
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['6'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['7'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['8'] : '?'}</TableCell>
-          <TableCell numeric style={customHeadStyle}>{row.coding_style ? row.coding_style : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{style_score}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.pr_scores}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{bonus_score}</TableCell>
           <TableCell numeric style={{...customHeadStyle, color: row.total_scores >= 60 ? 'green':'red'}}>{row.total_scores}</TableCell>
         </TableRow>
       )
@@ -165,6 +169,7 @@ class ResultTable extends Component {
                 <TableCell style={customHeadStyle}>Pri8</TableCell>
                 <TableCell style={customHeadStyle}>Style</TableCell>
                 <TableCell style={customHeadStyle}>PR</TableCell>
+                <TableCell style={customHeadStyle}>Bonus</TableCell>
                 <TableCell style={customHeadStyle}>Score</TableCell>
               </TableRow>
             </TableHead>
