@@ -397,6 +397,7 @@ def task_8(
 
     # You are allowed to change the img_url to your own image URL.
     # source from internet,161 : https://stackoverflow.com/questions/7391945/how-do-i-read-image-data-from-a-url-in-python
+    # source for utils.draw_text : https://stackoverflow.com/questions/34052647/add-text-on-image-using-pil-error-message
     import utils
     import io
     from PIL import Image
