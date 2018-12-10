@@ -411,7 +411,6 @@ def task_8(
     request.urlretrieve(img_url, 'task8.jpg')
     result_img = Image.open('task8.jpg')
     utils.draw_text(result_img, 'b07902039')
-    result_img.show()
 
     # End of TODO
 
