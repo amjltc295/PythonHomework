@@ -112,7 +112,7 @@ def task_2(
         to string.
         * Run `python src/autograder.py -task 2 -student_id <your student ID>`
         to see if you pass this task.
-        * The correct output would be (4, '1 taiwan')
+        * The correct output would be (5, '1 taiwan')
     '''
     # TODO: change length and sentence to fit the requirement
     length = None
@@ -387,7 +387,7 @@ def task_8(
     result_img = None
 
     # TODO: download the image from img_url with the request module
-    # and add your student ID on it with draw_text() in the utils module
+    # and add your student ID on it with draw_name() in the utils module
     # under src/.
 
     # You are allowed to change the img_url to your own image URL.
