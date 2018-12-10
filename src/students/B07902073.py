@@ -401,27 +401,8 @@ def task_8(
     data = r.read()
     with open("1234.jpg", 'wb') as f:
         f.write(data)
-    im = Image.open('1234.jpg')
-
-    def draw_text(
-        im: Image,
-        text: str,
-        location: tuple = (0, 0),
-        text_color=(0, 0, 0)
-    ) -> Image:
-        draw = ImageDraw.Draw(im)
-
-        try:
-            # For Linux
-            font = ImageFont.truetype("DejaVuSans.ttf", 20)
-        except Exception:
-            logger.warning("No font DejaVuSans; use default instead")
-            # For others
-            font = ImageFont.load_default()
-        draw.text(location, text, font=font, fill=text_color)
-        return im
-    draw_text(im, "B07902073")
-    result_img = im
+    result_img = Image.open('1234.jpg')
+    draw_text(result_img, "B07902073")
     # Display the image:
     # result_img.show()
     # Note: please comment this line when hand in.
