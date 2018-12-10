@@ -72,14 +72,20 @@ class ResultTable extends Component {
           }
         }
         totalScore += results[id].flake8
-        totalScore +=20 // pr score baseline
+        totalScore += 20 // pr score baseline
+        let style_score = parseInt((process.env['REACT_APP_' + id + '_style'] ? process.env['REACT_APP_' + id + '_style'] : 0), 10)
+        let bonus_score = parseInt((process.env['REACT_APP_' + id + '_bonus'] ? process.env['REACT_APP_' + id + '_bonus'] : 0), 10)
+        totalScore += style_score
+        totalScore += bonus_score
         rows.push({
           'student_id': id,
           'flake8': results[id].flake8,
           'public_scores': results[id].public_scores,
           'private_scores': results[id].private_scores,
-          'total_scores': totalScore, 
-          'pr_scores': 20 // pr score baseline
+          'total_scores': totalScore,
+          'pr_scores': 20, // pr score baseline
+          'style_score': style_score,
+          'bonus_score': bonus_score,
         });
       }
     }
@@ -87,7 +93,7 @@ class ResultTable extends Component {
       'padding': '0.5em',
       'textAlign': 'center'
     }
-    
+
     rows = rows.map((row, idx) => {
       return (
         <TableRow key={idx}>
@@ -103,7 +109,6 @@ class ResultTable extends Component {
           <TableCell numeric style={customHeadStyle}>{row.public_scores['6']}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.public_scores['7']}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.public_scores['8']}</TableCell>
-          <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['1'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['2'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['3'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['4'] : '?'}</TableCell>
@@ -111,8 +116,9 @@ class ResultTable extends Component {
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['6'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['7'] : '?'}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.private_scores ? row.private_scores['8'] : '?'}</TableCell>
-          <TableCell numeric style={customHeadStyle}>{row.coding_style ? row.coding_style : '?'}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.style_score}</TableCell>
           <TableCell numeric style={customHeadStyle}>{row.pr_scores}</TableCell>
+          <TableCell numeric style={customHeadStyle}>{row.bonus_score}</TableCell>
           <TableCell numeric style={{...customHeadStyle, color: row.total_scores >= 60 ? 'green':'red'}}>{row.total_scores}</TableCell>
         </TableRow>
       )
@@ -156,7 +162,6 @@ class ResultTable extends Component {
                 <TableCell style={customHeadStyle}>Pub6</TableCell>
                 <TableCell style={customHeadStyle}>Pub7</TableCell>
                 <TableCell style={customHeadStyle}>Pub8</TableCell>
-                <TableCell style={customHeadStyle}>Pri1</TableCell>
                 <TableCell style={customHeadStyle}>Pri2</TableCell>
                 <TableCell style={customHeadStyle}>Pri3</TableCell>
                 <TableCell style={customHeadStyle}>Pri4</TableCell>
@@ -166,6 +171,7 @@ class ResultTable extends Component {
                 <TableCell style={customHeadStyle}>Pri8</TableCell>
                 <TableCell style={customHeadStyle}>Style</TableCell>
                 <TableCell style={customHeadStyle}>PR</TableCell>
+                <TableCell style={customHeadStyle}>Bonus</TableCell>
                 <TableCell style={customHeadStyle}>Score</TableCell>
               </TableRow>
             </TableHead>
