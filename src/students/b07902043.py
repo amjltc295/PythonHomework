@@ -398,20 +398,11 @@ def task_8(
     # result_img.show()
     # Note: please comment this line when hand in.
     from PIL import Image, ImageFont, ImageDraw
+    import utils
 
-    def draw_text(
-         img: Image,
-         text: str,
-         location: tuple = (0, 0),
-         text_color=(0, 0, 0)
-         ) -> Image:
-        draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype("arial.ttf", 15)
-        draw.text(location, text, font=font, fill=text_color)
-        return img
     local_filename, headers = request.urlretrieve(img_url)
     img = Image.open(local_filename)
-    result_img = draw_text(img, "b07902043")
+    result_img = utils.draw_text(img, "b07902043")
     # If you are running on a server, use
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
