@@ -1,7 +1,7 @@
 '''
 Provides some helped functions
 '''
-
+import os
 import math
 
 from PIL import Image, ImageFont, ImageDraw
@@ -33,3 +33,9 @@ def floating_judge(a, b, tol=1e-6):
         if not math.isclose(a[i], b[i], rel_tol=tol):
             return False
     return True
+
+
+def make_dirs(dirname):
+    if not os.path.exists(dirname):
+        logger.info(f"Made new directory {dirname}")
+        os.makedirs(dirname)
