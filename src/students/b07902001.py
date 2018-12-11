@@ -377,19 +377,10 @@ def task_7(
 def task_8(
     img_url: str = 'https://i.imgur.com/B75zq0x.jpg'
 ) -> object:
-    from urllib import request
-    from PIL import Image, ImageFont, ImageDraw
 
-    def draw_text(
-            img: Image,
-            text: str,
-            location: tuple = (0, 0),
-            text_color=(0, 0, 0)
-    ) -> Image:
-        draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype("arial.ttf", 20)
-        draw.text(location, text, font=font, fill=text_color)
-        return img
+    from urllib import request
+    from utils import draw_text
+    from PIL import Image
     result_img = None
     local_filename, headers = request.urlretrieve(img_url)
     img = Image.open(local_filename)
