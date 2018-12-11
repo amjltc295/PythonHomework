@@ -43,8 +43,10 @@ def parse_yaml(filename):
     return test_data
 
 
+style_guide = flake8.get_style_guide()
+
+
 def check_flake8(filename):
-    style_guide = flake8.get_style_guide()
     report = style_guide.check_files([filename])
     score = 0
     if report.get_statistics('E') == []:
