@@ -378,6 +378,7 @@ def task_7(
     student = Student(student_id,time)
     # End of TODO
     student.set_words_to_say("Task 7 done!")
+    student.set_words_to_say("Are these boxes?")
     print(student.hello())
     return student
 
