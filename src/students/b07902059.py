@@ -409,6 +409,10 @@ def task_8(
     temp = request.urlopen(img_url).read()
     result_img = Image.open(io.BytesIO(temp))
     result_img = utils.draw_text(result_img, 'b07902059')
+    # Note: the main reference for task 8 is this website:
+    # https://docs.python.org/3.4/howto/urllib2.html
+    # Also, the code is written after discussion with classmates,
+    # so it might be similar to theirs
     # End of TODO
 
     return result_img
