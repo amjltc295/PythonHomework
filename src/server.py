@@ -1,5 +1,6 @@
 import os
 import sys
+import pickle
 import urllib.request
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))  # NOQA
 sys.path.append(DIR_PATH)  # NOQA
@@ -9,6 +10,7 @@ from flask_cors import CORS
 
 from logging_config import logger
 from autograder import autograde, check_flake8
+from utils import make_dirs
 
 
 app = Flask(__name__)
@@ -104,6 +106,18 @@ def get_results():
     return jsonify(results)
 
 
-results = grade()
+# Dump results out offline to prevent servertimeout
+results_dir = os.path.join(DIR_PATH, 'results')
+make_dirs(results_dir)
+results_filename = os.path.join(results_dir, 'results.pickle')
+if os.path.exists(results_filename):
+    with open(results_filename, 'rb') as fin:
+        results = pickle.load(fin)
+else:
+    results = grade()
+    with open(results_filename, 'wb') as fout:
+        pickle.dump(results, fout)
+
+
 if __name__ == "__main__":
     app.run()
