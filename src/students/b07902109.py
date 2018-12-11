@@ -39,7 +39,6 @@ def task_1(dummy=None):
     # `flake8 src/student/<your student ID>.py
 
     # TODO: fix the syntax error for the following code
-
     if True:
         sentence = "Hello world"
         print(sentence)
