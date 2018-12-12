@@ -394,6 +394,10 @@ def task_8(
     '''
     from urllib import request
     result_img = None
+    
+
+    import utils
+    import io
 
     
 
@@ -401,12 +405,12 @@ def task_8(
     # and add your student ID on it with draw_name() in the utils module
     # under src/.
 
-    request.urlretrieve(img_url, "Arianrhod.jpg")
-    result_img = utils.Image.open("Arianrhod.jpg")
-    result_img = utils.draw_text(result_img, "b04505049")
-    import utils
-    import io
+    from PIL import Image
 
+    Arianrhod=request.urlopen(img_url).read()
+    result_img = Image.open(io.BytesIO(Arianrhod))   #參考網絡code完成fix
+    result_img = utils.draw_text(result_img, "b04505049")
+    
     # You are allowed to change the img_url to your own image URL.
 
     
