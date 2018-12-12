@@ -405,15 +405,15 @@ def task_8(
     urllib.request.urlretrieve(img_url, full_path)  # download the file
 
     from PIL import Image, ImageFont, ImageDraw
+    # add id on the file
+    with Image.open(full_path) as base:
+        word = "b07902015"
+        draw = ImageDraw.Draw(base)
+        font = ImageFont.load_default()
+        draw.text((0,0), word, font=font, fill=(0,0,0))
 
-    base = Image.open(full_path).convert('RGBA')
-
-
-    word = 'b07902015'
-    result_img = draw_text(base, word)  # add id on the file
-
-#  with Image.open(full_path) as result_img:
-# result_img.show()
+# with Image.open(full_path) as result_img:
+#    result_img.show()
 
     # result_img.show()
     # You are allowed to change the img_url to your own image URL.
