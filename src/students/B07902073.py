@@ -394,8 +394,7 @@ def task_8(
     # under src/.
     # You are allowed to change the img_url to your own image URL.
 
-    from PIL import Image, ImageFont, ImageDraw
-    from logging_config import logger
+    from PIL import Image
     import utils
     img_url: str = 'https://i.imgur.com/B75zq0x.jpg'
     r = request.urlopen(img_url)
